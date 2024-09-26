@@ -1,19 +1,16 @@
-import React from "react";
-import Banner from "./banner/banner";
-import FeaturedBannerContent from "./banner/featured-banner-content";
-import FeaturedProduct from "./banner/featured-product";
-import { BannerTop } from "@/models/banner-top";
-import { FlatList, View } from "react-native";
+import React from 'react';
+import { BannerTop } from '@/models/banner-top';
+import { FlatList, View } from 'react-native';
+import Banner from '../banner/banner';
+import FeaturedBannerContent from '../banner/featured-banner-content';
+import FeaturedProduct from '../banner/featured-product';
 
 type Props = {
   data?: BannerTop[];
   navigate?: boolean;
 };
 
-export default function BannerSlider({
-  data,
-  navigate = true,
-}: Readonly<Props>) {
+export default function BannerSlider({ data, navigate = true }: Readonly<Props>) {
   const redirectToPreview = () => {};
 
   if (data) {
@@ -25,14 +22,9 @@ export default function BannerSlider({
             <Banner
               redirectOnPress={redirectToPreview}
               source={{
-                uri: "",
-              }}
-            >
-              {true ? (
-                <FeaturedBannerContent data={item} />
-              ) : (
-                <FeaturedProduct data={item} />
-              )}
+                uri: '',
+              }}>
+              {true ? <FeaturedBannerContent data={item} /> : <FeaturedProduct data={item} />}
             </Banner>
           );
         }}
@@ -41,7 +33,7 @@ export default function BannerSlider({
           return b.id;
         }}
         ItemSeparatorComponent={() => (
-          <View style={{ backgroundColor: "yellow", width: 20, height: 20 }} />
+          <View style={{ backgroundColor: 'yellow', width: 20, height: 20 }} />
         )}
       />
     );

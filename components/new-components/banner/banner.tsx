@@ -1,10 +1,9 @@
-import React, { ReactNode } from "react";
-import { Pressable, useWindowDimensions, View } from "react-native";
+import React, { ReactNode } from 'react';
+import { Pressable, useWindowDimensions, View } from 'react-native';
 
 type Props = {
   source: { uri: string };
   redirectOnPress?: () => void;
-  onActionBuy?: () => Promise<void>;
   children?: ReactNode;
   width?: number;
 };
@@ -28,11 +27,10 @@ const Banner = ({ source, children, redirectOnPress, width }: Props) => {
             width: selectedWidth,
             height: selectedHeight,
             borderRadius: 5,
-            overflow: "hidden",
-            backgroundColor: "gray",
+            overflow: 'hidden',
+            backgroundColor: 'gray',
           },
-        ]}
-      >
+        ]}>
         {children}
       </View>
     </Pressable>

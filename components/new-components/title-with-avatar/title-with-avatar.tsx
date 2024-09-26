@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   GestureResponderEvent,
   Image,
@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
   Text,
-} from "react-native";
+} from 'react-native';
 
 interface Props {
   title: string;
@@ -27,16 +27,15 @@ export default function TitleWithAvatar({ title, src, style, id }: Props) {
       <View
         style={[
           {
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "flex-start",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'flex-start',
+            alignItems: 'center',
             padding: 12,
           },
           style,
-        ]}
-      >
-        {typeof src === "undefined" ? (
+        ]}>
+        {typeof src === 'undefined' ? (
           <View
             style={{
               paddingLeft: 3,
@@ -46,7 +45,7 @@ export default function TitleWithAvatar({ title, src, style, id }: Props) {
           <Image
             source={src}
             style={{
-              backgroundColor: "blue",
+              backgroundColor: 'blue',
               height: 32,
               width: 32,
               borderRadius: 16,
@@ -56,15 +55,14 @@ export default function TitleWithAvatar({ title, src, style, id }: Props) {
         )}
         <Text
           style={{
-            fontStyle: "normal",
-            fontWeight: "500",
+            fontStyle: 'normal',
+            fontWeight: '500',
             fontSize: 14,
-            textAlign: "center",
-            textTransform: "uppercase",
-            color: "#f7f6f2",
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            color: '#f7f6f2',
             paddingLeft: 3,
-          }}
-        >
+          }}>
           {title?.toUpperCase()}
         </Text>
       </View>
