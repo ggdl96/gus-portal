@@ -1,7 +1,7 @@
 import BannerSlider from '@/components/new-components/banner-slider/banner-slider';
 import { BannerTop } from '@/models/banner-top';
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 export default function Index() {
   const dataAux: BannerTop = {
@@ -42,13 +42,13 @@ export default function Index() {
   const data = [dataAux, dataAux2, dataAux3];
 
   return (
-    <View
-      style={{
+    <ScrollView
+      contentContainerStyle={{
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <BannerSlider data={data} />
-    </View>
+      <BannerSlider data={data} type={'content'} />
+    </ScrollView>
   );
 }

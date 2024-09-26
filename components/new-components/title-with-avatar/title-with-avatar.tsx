@@ -15,7 +15,7 @@ interface Props {
   id?: string;
 }
 
-export default function TitleWithAvatar({ title, src, style, id }: Props) {
+const TitleWithAvatar = ({ title, src, style, id }: Props) => {
   const _handleOnPressCreator = (e: GestureResponderEvent) => {
     if (id) {
       e.stopPropagation();
@@ -68,4 +68,6 @@ export default function TitleWithAvatar({ title, src, style, id }: Props) {
       </View>
     </TouchableOpacity>
   );
-}
+};
+
+export default TitleWithAvatar;

@@ -7,10 +7,12 @@ import FeaturedProduct from '../banner/featured-product';
 
 type Props = {
   data?: BannerTop[];
-  navigate?: boolean;
+  type: 'content' | 'product';
 };
 
-export default function BannerSlider({ data, navigate = true }: Readonly<Props>) {
+const Separator = () => <View style={{ backgroundColor: 'yellow', width: 20, height: 20 }} />;
+
+export default function BannerSlider({ data, type }: Readonly<Props>) {
   const redirectToPreview = () => {};
 
   if (data) {
@@ -24,7 +26,11 @@ export default function BannerSlider({ data, navigate = true }: Readonly<Props>)
               source={{
                 uri: '',
               }}>
-              {true ? <FeaturedBannerContent data={item} /> : <FeaturedProduct data={item} />}
+              {type === 'content' ? (
+                <FeaturedBannerContent data={item} />
+              ) : (
+                <FeaturedProduct data={item} />
+              )}
             </Banner>
           );
         }}
@@ -32,9 +38,7 @@ export default function BannerSlider({ data, navigate = true }: Readonly<Props>)
         keyExtractor={(b) => {
           return b.id;
         }}
-        ItemSeparatorComponent={() => (
-          <View style={{ backgroundColor: 'yellow', width: 20, height: 20 }} />
-        )}
+        ItemSeparatorComponent={Separator}
       />
     );
   }
