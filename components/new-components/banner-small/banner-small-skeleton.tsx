@@ -12,10 +12,10 @@ export const BannerSmallSkeleton = () => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView horizontal={true}>
-        {data.map((object: any, index) => {
+        {data.map((item) => {
           return (
             <View
-              key={`bannerSmallSlide-${index}`}
+              key={`bannerSmallSlide-${item}`}
               style={{
                 display: 'flex',
                 justifyContent: 'center',

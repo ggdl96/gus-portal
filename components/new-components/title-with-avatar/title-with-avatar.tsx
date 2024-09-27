@@ -10,7 +10,7 @@ import {
 
 interface Props {
   title: string;
-  src?: { uri: string } | undefined;
+  src?: { uri: string };
   style?: ViewStyle;
   id?: string;
 }

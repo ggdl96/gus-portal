@@ -1,28 +1,15 @@
 import React from 'react';
-import { Image, View, Text, Pressable } from 'react-native';
+import { Image, View, Text, Pressable, GestureResponderEvent } from 'react-native';
 import { BannerSmall } from '@/models/banner-small';
 
 type Props = {
-  onPress: Function;
+  onPress: (event: GestureResponderEvent) => void;
   data: BannerSmall;
-  source: {
-    uri: string;
-  };
-  spacing?: number;
-  last: boolean;
   containerHeight: number;
   containerWidth: number;
 };
 
-export default function BannerSmallComponent({
-  data,
-  source,
-  onPress,
-  spacing,
-  last,
-  containerHeight,
-  containerWidth,
-}: Props) {
+const BannerSmallComponent = ({ data, onPress, containerHeight, containerWidth }: Props) => {
   return (
     <Pressable
       onPress={onPress}
@@ -31,8 +18,7 @@ export default function BannerSmallComponent({
         width: containerWidth,
         borderRadius: 5,
         backgroundColor: '#B2BEB5',
-      }}
-      spacing={spacing}>
+      }}>
       <Image
         style={{
           position: 'absolute',
@@ -108,4 +94,6 @@ export default function BannerSmallComponent({
       </View>
     </Pressable>
   );
-}
+};
+
+export default BannerSmallComponent;

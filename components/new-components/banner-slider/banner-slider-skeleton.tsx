@@ -11,9 +11,9 @@ export const BannerSliderSkeleton = () => {
   return (
     <View style={{ flex: 1 }}>
       <ScrollView horizontal={true}>
-        {data.map((object: any, index) => {
+        {data.map((item) => {
           return (
-            <View key={`CreatorSlide-${index}`} style={{ flex: 1 }}>
+            <View key={`CreatorSlide-${item}`} style={{ flex: 1 }}>
               <View
                 style={{
                   height: containerHeight,

@@ -3,7 +3,8 @@ import { BannerSmallSectionCarousel } from '@/components/new-components/banner-s
 import { BannerSmall } from '@/models/banner-small';
 import { BannerTop } from '@/models/banner-top';
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function Index() {
   const dataAux: BannerTop = {
@@ -63,18 +64,24 @@ export default function Index() {
   const data = [dataAux, dataAux2, dataAux3];
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#111',
-      }}>
-      <BannerSlider data={data} type={'content'} />
-      <BannerSmallSectionCarousel
-        isLoadingFirst={false}
-        data={[smallA1, smallA2, smallA3]}
-        pagingEnabled={false}
-      />
-    </ScrollView>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+      <SafeAreaView
+        style={{
+          backgroundColor: '#111',
+          flex: 1,
+        }}>
+        <ScrollView
+          style={{
+            backgroundColor: '#111',
+          }}
+          contentContainerStyle={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <BannerSlider data={data} type={'content'} />
+          <BannerSmallSectionCarousel isLoadingFirst={false} data={[smallA1, smallA2, smallA3]} />
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

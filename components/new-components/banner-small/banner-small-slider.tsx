@@ -5,14 +5,11 @@ import { BannerSmall } from '@/models/banner-small';
 
 type Props = {
   data?: BannerSmall[];
-  height?: number;
-  width?: number;
-  pagingEnabled?: boolean;
-  onEndReached?: (info?: { distanceFromEnd: number }) => void;
 };
-const Separator = () => <View style={{ width: 16, height: 20, backgroundColor: 'red' }} />;
 
-export default function BannerSmallSlider({ data, onEndReached, pagingEnabled = false }: Props) {
+const Separator = () => <View style={{ width: 16, height: 20 }} />;
+
+const BannerSmallSlider = ({ data }: Props) => {
   const dimensions = useWindowDimensions();
   const containerWidth = dimensions.width * 0.35;
   const containerHeight = containerWidth * 1.7;
@@ -26,13 +23,8 @@ export default function BannerSmallSlider({ data, onEndReached, pagingEnabled = 
             <BannerSmallComponent
               onPress={() => {}}
               data={item}
-              last={false}
               containerHeight={containerHeight}
               containerWidth={containerWidth}
-              spacing={2}
-              source={{
-                uri: '',
-              }}
             />
           );
         }}
@@ -41,9 +33,15 @@ export default function BannerSmallSlider({ data, onEndReached, pagingEnabled = 
           return b.id;
         }}
         ItemSeparatorComponent={Separator}
+        style={{
+          overflow: 'scroll',
+          width: '100%',
+        }}
       />
     );
   }
 
   return null;
-}
+};
+
+export default BannerSmallSlider;

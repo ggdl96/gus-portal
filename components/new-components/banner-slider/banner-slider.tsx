@@ -10,7 +10,7 @@ type Props = {
   type: 'content' | 'product';
 };
 
-const Separator = () => <View style={{ backgroundColor: 'yellow', width: 20, height: 20 }} />;
+const Separator = () => <View style={{ width: 20, height: 20 }} />;
 
 export default function BannerSlider({ data, type }: Readonly<Props>) {
   const redirectToPreview = () => {};
@@ -39,6 +39,10 @@ export default function BannerSlider({ data, type }: Readonly<Props>) {
           return b.id;
         }}
         ItemSeparatorComponent={Separator}
+        style={{
+          overflow: 'scroll',
+          width: '100%',
+        }}
       />
     );
   }

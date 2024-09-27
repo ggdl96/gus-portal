@@ -9,19 +9,12 @@ type Props = {
   top?: number;
   bottom?: number;
 };
-export default function ThemedContentWrapper({
-  text,
-  children,
-  seeAll,
-  onSeeAll,
-  top,
-  bottom,
-}: Props) {
+const ContentWrapper = ({ text, children, seeAll, onSeeAll, top, bottom }: Props) => {
   const handleOnSeeAll = () => {
     if (typeof onSeeAll === 'function') onSeeAll();
   };
   return (
-    <View style={{ flex: 1, marginTop: 0, marginBottom: 0 }}>
+    <View style={{ flex: 1, marginTop: 0, marginBottom: 0, width: '100%' }}>
       <View
         style={{
           display: 'flex',
@@ -59,10 +52,12 @@ export default function ThemedContentWrapper({
       </View>
       <View
         style={{
-          flex: 1,
+          width: '100%',
         }}>
         {children}
       </View>
     </View>
   );
-}
+};
+
+export default ContentWrapper;
