@@ -10,7 +10,7 @@ type Props = {
 
 const Banner = ({ source, children, redirectOnPress, width }: Props) => {
   const dimnesions = useWindowDimensions();
-  const selectedWidth = width ?? dimnesions.width * 0.81;
+  const selectedWidth = dimnesions.width * 0.81;
   const selectedHeight = selectedWidth * 1.8;
 
   const handleOnPress = () => {
@@ -20,14 +20,21 @@ const Banner = ({ source, children, redirectOnPress, width }: Props) => {
   };
 
   return (
-    <Pressable onPress={handleOnPress}>
+    <Pressable
+      onPress={handleOnPress}
+      style={[
+        {
+          width: selectedWidth,
+          height: selectedHeight,
+          borderRadius: 5,
+        },
+      ]}>
       <View
         style={[
           {
-            width: selectedWidth,
-            height: selectedHeight,
+            width: '100%',
+            height: '100%',
             borderRadius: 5,
-            overflow: 'hidden',
             backgroundColor: 'gray',
           },
         ]}>

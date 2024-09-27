@@ -1,4 +1,6 @@
 import BannerSlider from '@/components/new-components/banner-slider/banner-slider';
+import { BannerSmallSectionCarousel } from '@/components/new-components/banner-small-section-carousel/banner-small-section-carousel';
+import { BannerSmall } from '@/models/banner-small';
 import { BannerTop } from '@/models/banner-top';
 import React from 'react';
 import { ScrollView } from 'react-native';
@@ -39,16 +41,40 @@ export default function Index() {
       image: '',
     },
   };
+
+  const smallA1: BannerSmall = {
+    id: 'fgdfg8dfg89gd',
+    title: 'Some Small',
+    urlImage: '',
+    views: 23,
+  };
+  const smallA2: BannerSmall = {
+    id: 'fgdfg8dfg89gd45Fg',
+    title: 'Some Small',
+    urlImage: '',
+    views: 6,
+  };
+  const smallA3: BannerSmall = {
+    id: 'fgdfg8dfg89gdnvbnJ564h',
+    title: 'Some Small',
+    urlImage: '',
+    views: 1,
+  };
   const data = [dataAux, dataAux2, dataAux3];
 
   return (
     <ScrollView
       contentContainerStyle={{
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#111',
       }}>
       <BannerSlider data={data} type={'content'} />
+      <BannerSmallSectionCarousel
+        isLoadingFirst={false}
+        data={[smallA1, smallA2, smallA3]}
+        pagingEnabled={false}
+      />
     </ScrollView>
   );
 }

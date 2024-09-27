@@ -49,7 +49,6 @@ const TitleWithAvatar = ({ title, src, style, id }: Props) => {
               height: 32,
               width: 32,
               borderRadius: 16,
-              margin: 4,
             }}
           />
         )}

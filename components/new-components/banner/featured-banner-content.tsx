@@ -20,6 +20,7 @@ const FeaturedBannerContent = ({ data }: Props) => {
         height: '100%',
         width: '100%',
         padding: 10,
+        borderRadius: 5,
       }}>
       <TitleWithAvatar
         title={dataParsed.owner.name}
