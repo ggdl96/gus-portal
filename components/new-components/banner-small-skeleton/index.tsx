@@ -11,7 +11,7 @@ export const BannerSmallSkeleton = () => {
   const data = [1, 2, 3];
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.wrapper}>
       <ScrollView horizontal={true}>
         {data.map((item) => {
           return (
