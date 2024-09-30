@@ -1,13 +1,12 @@
 import React from 'react';
-import BannerSmallComponent from './banner-small-component';
-import { FlatList, useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions } from 'react-native';
 import { BannerSmall } from '@/models/banner-small';
+import DefaultList from '../default-list';
+import BannerSmallItem from '../banner-small-item';
 
 type Props = {
   data?: BannerSmall[];
 };
-
-const Separator = () => <View style={{ width: 16, height: 20 }} />;
 
 const BannerSmallSlider = ({ data }: Props) => {
   const dimensions = useWindowDimensions();
@@ -16,11 +15,11 @@ const BannerSmallSlider = ({ data }: Props) => {
 
   if (data) {
     return (
-      <FlatList
+      <DefaultList
         horizontal
         renderItem={({ item }) => {
           return (
-            <BannerSmallComponent
+            <BannerSmallItem
               onPress={() => {}}
               data={item}
               containerHeight={containerHeight}
@@ -31,11 +30,6 @@ const BannerSmallSlider = ({ data }: Props) => {
         data={data}
         keyExtractor={(b) => {
           return b.id;
-        }}
-        ItemSeparatorComponent={Separator}
-        style={{
-          overflow: 'scroll',
-          width: '100%',
         }}
       />
     );

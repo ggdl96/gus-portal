@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Pressable, useWindowDimensions, View } from 'react-native';
+import styles from './styles';
 
 type Props = {
   source: { uri: string };
@@ -22,24 +23,8 @@ const Banner = ({ source, children, redirectOnPress, width }: Props) => {
   return (
     <Pressable
       onPress={handleOnPress}
-      style={[
-        {
-          width: selectedWidth,
-          height: selectedHeight,
-          borderRadius: 5,
-        },
-      ]}>
-      <View
-        style={[
-          {
-            width: '100%',
-            height: '100%',
-            borderRadius: 5,
-            backgroundColor: 'gray',
-          },
-        ]}>
-        {children}
-      </View>
+      style={[styles.bannerWrapper, { width: selectedWidth, height: selectedHeight }]}>
+      <View style={[styles.bannerWrapperInside]}>{children}</View>
     </Pressable>
   );
 };

@@ -1,23 +1,21 @@
 import React from 'react';
 import { BannerTop } from '@/models/banner-top';
-import { FlatList, View } from 'react-native';
-import Banner from '../banner/banner';
-import FeaturedBannerContent from '../banner/featured-banner-content';
-import FeaturedProduct from '../banner/featured-product';
+import Banner from '../banner';
+import DefaultList from '../default-list';
+import FeaturedBannerContent from '../featured-banner-content/featured-banner-content';
+import FeaturedProduct from '../featured-product/featured-product';
 
 type Props = {
   data?: BannerTop[];
   type: 'content' | 'product';
 };
 
-const Separator = () => <View style={{ width: 20, height: 20 }} />;
-
 export default function BannerSlider({ data, type }: Readonly<Props>) {
   const redirectToPreview = () => {};
 
   if (data) {
     return (
-      <FlatList
+      <DefaultList
         horizontal
         renderItem={({ item }) => {
           return (
@@ -37,11 +35,6 @@ export default function BannerSlider({ data, type }: Readonly<Props>) {
         data={data}
         keyExtractor={(b) => {
           return b.id;
-        }}
-        ItemSeparatorComponent={Separator}
-        style={{
-          overflow: 'scroll',
-          width: '100%',
         }}
       />
     );

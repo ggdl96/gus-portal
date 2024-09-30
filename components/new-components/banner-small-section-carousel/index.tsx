@@ -1,8 +1,8 @@
 import React from 'react';
-import { BannerSmallSkeleton } from '../banner-small/banner-small-skeleton';
-import BannerSmallSlider from '../banner-small/banner-small-slider';
+import BannerSmallSlider from '../banner-small';
 import ContentWrapper from '../slider-wrapper';
 import { BannerSmall } from '@/models/banner-small';
+import { BannerSmallSkeleton } from '../banner-small-skeleton';
 
 interface Props {
   data: BannerSmall[];

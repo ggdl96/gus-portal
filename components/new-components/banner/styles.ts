@@ -1,25 +1,17 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  symbolPrice: {
-    textAlign: 'right',
-    color: 'white',
-    textTransform: 'uppercase',
-    fontWeight: 'normal',
-    fontSize: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
+  bannerWrapper: {
+    borderRadius: 5,
   },
-  premiumContentBlock: { opacity: 0.8, width: '100%' },
-  buttonText: { textTransform: 'uppercase' },
-  buttonTextOwned: { textAlign: 'center' },
-  buttonTextNotOwned: { textAlign: 'left' },
+  bannerWrapperInside: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 5,
+    backgroundColor: 'gray',
+  },
   titleWithAvatar: { justifyContent: 'center' },
-  symbolStyles: {
-    width: 12,
-    height: 12,
-  },
+
 });
 
 export default styles;
