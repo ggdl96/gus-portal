@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   titleWithAvatar: { justifyContent: 'center' },
-
 });
 
 export default styles;
