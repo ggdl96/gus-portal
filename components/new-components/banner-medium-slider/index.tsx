@@ -23,6 +23,7 @@ const BannerMediumSlider = ({ data }: Props) => {
       <DefaultList
         data={data}
         pagingEnabled={true}
+        horizontal
         renderItem={({ item, index }) => (
           <View
             style={[
