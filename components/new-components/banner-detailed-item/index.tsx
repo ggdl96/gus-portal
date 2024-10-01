@@ -71,7 +71,7 @@ const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => 
           borderRadius: 5,
         }}>
         <Image
-          style={[styles.image, { width: full ? '100%' : selectedWidth }]}
+          style={[styles.image, { width: full ? '100%' : selectedWidth, borderRadius: 5 }]}
           source={{ uri: data.image }}
           resizeMode="cover"
         />

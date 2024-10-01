@@ -54,6 +54,7 @@ export default function Index() {
                   title: 'Test',
                 },
               ]}
+              horizontal={true}
             />
           </ContentWrapper>
         </ScrollView>
