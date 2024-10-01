@@ -21,7 +21,7 @@ const BannerSmallItem = ({ data, onPress, containerHeight, containerWidth }: Pro
           width: containerWidth,
         },
       ]}>
-      <Image style={styles.image} source={{ uri: '' }} />
+      <Image style={styles.image} source={{ uri: data.urlImage }} />
       <View style={styles.content}>
         <View style={styles.sectionBottom}>
           <View style={styles.containerViews}>

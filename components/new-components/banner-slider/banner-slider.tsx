@@ -9,8 +9,7 @@ type Props = {
   data?: BannerTop[];
   type: 'content' | 'product';
 };
-
-export default function BannerSlider({ data, type }: Readonly<Props>) {
+const BannerSlider = ({ data, type }: Props) => {
   const redirectToPreview = () => {};
 
   if (data) {
@@ -41,4 +40,6 @@ export default function BannerSlider({ data, type }: Readonly<Props>) {
   }
 
   return null;
-}
+};
+
+export default BannerSlider;

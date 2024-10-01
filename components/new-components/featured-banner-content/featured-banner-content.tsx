@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './styles';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { BannerTop } from '@/models/banner-top';
 import TitleWithAvatar from '../title-with-avatar';
 
@@ -10,19 +10,22 @@ type Props = {
 };
 
 const FeaturedBannerContent = ({ data }: Props) => {
-  const dataParsed = { ...data, customId: data.id };
-
   return (
     <View style={styles.container}>
-      <TitleWithAvatar
-        title={dataParsed.owner.name}
-        id={data.id}
-        src={{ uri: dataParsed.owner.image }}
-        style={styles.titleWithAvatar}
-      />
-      <Text numberOfLines={3} ellipsizeMode="tail" style={styles.title}>
-        {dataParsed.title}
-      </Text>
+      <Image source={{ uri: data.image }} style={styles.image} resizeMode="cover" />
+      <View style={styles.body}>
+        <TitleWithAvatar
+          title={data.owner.name}
+          id={data.id}
+          src={{
+            uri: data.owner.image,
+          }}
+          style={styles.titleWithAvatar}
+        />
+        <Text numberOfLines={3} ellipsizeMode="tail" style={styles.title}>
+          {data.title}
+        </Text>
+      </View>
     </View>
   );
 };
