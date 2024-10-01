@@ -27,7 +27,6 @@ const MediumSlide = ({ data, source, onPress, width, spacing, last }: Props) => 
           borderRadius: 3,
           overflow: 'hidden',
           height: CONTAINER_HEIGHT,
-          backgroundColor: 'red'
         },
       ]}
       onPress={onPress}>

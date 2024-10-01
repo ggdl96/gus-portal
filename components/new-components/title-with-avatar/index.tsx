@@ -17,14 +17,14 @@ interface Props {
 }
 
 const TitleWithAvatar = ({ title, src, style, id }: Props) => {
-  const _handleOnPressCreator = (e: GestureResponderEvent) => {
+  const _handleOnPress = (e: GestureResponderEvent) => {
     if (id) {
       e.stopPropagation();
     }
   };
 
   return (
-    <TouchableOpacity onPress={_handleOnPressCreator}>
+    <TouchableOpacity onPress={_handleOnPress}>
       <View style={[styles.container, style]}>
         {typeof src === 'undefined' ? (
           <View style={styles.noImageDisplay} />
