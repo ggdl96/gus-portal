@@ -4,6 +4,8 @@ import { useWindowDimensions, View } from 'react-native';
 import { styles } from './styles';
 import DefaultList from '../default-list';
 import { BannerDetailed } from '@/models/banner-detailed';
+import BannerDetailedSliderSkeleton from '../banner-detailed-slider-skeleton';
+import borders from '@/styles/borders';
 
 type Props = {
   data: BannerDetailed[];
@@ -12,7 +14,15 @@ type Props = {
 const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
   const dimensions = useWindowDimensions();
   const containerWidth = dimensions.width * 0.733;
+  const CONTAINER_HEIGHT = containerWidth * 0.51;
 
+  return (
+    <BannerDetailedSliderSkeleton
+      width={containerWidth}
+      height={CONTAINER_HEIGHT}
+      borderRadius={borders.radius.medium}
+    />
+  );
   return (
     <DefaultList
       horizontal={horizontal}
@@ -25,7 +35,6 @@ const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
             styles.itemWrapperHorizontal,
             {
               width: containerWidth,
-              paddingLeft: 2,
             },
           ]}>
           <BannerDetailedItem

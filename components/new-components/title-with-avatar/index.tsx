@@ -8,6 +8,7 @@ import {
   Text,
 } from 'react-native';
 import styles from './styles';
+import Avatar from '../avatar';
 
 interface Props {
   title: string;
@@ -26,11 +27,7 @@ const TitleWithAvatar = ({ title, src, style, id }: Props) => {
   return (
     <TouchableOpacity onPress={_handleOnPress}>
       <View style={[styles.container, style]}>
-        {typeof src === 'undefined' ? (
-          <View style={styles.noImageDisplay} />
-        ) : (
-          <Image source={src} style={styles.image} />
-        )}
+        <Avatar src={src} />
         <Text style={styles.title}>{title?.toUpperCase()}</Text>
       </View>
     </TouchableOpacity>

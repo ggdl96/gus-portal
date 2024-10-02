@@ -8,12 +8,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 12,
   },
-  image: {
-    backgroundColor: 'blue',
-    height: 32,
-    width: 32,
-    borderRadius: 16,
-  },
   title: {
     fontStyle: 'normal',
     fontWeight: '500',
@@ -21,9 +15,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textTransform: 'uppercase',
     color: '#f7f6f2',
-    paddingLeft: 3,
-  },
-  noImageDisplay: {
     paddingLeft: 3,
   },
 });

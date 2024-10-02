@@ -9,5 +9,6 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+    paddingLeft: 2,
   },
 });
