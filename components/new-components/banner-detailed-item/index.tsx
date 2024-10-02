@@ -1,158 +1,68 @@
 import { BannerDetailed } from '@/models/banner-detailed';
 import borders from '@/styles/borders';
-import colors from '@/styles/colors';
 import React from 'react';
 
 import {
-  Dimensions,
-  StyleSheet,
   TouchableOpacity,
   Image,
   View,
-  useWindowDimensions,
   Pressable,
   Text,
+  AnimatableNumericValue,
+  DimensionValue,
 } from 'react-native';
+import Avatar from '../avatar';
+import styles from './styles';
 
 interface PropsItem {
   full?: boolean;
   last?: boolean;
-  width?: number;
   spacing?: number;
   horizontal?: boolean;
   data: BannerDetailed;
+  width: DimensionValue;
+  height: DimensionValue;
+  borderRadius: AnimatableNumericValue;
 }
 
-const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => {
-  const dimensions = useWindowDimensions();
-
-  const getWidth = () => {
-    let _width = Dimensions.get('window').width;
-
-    if (width && !full) {
-      return width;
-    }
-
-    return full ? _width * 0.9 : _width * 0.7;
-  };
-
-  const selectedWidth = getWidth();
-
-  const getMargin = () => {
-    if (spacing && !full) {
-      return last ? 0 : spacing;
-    }
-
-    return full || last ? 0 : Dimensions.get('window').width * 0.05;
-  };
-
-  const selectedMargin = getMargin();
-
+const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) => {
   const handleOnPress = () => {};
 
   const handleOnPressLowerSection = () => {};
-  const CONTAINER_HEIGHT = dimensions.width * 0.73 * 0.51;
 
   return (
-    <Pressable
-      onPress={handleOnPress}
-      style={[
-        {
-          flex: 1,
-          flexDirection: 'column',
-          alignItems: 'center',
-        },
-        styles.container,
-        { width: selectedWidth, marginRight: selectedMargin },
-      ]}>
+    <Pressable onPress={handleOnPress} style={[styles.container, { borderRadius }]}>
       <View
-        style={{
-          height: CONTAINER_HEIGHT,
-          width: '100%',
-          backgroundColor: '#333',
-          borderRadius: borders.radius.medium,
-        }}>
+        style={[
+          styles.containerImage,
+          {
+            height,
+          },
+        ]}>
         <Image
-          style={[
-            styles.image,
-            { width: full ? '100%' : selectedWidth, borderRadius: borders.radius.medium },
-          ]}
+          style={[styles.image, { width, borderRadius: borders.radius.medium, height }]}
           source={{ uri: data.image }}
           resizeMode="cover"
         />
       </View>
-      <View
-        style={{
-          borderBottomColor: 'red',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'flex-start',
-          width: '100%',
-          padding: 10,
-          height: 100,
-        }}>
+      <View style={styles.body}>
         <TouchableOpacity onPress={handleOnPressLowerSection}>
-          <Image
-            style={{
-              height: 10,
-              width: 10,
-              borderRadius: borders.radius.medium,
-              backgroundColor: '#cecece04',
-            }}
-            source={{
-              uri: data?.owner?.image,
-            }}
-          />
+          <Avatar src={{ uri: data.image }} />
         </TouchableOpacity>
         <View style={styles.containerText}>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              width: '100%',
-            }}>
+          <View style={styles.containerOwner}>
             <TouchableOpacity onPress={handleOnPressLowerSection}>
-              <Text
-                numberOfLines={1}
-                style={{
-                  color: '#989898',
-                  fontSize: 12,
-                  textTransform: 'uppercase',
-                  fontWeight: '500',
-                }}>
+              <Text numberOfLines={1} style={styles.textOwnerName}>
                 {data?.owner?.name}
               </Text>
             </TouchableOpacity>
-            <Text
-              style={{
-                color: '#989898',
-                fontSize: 12,
-                textTransform: 'uppercase',
-                fontWeight: '500',
-              }}>
+            <Text style={styles.detail}>
               {'  |  '}
               {'- 0'}
             </Text>
           </View>
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              height: 40,
-              alignItems: 'flex-start',
-              justifyContent: 'flex-start',
-              flexWrap: 'wrap',
-              width: '100%',
-              paddingLeft: 8,
-            }}>
-            <Text
-              style={{
-                color: colors.contrastSecondary[950],
-                fontSize: 16,
-                textTransform: 'capitalize',
-                width: '100%',
-              }}
-              numberOfLines={2}>
+          <View style={styles.containerTitle}>
+            <Text style={styles.title} numberOfLines={2}>
               {data.title ?? ''}
             </Text>
           </View>
@@ -161,18 +71,5 @@ const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => 
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-  },
-  image: {
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  containerText: { flex: 1 },
-});
 
 export default BannerDetailedItem;

@@ -5,10 +5,4 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   itemWrapper: { flex: 1 },
-  itemWrapperHorizontal: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    paddingLeft: 2,
-  },
 });
