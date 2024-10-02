@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: borders.radius.medium,
     backgroundColor: '#B2BEB5',
   },
   image: {

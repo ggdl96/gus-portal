@@ -1,22 +1,29 @@
+import borders from '@/styles/borders';
+import colors from '@/styles/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  wrapper: { flex: 1 },
   container: {
-    backgroundColor: '#292929',
+    backgroundColor: colors.contrastPrimary[20],
+    justifyContent: 'flex-end',
+    paddingHorizontal: 10,
+    paddingVertical: 2,
   },
-  content: { backgroundColor: '#292929' },
+  content: { flex: 1, justifyContent: 'flex-end' },
+  sectionContent: {
+    backgroundColor: colors.contrastPrimary[80],
+    borderRadius: borders.radius.high,
+    flex: 1,
+  },
   section1: {
     height: '20%',
     width: '50%',
-    backgroundColor: '#232323',
-    borderRadius: 15,
+    paddingVertical: 4,
   },
   section2: {
     height: '15%',
     width: '70%',
-    backgroundColor: '#232323',
-    borderRadius: 10,
+    paddingVertical: 4,
   },
 });
 

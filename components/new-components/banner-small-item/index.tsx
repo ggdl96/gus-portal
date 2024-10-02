@@ -1,24 +1,34 @@
 import React from 'react';
-import { Image, View, Text, Pressable, GestureResponderEvent } from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  Pressable,
+  GestureResponderEvent,
+  DimensionValue,
+  AnimatableNumericValue,
+} from 'react-native';
 import { BannerSmall } from '@/models/banner-small';
 import styles from './styles';
 
 type Props = {
   onPress: (event: GestureResponderEvent) => void;
   data: BannerSmall;
-  containerHeight: number;
-  containerWidth: number;
+  width: DimensionValue;
+  height: DimensionValue;
+  borderRadius: AnimatableNumericValue;
 };
 
-const BannerSmallItem = ({ data, onPress, containerHeight, containerWidth }: Props) => {
+const BannerSmallItem = ({ data, onPress, width, height, borderRadius }: Props) => {
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.container,
         {
-          height: containerHeight,
-          width: containerWidth,
+          height,
+          width,
+          borderRadius,
         },
       ]}>
       <Image style={styles.image} source={{ uri: data.urlImage }} />
