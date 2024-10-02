@@ -9,10 +9,10 @@ import {
   SMALL_BANNERS_DATA,
   TOP_BANNERS_DATA,
 } from '../__mocks__/screens/home';
-import ContentWrapper from '@/components/new-components/slider-wrapper';
 import BannerMediumSlider from '@/components/new-components/banner-medium-slider';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import colors from '@/styles/colors';
+import ContentWrapper from '@/components/new-components/content-wrapper';
 
 export default function Index() {
   return (

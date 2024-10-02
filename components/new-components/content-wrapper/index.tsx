@@ -7,10 +7,8 @@ type Props = {
   children: React.ReactNode;
   seeAll?: boolean;
   onSeeAll?: () => void;
-  top?: number;
-  bottom?: number;
 };
-const ContentWrapper = ({ text, children, seeAll, onSeeAll, top, bottom }: Props) => {
+const ContentWrapper = ({ text, children, seeAll, onSeeAll }: Props) => {
   const handleOnSeeAll = () => {
     if (typeof onSeeAll === 'function') onSeeAll();
   };

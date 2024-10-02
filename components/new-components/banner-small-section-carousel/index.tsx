@@ -1,6 +1,6 @@
 import React from 'react';
 import BannerSmallSlider from '../banner-small';
-import ContentWrapper from '../slider-wrapper';
+import ContentWrapper from '../content-wrapper';
 import { BannerSmall } from '@/models/banner-small';
 import { BannerSmallSkeleton } from '../banner-small-skeleton';
 import { useWindowDimensions } from 'react-native';
@@ -18,7 +18,7 @@ const BannerSmallSectionCarousel = ({ data, isLoadingFirst = data?.length === 0 
   const borderRadius = borders.radius.medium;
 
   return (
-    <ContentWrapper text={'some title'} top={0} bottom={2}>
+    <ContentWrapper text={'some title'}>
       {1 ? (
         <BannerSmallSkeleton
           id={''}
