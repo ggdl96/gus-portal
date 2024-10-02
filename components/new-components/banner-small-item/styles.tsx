@@ -1,15 +1,17 @@
+import borders from '@/styles/borders';
+import colors from '@/styles/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 5,
+    borderRadius: borders.radius.medium,
     backgroundColor: '#B2BEB5',
   },
   image: {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    borderRadius: 5,
+    borderRadius: borders.radius.medium,
   },
   title: {
     fontStyle: 'normal',
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     fontSize: 12,
     textTransform: 'uppercase',
-    color: '#ffffff',
+    color: colors.contrastSecondary[950],
     width: ' 100%',
   },
   containerViews: {
@@ -47,7 +49,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: borders.radius.medium,
   },
   content: {
     flex: 1,
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     height: '100%',
     paddingHorizontal: 10,
     paddingVertical: 2,
-    borderRadius: 5,
+    borderRadius: borders.radius.medium,
   },
 });
 

@@ -1,3 +1,4 @@
+import colors from '@/styles/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -17,14 +18,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textTransform: 'uppercase',
     lineHeight: 20,
-    color: '#fff',
+    color: colors.contrastSecondary[950],
   },
   text: {
     fontStyle: 'normal',
     fontWeight: '500',
     fontSize: 16,
     textTransform: 'uppercase',
-    color: '#ffffff',
+    color: colors.contrastSecondary[950],
   },
 });
 

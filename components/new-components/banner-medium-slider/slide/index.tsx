@@ -1,4 +1,6 @@
 import { BannerMedium } from '@/models/banner-medium/indext';
+import borders from '@/styles/borders';
+import colors from '@/styles/colors';
 import React from 'react';
 import { Image, Pressable, StyleSheet, useWindowDimensions, View, Text } from 'react-native';
 
@@ -24,7 +26,7 @@ const MediumSlide = ({ data, source, onPress, width, spacing, last }: Props) => 
         {
           width,
           marginRight: last ? 0 : spacing,
-          borderRadius: 3,
+          borderRadius: borders.radius.small,
           overflow: 'hidden',
           height: CONTAINER_HEIGHT,
         },
@@ -76,7 +78,7 @@ const MediumSlide = ({ data, source, onPress, width, spacing, last }: Props) => 
               fontSize: 8,
               textAlign: 'center',
               textTransform: 'uppercase',
-              color: '#ffffff',
+              color: colors.contrastSecondary[950],
             }}
             textBreakStrategy={'simple'}
             adjustsFontSizeToFit
@@ -90,7 +92,12 @@ const MediumSlide = ({ data, source, onPress, width, spacing, last }: Props) => 
 };
 
 const styles = StyleSheet.create({
-  container: { position: 'absolute', width: '100%', height: '100%', borderRadius: 3 },
+  container: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    borderRadius: borders.radius.small,
+  },
   gradient: { flex: 1 },
 });
 

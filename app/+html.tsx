@@ -1,3 +1,4 @@
+import colors from '@/styles/colors';
 import { ScrollViewStyleReset } from 'expo-router/html';
 import { type PropsWithChildren } from 'react';
 
@@ -30,10 +31,10 @@ export default function Root({ children }: Readonly<PropsWithChildren>) {
 
 const responsiveBackground = `
 body {
-  background-color: #fff;
+  background-color: ${colors.contrastSecondary[950]};
 }
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #000;
+    background-color: ${colors.contrastPrimary[10]};
   }
 }`;

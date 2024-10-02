@@ -1,4 +1,6 @@
 import { BannerDetailed } from '@/models/banner-detailed';
+import borders from '@/styles/borders';
+import colors from '@/styles/colors';
 import React from 'react';
 
 import {
@@ -68,10 +70,13 @@ const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => 
           height: CONTAINER_HEIGHT,
           width: '100%',
           backgroundColor: '#333',
-          borderRadius: 5,
+          borderRadius: borders.radius.medium,
         }}>
         <Image
-          style={[styles.image, { width: full ? '100%' : selectedWidth, borderRadius: 5 }]}
+          style={[
+            styles.image,
+            { width: full ? '100%' : selectedWidth, borderRadius: borders.radius.medium },
+          ]}
           source={{ uri: data.image }}
           resizeMode="cover"
         />
@@ -91,7 +96,7 @@ const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => 
             style={{
               height: 10,
               width: 10,
-              borderRadius: 5,
+              borderRadius: borders.radius.medium,
               backgroundColor: '#cecece04',
             }}
             source={{
@@ -142,7 +147,7 @@ const BannerDetailedItem = ({ full, last, width, spacing, data }: PropsItem) => 
             }}>
             <Text
               style={{
-                color: '#fff',
+                color: colors.contrastSecondary[950],
                 fontSize: 16,
                 textTransform: 'capitalize',
                 width: '100%',
