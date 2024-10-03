@@ -1,7 +1,9 @@
 import { BannerTop } from '@/models/banner-top';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import styles from './styles';
+import BannerTitle from '../banner-title';
+import BannerSubTitle from '../banner-subtitle';
 
 type Props = {
   data: BannerTop;
@@ -10,12 +12,8 @@ type Props = {
 const FeaturedProduct = ({ data }: Props) => {
   return (
     <View style={styles.container}>
-      <Text numberOfLines={3} ellipsizeMode="tail" style={styles.title}>
-        {data.title}
-      </Text>
-      <Text numberOfLines={2} ellipsizeMode="tail" style={styles.subtitle}>
-        {data.subTitle}
-      </Text>
+      <BannerTitle title={data.title} />
+      <BannerSubTitle title={data.subTitle} />
     </View>
   );
 };

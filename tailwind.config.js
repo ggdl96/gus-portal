@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
-const r = require('./styles/colors/index');
+const colors = require('./styles/colors');
+const screens = require('./styles/screens');
 
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
@@ -9,7 +10,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...r,
+        ...colors,
+      },
+      screens: {
+        ...screens,
       },
     },
   },

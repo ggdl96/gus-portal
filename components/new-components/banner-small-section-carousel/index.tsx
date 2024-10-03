@@ -5,6 +5,7 @@ import { BannerSmall } from '@/models/banner-small';
 import { BannerSmallSkeleton } from '../banner-small-skeleton';
 import { useWindowDimensions } from 'react-native';
 import borders from '@/styles/borders';
+import { screens } from '@/styles/screens';
 
 interface Props {
   data: BannerSmall[];
@@ -12,7 +13,7 @@ interface Props {
 
 const BannerSmallSectionCarousel = ({ data }: Props) => {
   const dimensions = useWindowDimensions();
-  const containerWidth = dimensions.width * 0.35;
+  const containerWidth = (dimensions.width > screens.lg ? 430 : dimensions.width) * 0.32;
   const containerHeight = containerWidth * 1.7;
   const borderRadius = borders.radius.medium;
 

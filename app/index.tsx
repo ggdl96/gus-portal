@@ -20,6 +20,7 @@ export default function Index() {
       <SafeAreaView style={styles.safeArea}>
         <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollViewContainer}>
           <BannerSlider data={TOP_BANNERS_DATA} type={'content'} />
+          <BannerSlider data={TOP_BANNERS_DATA} type="product" />
           <BannerSmallSectionCarousel data={SMALL_BANNERS_DATA} />
           <ContentWrapper text="Top Data">
             <BannerMediumSlider data={MEDIUM_BANNERS_DATA} />

@@ -5,14 +5,15 @@ import { BannerMedium } from '@/models/banner-medium/indext';
 import borders from '@/styles/borders';
 import MediumSlideSkeleton from '../banner-medium-skeleton';
 import BannerMediumItem from '../banner-medium-item';
+import { screens } from '@/styles/screens';
 
 type Props = {
   data?: BannerMedium[];
 };
 
 const BannerMediumSlider = ({ data }: Props) => {
-  const dimenstions = useWindowDimensions();
-  const width = dimenstions.width * 0.55;
+  const dimensions = useWindowDimensions();
+  const width = (dimensions.width > screens.lg ? 500 : dimensions.width) * 0.54;
   const height = width * 1.5;
 
   if (data?.length) {

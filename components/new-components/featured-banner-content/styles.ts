@@ -16,12 +16,6 @@ const styles = StyleSheet.create({
     color: '#f7f6f2',
     textTransform: 'uppercase',
   },
-  image: {
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    borderRadius: borders.radius.medium,
-  },
   body: {
     flex: 1,
     padding: 10,

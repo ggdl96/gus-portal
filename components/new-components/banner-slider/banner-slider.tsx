@@ -21,7 +21,7 @@ const BannerSlider = ({ data, type }: Props) => {
             <Banner
               redirectOnPress={redirectToPreview}
               source={{
-                uri: '',
+                uri: item.image,
               }}>
               {type === 'content' ? (
                 <FeaturedBannerContent data={item} />
