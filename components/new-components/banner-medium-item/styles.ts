@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   bodyContent: {
     display: 'flex',
     flexDirection: 'row',
-    height: '10%',
     justifyContent: 'center',
     alignItems: 'flex-start',
     flexWrap: 'wrap',
     backgroundColor: colors.secondary[650],
     borderRadius: borders.radius.small,
+    padding: 12,
   },
   gradient: { flex: 1 },
   categories: {
@@ -39,14 +39,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     color: colors.contrastSecondary[950],
     width: '100%',
-  },
-  text: {
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: 8,
-    textAlign: 'center',
-    textTransform: 'uppercase',
-    color: colors.contrastSecondary[950],
   },
 });
 

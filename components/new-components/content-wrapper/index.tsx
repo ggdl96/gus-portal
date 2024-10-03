@@ -17,10 +17,10 @@ const ContentWrapper = ({ text, children, seeAll, onSeeAll }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.containerInner}>
-        {text && <Text className="bg-white text-custom1">{text}</Text>}
+        {text && <Text className="text-xl text-contrastSecondary-950">{text}</Text>}
         {seeAll && (
           <Pressable onPress={handleOnSeeAll}>
-            <Text style={styles.seeAll}>SEE ALL</Text>
+            <Text className="text-lg text-contrastSecondary-950 underline italic">SEE ALL</Text>
           </Pressable>
         )}
       </View>

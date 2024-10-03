@@ -12,13 +12,6 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: borders.radius.medium,
   },
-  title: {
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 16,
-    color: 'white',
-    width: '100%',
-  },
   views: {
     fontStyle: 'normal',
     fontWeight: '400',

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { BannerSmall } from '@/models/banner-small';
 import styles from './styles';
+import BannerTitle from '../banner-title';
 
 type Props = {
   onPress: (event: GestureResponderEvent) => void;
@@ -35,9 +36,7 @@ const BannerSmallItem = ({ data, onPress, width, height, borderRadius }: Props) 
       <View style={styles.content}>
         <View style={styles.sectionBottom}>
           <View style={styles.containerViews}>
-            <Text numberOfLines={3} style={styles.title}>
-              {data.title}
-            </Text>
+            <BannerTitle title={data.title} />
           </View>
           <View style={styles.containerViews}>
             <Text style={styles.views}>{data.views} VIEWS</Text>

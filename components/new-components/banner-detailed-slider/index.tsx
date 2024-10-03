@@ -15,15 +15,17 @@ const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
   const dimensions = useWindowDimensions();
   const width = dimensions.width * 0.733;
   const height = width * 0.51;
-  /*
-  return (
-    <BannerDetailedSliderSkeleton
-      width={containerWidth}
-      height={CONTAINER_HEIGHT}
-      borderRadius={borders.radius.medium}
-    />
-  );
-*/
+
+  if (0) {
+    return (
+      <BannerDetailedSliderSkeleton
+        width={width}
+        height={height}
+        borderRadius={borders.radius.medium}
+      />
+    );
+  }
+
   return (
     <DefaultList
       horizontal={horizontal}
@@ -32,10 +34,6 @@ const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
       pagingEnabled={true}
       renderItem={({ item, index }) => (
         <BannerDetailedItem
-          full
-          last={index === data.length - 1}
-          spacing={2}
-          horizontal={horizontal}
           data={item}
           width={width}
           height={height}

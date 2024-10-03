@@ -1,7 +1,8 @@
 import React from 'react';
-import { GestureResponderEvent, TouchableOpacity, View, ViewStyle, Text } from 'react-native';
+import { GestureResponderEvent, TouchableOpacity, View, ViewStyle } from 'react-native';
 import styles from './styles';
 import Avatar from '../avatar';
+import BannerTitle from '../banner-title';
 
 interface Props {
   title: string;
@@ -21,7 +22,7 @@ const TitleWithAvatar = ({ title, src, style, id }: Props) => {
     <TouchableOpacity onPress={_handleOnPress}>
       <View style={[styles.container, style]}>
         <Avatar src={src} />
-        <Text style={styles.title}>{title?.toUpperCase()}</Text>
+        <BannerTitle title={title} />
       </View>
     </TouchableOpacity>
   );

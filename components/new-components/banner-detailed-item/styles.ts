@@ -54,12 +54,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   body: {
-    borderBottomColor: 'red',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
     width: '100%',
-    padding: 10,
+    paddingVertical: 10,
   },
 });
 

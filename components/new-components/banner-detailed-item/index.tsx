@@ -2,23 +2,11 @@ import { BannerDetailed } from '@/models/banner-detailed';
 import borders from '@/styles/borders';
 import React from 'react';
 
-import {
-  TouchableOpacity,
-  Image,
-  View,
-  Pressable,
-  Text,
-  AnimatableNumericValue,
-  DimensionValue,
-} from 'react-native';
-import Avatar from '../avatar';
+import { Image, View, Pressable, AnimatableNumericValue, DimensionValue } from 'react-native';
 import styles from './styles';
+import TitleWithAvatar from '../title-with-avatar';
 
 interface PropsItem {
-  full?: boolean;
-  last?: boolean;
-  spacing?: number;
-  horizontal?: boolean;
   data: BannerDetailed;
   width: DimensionValue;
   height: DimensionValue;
@@ -27,8 +15,6 @@ interface PropsItem {
 
 const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) => {
   const handleOnPress = () => {};
-
-  const handleOnPressLowerSection = () => {};
 
   return (
     <Pressable onPress={handleOnPress} style={[styles.container, { borderRadius }]}>
@@ -46,27 +32,7 @@ const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) =>
         />
       </View>
       <View style={styles.body}>
-        <TouchableOpacity onPress={handleOnPressLowerSection}>
-          <Avatar src={{ uri: data.image }} />
-        </TouchableOpacity>
-        <View style={styles.containerText}>
-          <View style={styles.containerOwner}>
-            <TouchableOpacity onPress={handleOnPressLowerSection}>
-              <Text numberOfLines={1} style={styles.textOwnerName}>
-                {data?.owner?.name}
-              </Text>
-            </TouchableOpacity>
-            <Text style={styles.detail}>
-              {'  |  '}
-              {'- 0'}
-            </Text>
-          </View>
-          <View style={styles.containerTitle}>
-            <Text style={styles.title} numberOfLines={2}>
-              {data.title ?? ''}
-            </Text>
-          </View>
-        </View>
+        <TitleWithAvatar src={{ uri: data.owner.image }} title={data.owner.name} />
       </View>
     </Pressable>
   );

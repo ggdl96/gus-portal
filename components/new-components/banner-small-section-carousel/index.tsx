@@ -8,10 +8,9 @@ import borders from '@/styles/borders';
 
 interface Props {
   data: BannerSmall[];
-  isLoadingFirst?: boolean;
 }
 
-const BannerSmallSectionCarousel = ({ data, isLoadingFirst = data?.length === 0 }: Props) => {
+const BannerSmallSectionCarousel = ({ data }: Props) => {
   const dimensions = useWindowDimensions();
   const containerWidth = dimensions.width * 0.35;
   const containerHeight = containerWidth * 1.7;
@@ -19,7 +18,7 @@ const BannerSmallSectionCarousel = ({ data, isLoadingFirst = data?.length === 0 
 
   return (
     <ContentWrapper text={'some title'}>
-      {1 ? (
+      {0 ? (
         <BannerSmallSkeleton
           id={''}
           width={containerWidth}

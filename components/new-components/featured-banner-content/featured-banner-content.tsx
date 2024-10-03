@@ -1,9 +1,10 @@
 import React from 'react';
 
 import styles from './styles';
-import { View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { BannerTop } from '@/models/banner-top';
 import TitleWithAvatar from '../title-with-avatar';
+import BannerTitle from '../banner-title';
 
 type Props = {
   data: BannerTop;
@@ -22,9 +23,7 @@ const FeaturedBannerContent = ({ data }: Props) => {
           }}
           style={styles.titleWithAvatar}
         />
-        <Text numberOfLines={3} ellipsizeMode="tail" style={styles.title}>
-          {data.title}
-        </Text>
+        <BannerTitle title={data.title} />
       </View>
     </View>
   );

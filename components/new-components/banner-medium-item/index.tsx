@@ -2,6 +2,7 @@ import { BannerMedium } from '@/models/banner-medium/indext';
 import React from 'react';
 import { Image, Pressable, View, Text, AnimatableNumericValue, DimensionValue } from 'react-native';
 import styles from './styles';
+import BannerTitle from '../banner-title';
 
 type Props = {
   onPress: Function;
@@ -30,13 +31,7 @@ const BannerMediumItem = ({ data, source, onPress, width, height, borderRadius }
       <View style={styles.body}>
         <View style={styles.bodyContent}>
           <Text style={styles.categories}>{data.categories.join(', ')}</Text>
-          <Text
-            style={styles.text}
-            textBreakStrategy={'simple'}
-            adjustsFontSizeToFit
-            numberOfLines={2}>
-            {data.text}
-          </Text>
+          <BannerTitle title={data.text} />
         </View>
       </View>
     </Pressable>
