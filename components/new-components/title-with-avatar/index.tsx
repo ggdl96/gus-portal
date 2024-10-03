@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  GestureResponderEvent,
-  Image,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-  Text,
-} from 'react-native';
+import { GestureResponderEvent, TouchableOpacity, View, ViewStyle, Text } from 'react-native';
 import styles from './styles';
 import Avatar from '../avatar';
 
