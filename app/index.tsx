@@ -24,7 +24,7 @@ export default function Index() {
           <ContentWrapper text="Top Data">
             <BannerMediumSlider data={MEDIUM_BANNERS_DATA} />
           </ContentWrapper>
-          <ContentWrapper text={'Some cool data'} key={`ThemedContentWrapper`} top={20}>
+          <ContentWrapper text={'Some cool data'} key={`ThemedContentWrapper`}>
             <BannerDetailedSlider data={DETAILED_BANNERS_DATA} horizontal={true} />
           </ContentWrapper>
         </ScrollView>

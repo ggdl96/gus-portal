@@ -1,10 +1,10 @@
 import React from 'react';
-import { SlideSkeleton } from './slider-skeleton';
-import { useWindowDimensions, View } from 'react-native';
-import MediumSlide from './slide';
+import { useWindowDimensions } from 'react-native';
 import DefaultList from '../default-list';
 import { BannerMedium } from '@/models/banner-medium/indext';
-import { bannerMediumSliderStyles } from './banner-medium-slider.styles';
+import borders from '@/styles/borders';
+import MediumSlideSkeleton from '../banner-medium-skeleton';
+import BannerMediumItem from '../banner-medium-item';
 
 type Props = {
   data?: BannerMedium[];
@@ -12,9 +12,8 @@ type Props = {
 
 const BannerMediumSlider = ({ data }: Props) => {
   const dimenstions = useWindowDimensions();
-  const containerWidth = dimenstions.width * 0.55;
-  const containerHeight = containerWidth * 1.5;
-  const sideVisibleWidth = dimenstions.width * 0.25;
+  const width = dimenstions.width * 0.55;
+  const height = width * 1.5;
 
   if (data?.length) {
     const _handleOnPress = () => {};
@@ -25,35 +24,20 @@ const BannerMediumSlider = ({ data }: Props) => {
         pagingEnabled={true}
         horizontal
         renderItem={({ item, index }) => (
-          <View
-            style={[
-              { width: containerWidth, height: containerHeight },
-              bannerMediumSliderStyles.containerItem,
-            ]}>
-            <View
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: containerWidth,
-                height: containerHeight,
-              }}>
-              <MediumSlide
-                onPress={() => _handleOnPress()}
-                data={item}
-                source={{ uri: item.image }}
-                width={containerWidth}
-                spacing={sideVisibleWidth / 10}
-                last={index === data.length}
-              />
-            </View>
-          </View>
+          <BannerMediumItem
+            onPress={() => _handleOnPress()}
+            data={item}
+            source={{ uri: item.image }}
+            width={width}
+            height={height}
+            borderRadius={borders.radius.medium}
+          />
         )}
       />
     );
   }
 
-  return <SlideSkeleton />;
+  return <MediumSlideSkeleton width={width} height={height} borderRadius={borders.radius.medium} />;
 };
 
 export default BannerMediumSlider;
