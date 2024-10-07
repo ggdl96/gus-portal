@@ -5,6 +5,7 @@ import React from 'react';
 import { Image, View, Pressable, AnimatableNumericValue, DimensionValue } from 'react-native';
 import styles from './styles';
 import TitleWithAvatar from '../title-with-avatar';
+import { router } from 'expo-router';
 
 interface PropsItem {
   data: BannerDetailed;
@@ -14,7 +15,9 @@ interface PropsItem {
 }
 
 const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) => {
-  const handleOnPress = () => {};
+  const handleOnPress = () => {
+    router.push(`/product/${data.id}`);
+  };
 
   return (
     <Pressable onPress={handleOnPress} style={[styles.container, { borderRadius }]}>

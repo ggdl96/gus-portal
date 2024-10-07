@@ -2,6 +2,7 @@ import React from 'react';
 import { Pressable, View, Text } from 'react-native';
 import styles from './styles';
 import '../../../global.css';
+import useSpacing from '@/hooks/useSpacing';
 
 type Props = {
   text?: any;
@@ -13,10 +14,11 @@ const ContentWrapper = ({ text, children, seeAll, onSeeAll }: Props) => {
   const handleOnSeeAll = () => {
     if (typeof onSeeAll === 'function') onSeeAll();
   };
+  const { defaultHorizontalSpacing } = useSpacing();
 
   return (
     <View style={styles.container}>
-      <View style={styles.containerInner}>
+      <View style={[styles.containerInner, { paddingHorizontal: defaultHorizontalSpacing }]}>
         {text && <Text className="text-xl text-contrastSecondary-950">{text}</Text>}
         {seeAll && (
           <Pressable onPress={handleOnSeeAll}>
