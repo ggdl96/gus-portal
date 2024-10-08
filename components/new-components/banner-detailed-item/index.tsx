@@ -12,9 +12,16 @@ interface PropsItem {
   width: DimensionValue;
   height: DimensionValue;
   borderRadius: AnimatableNumericValue;
+  displaySeller?: boolean;
 }
 
-const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) => {
+const BannerDetailedItem = ({
+  width,
+  data,
+  height,
+  borderRadius,
+  displaySeller = true,
+}: PropsItem) => {
   const handleOnPress = () => {
     router.push(`/product/${data.id}`);
   };
@@ -35,7 +42,13 @@ const BannerDetailedItem = ({ width, data, height, borderRadius }: PropsItem) =>
         />
       </View>
       <View style={styles.body}>
-        <TitleWithAvatar src={{ uri: data.owner.image }} title={data.owner.name} />
+        {displaySeller ? (
+          <TitleWithAvatar
+            src={{ uri: data.owner.image }}
+            title={data.owner.name}
+            id={data.owner.id}
+          />
+        ) : null}
       </View>
     </Pressable>
   );

@@ -11,8 +11,10 @@ import { screens } from '@/styles/screens';
 type Props = {
   data: BannerDetailed[];
   horizontal: boolean;
+  displaySeller?: boolean;
 };
-const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
+
+const BannerDetailedSlider = ({ data, horizontal = true, displaySeller = true }: Props) => {
   const dimensions = useWindowDimensions();
   const width = (dimensions.width > screens.lg ? 580 : dimensions.width) * 0.7;
   const height = width * 0.5;
@@ -39,6 +41,7 @@ const BannerDetailedSlider = ({ data, horizontal = true }: Props) => {
           width={width}
           height={height}
           borderRadius={borders.radius.medium}
+          displaySeller={displaySeller}
         />
       )}
     />
