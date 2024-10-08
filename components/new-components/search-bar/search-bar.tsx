@@ -93,6 +93,7 @@ const SearchBar = ({
             placeholderTextColor={colors.contrastPrimary[300]}
             onSubmitEditing={(e) => {
               console.log('onSubmitEditing', e.nativeEvent.text);
+              handleOnPressSearch();
             }}
           />
         </View>
