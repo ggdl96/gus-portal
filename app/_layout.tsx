@@ -4,6 +4,39 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { Pressable, StyleSheet, Text } from 'react-native';
 import colors from '@/styles/colors';
 import useSpacing from '@/hooks/useSpacing';
+import SearchBar from '@/components/new-components/search-bar/search-bar';
+import { useState } from 'react';
+
+const HeaderRight = () => {
+  const [value, setValue] = useState<string>('');
+
+  const handleOnCancel = function (): void {};
+  const handleOnFocus = function ({ nativeEvent }: { nativeEvent: any }): void {};
+  const handleOnPressSearchHistoryItem = function (item: string): void {};
+  const handleOnDeleteHistoryItem = function (item: string): void {};
+  const handleOnClosePreviousSearch = function (): void {};
+
+  const handleOnBlur = function ({ nativeEvent }: { nativeEvent: any }): void {};
+
+  return (
+    <SearchBar
+      value={value}
+      onChangeValue={function (text: string): void {
+        setValue(text);
+      }}
+      cancelButton={false}
+      cancelPress={handleOnCancel}
+      onFocus={handleOnFocus}
+      onBlur={handleOnBlur}
+      showPreviousSearch={false}
+      previousSearch={[]}
+      onPressSearchHistoryItem={handleOnPressSearchHistoryItem}
+      onDeleteHistoryItem={handleOnDeleteHistoryItem}
+      onClosePreviousSearch={handleOnClosePreviousSearch}
+      disabledPreviousSearch={false}
+    />
+  );
+};
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -33,6 +66,7 @@ export default function RootLayout() {
               <Text style={styles.headerTitleStyle}>gus portal</Text>
             </Pressable>
           ),
+          headerRight: HeaderRight,
         }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="product" />
