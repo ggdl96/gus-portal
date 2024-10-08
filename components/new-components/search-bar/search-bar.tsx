@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import {
   Keyboard,
-  StyleSheet,
   TouchableOpacity,
   View,
   Text,
   TextInput,
-  Platform,
+  Pressable,
+  TextInputKeyPressEventData,
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
 } from 'react-native';
 import History from './history/history';
 import colors from '@/styles/colors';
+import styles from './styles';
+import { router } from 'expo-router';
 
 interface Props {
   value: string;
@@ -18,9 +22,9 @@ interface Props {
   cancelPress: () => void;
   placeholder?: string;
   dark?: boolean;
-  handleKeyDown?: ({ nativeEvent }) => void;
-  onFocus: ({ nativeEvent }) => void;
-  onBlur: ({ nativeEvent }) => void;
+  handleKeyDown?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
+  onFocus: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   showPreviousSearch: boolean;
   previousSearch: string[];
   onPressSearchHistoryItem: (item: string) => void;
@@ -35,7 +39,6 @@ const SearchBar = ({
   cancelButton,
   cancelPress,
   placeholder,
-  dark,
   onFocus,
   onBlur,
   showPreviousSearch,
@@ -54,7 +57,7 @@ const SearchBar = ({
     setActive(false);
   };
 
-  const handleOnFocus = (e) => {
+  const handleOnFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     onFocus(e);
     setActive(true);
   };
@@ -69,70 +72,38 @@ const SearchBar = ({
     Keyboard.dismiss();
   };
 
+  const handleOnPressSearch = () => {
+    router.navigate('/list');
+  };
+
   return (
-    <View
-      style={{
-        backgroundColor: 'brown',
-        height: Platform.OS === 'ios' ? 48 : 60,
-        width: '60%',
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}>
-      <View
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          paddingHorizontal: 4,
-          width: '100%',
-          alignItems: 'stretch',
-          justifyContent: 'center',
-          borderBottomColor: 'red',
-        }}>
-        <View
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderWidth: 1,
-            borderColor: '#404040',
-            borderRadius: 5,
-            padding: 8,
-            backgroundColor: 'blue',
-            width: '100%',
-          }}>
-          <View style={styles.image} />
-          <View style={{ flexGrow: 1 }}>
-            <TextInput
-              value={value}
-              onChangeText={onChangeValue}
-              placeholder={placeholder ?? 'Search'}
-              onFocus={handleOnFocus}
-              onBlur={onBlur}
-              onKeyPress={handleKeyDown}
-              autoCorrect={false}
-              returnKeyType="search"
-              style={{ fontSize: 16, width: '100%', color: colors.contrastSecondary[950] }}
-              placeholderTextColor={colors.contrastPrimary[300]}
-            />
-          </View>
+    <View style={styles.wrapper}>
+      <View style={styles.sectionInput}>
+        <View style={styles.wrapperInput}>
+          <TextInput
+            value={value}
+            onChangeText={onChangeValue}
+            placeholder={placeholder ?? 'Search'}
+            onFocus={handleOnFocus}
+            onBlur={onBlur}
+            onKeyPress={handleKeyDown}
+            autoCorrect={false}
+            returnKeyType="search"
+            style={styles.input}
+            placeholderTextColor={colors.contrastPrimary[300]}
+            onSubmitEditing={(e) => {
+              console.log('onSubmitEditing', e.nativeEvent.text);
+            }}
+          />
         </View>
-        {cancelButton ? (
-          <View
-            onPress={() => cancelPress()}
-            style={{
-              padding: 2,
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexGrow: 0,
-            }}>
-            <Text style={{ color: colors.contrastPrimary[500] }}>Cancel</Text>
-          </View>
-        ) : null}
       </View>
+      {cancelButton ? (
+        <Pressable onPress={() => cancelPress()} style={styles.cancel}>
+          <Text className="color-contrastPrimary-500">Cancel</Text>
+        </Pressable>
+      ) : null}
+      <Pressable style={styles.image} onPress={handleOnPressSearch} />
+
       {active && !disabledPreviousSearch ? (
         <TouchableOpacity onPress={handlePressOutside}>
           <History
@@ -147,12 +118,5 @@ const SearchBar = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  image: {
-    height: 16,
-    width: 16,
-  },
-});
 
 export default SearchBar;

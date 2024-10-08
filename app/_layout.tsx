@@ -1,11 +1,20 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { router, SplashScreen, Stack } from 'expo-router';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInputFocusEventData,
+  View,
+} from 'react-native';
 import colors from '@/styles/colors';
 import useSpacing from '@/hooks/useSpacing';
 import SearchBar from '@/components/new-components/search-bar/search-bar';
 import { useState } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
 const HeaderRight = () => {
   const [value, setValue] = useState<string>('');
@@ -16,7 +25,7 @@ const HeaderRight = () => {
   const handleOnDeleteHistoryItem = function (item: string): void {};
   const handleOnClosePreviousSearch = function (): void {};
 
-  const handleOnBlur = function ({ nativeEvent }: { nativeEvent: any }): void {};
+  const handleOnBlur = function (e: NativeSyntheticEvent<TextInputFocusEventData>): void {};
 
   return (
     <SearchBar
@@ -38,35 +47,46 @@ const HeaderRight = () => {
   );
 };
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  // Prevent the splash screen from auto-hiding before asset loading is complete.
-  SplashScreen.preventAutoHideAsync();
+const Header = (props: NativeStackHeaderProps) => {
   const handleOnPress = () => {
     router.navigate('/');
   };
 
   const { defaultHorizontalSpacing } = useSpacing();
+  const insets = useSafeAreaInsets();
+
+  return (
+    <View
+      style={{
+        paddingTop: insets.top,
+        paddingLeft: insets.left,
+        paddingRight: insets.right,
+        borderBottomWidth: 2,
+        borderBottomColor: colors.contrastPrimary[20],
+      }}
+      className="w-full flex-row items-center justify-between bg-contrastPrimary-400">
+      <Pressable onPress={handleOnPress} style={{ paddingHorizontal: defaultHorizontalSpacing }}>
+        <Text style={styles.headerTitleStyle}>gus portal</Text>
+      </Pressable>
+      <View
+        style={{ paddingHorizontal: defaultHorizontalSpacing }}
+        className="flex-row justify-end">
+        <HeaderRight />
+      </View>
+    </View>
+  );
+};
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  // Prevent the splash screen from auto-hiding before asset loading is complete.
+  SplashScreen.preventAutoHideAsync();
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack
         screenOptions={{
-          headerStyle: styles.headerStyle,
-          statusBarColor: colors.contrastSecondary[950],
-          headerTitleAlign: 'left',
-          contentStyle: {
-            paddingHorizontal: 0,
-            marginHorizontal: 0,
-          },
-          headerLeft: () => (
-            <Pressable
-              onPress={handleOnPress}
-              style={{ paddingHorizontal: defaultHorizontalSpacing }}>
-              <Text style={styles.headerTitleStyle}>gus portal</Text>
-            </Pressable>
-          ),
-          headerRight: HeaderRight,
+          header: (props) => <Header {...props} />,
         }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="product" />
