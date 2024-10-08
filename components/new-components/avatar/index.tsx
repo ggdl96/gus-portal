@@ -9,8 +9,11 @@ interface Props {
 
 const Avatar = ({ src }: Props) => {
   const dimensions = useWindowDimensions();
-  const size = (dimensions.width > screens.lg ? 50 : dimensions.width) * 0.1;
+  console.log('dimensions: ', dimensions);
+  const size = dimensions.width > screens.lg ? 50 : dimensions.width * 0.1;
+  console.log('dimensions: ', dimensions);
 
+  const borderRadius = size / 6;
   return (
     <View style={{ paddingRight: 10 }}>
       {typeof src === 'undefined' ? (
@@ -20,7 +23,7 @@ const Avatar = ({ src }: Props) => {
             {
               width: size,
               height: size,
-              borderRadius: size / 2,
+              borderRadius,
             },
           ]}
         />
@@ -32,7 +35,7 @@ const Avatar = ({ src }: Props) => {
             {
               width: size,
               height: size,
-              borderRadius: size / 2,
+              borderRadius,
             },
           ]}
         />
