@@ -91,4 +91,16 @@ export const DETAILED_BANNERS_DATA = [
       'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Test',
   },
+  {
+    owner: {
+      id: 'bbcvbv55hs5s21c',
+      name: 'name 2',
+      image:
+        'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    id: 'ty453gdfgdfr456gd54',
+    image:
+      'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'Test',
+  },
 ];
