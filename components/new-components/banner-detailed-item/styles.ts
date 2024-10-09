@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     fontWeight: '500',
   },
-  textOwnerName: {
+  textSellerName: {
     color: '#989898',
     fontSize: 12,
     textTransform: 'uppercase',
     fontWeight: '500',
   },
-  containerOwner: {
+  containerSeller: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',

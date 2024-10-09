@@ -15,10 +15,10 @@ const FeaturedBannerContent = ({ data }: Props) => {
     <View style={styles.container}>
       <View style={styles.body}>
         <TitleWithAvatar
-          title={data.owner.name}
+          title={data.seller.name}
           id={data.id}
           src={{
-            uri: data.owner.image,
+            uri: data.seller.image,
           }}
           style={styles.titleWithAvatar}
         />

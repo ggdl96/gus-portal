@@ -1,7 +1,7 @@
-import { Owner } from '../owner';
+import { Seller } from '../seller';
 
 export interface BannerDetailed {
-  owner: Owner;
+  seller: Seller;
   id: string;
   image: string;
   title: string;

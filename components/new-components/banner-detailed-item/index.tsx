@@ -44,9 +44,9 @@ const BannerDetailedItem = ({
       <View style={styles.body}>
         {displaySeller ? (
           <TitleWithAvatar
-            src={{ uri: data.owner.image }}
-            title={data.owner.name}
-            id={data.owner.id}
+            src={{ uri: data.seller.image }}
+            title={data.seller.name}
+            id={data.seller.id}
           />
         ) : null}
       </View>

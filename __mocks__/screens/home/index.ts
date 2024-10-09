@@ -3,7 +3,7 @@ const dataAux = {
   title: 'Some Title!',
   subTitle: 'sub title',
   isOwned: false,
-  owner: {
+  seller: {
     id: 'fgdfg98dfg4g3glkj',
     name: 'User Name',
     image:
@@ -18,7 +18,7 @@ const dataAux2 = {
   title: 'Some Title!',
   subTitle: 'sub title',
   isOwned: false,
-  owner: {
+  seller: {
     id: 'fgdfg98dfg4g3glkj',
     name: 'User Name',
     image:
@@ -33,7 +33,7 @@ const dataAux3 = {
   title: 'Some Title!',
   subTitle: 'sub title',
   isOwned: false,
-  owner: {
+  seller: {
     id: 'fgdfg98dfg4g3glkj',
     name: 'User Name',
     image:
@@ -80,7 +80,7 @@ export const MEDIUM_BANNERS_DATA = [
 
 export const DETAILED_BANNERS_DATA = [
   {
-    owner: {
+    seller: {
       id: 'bbcvbv55hs5s21c',
       name: 'ghfh',
       image:
@@ -92,7 +92,7 @@ export const DETAILED_BANNERS_DATA = [
     title: 'Test',
   },
   {
-    owner: {
+    seller: {
       id: 'bbcvbv55hs5s21c',
       name: 'name 2',
       image:

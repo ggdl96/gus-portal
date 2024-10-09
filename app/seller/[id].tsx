@@ -14,8 +14,8 @@ export default function Index() {
   return (
     <LayoutBasic>
       <TitleWithAvatar
-        title={DETAILED_BANNERS_DATA[0].owner.name}
-        src={{ uri: DETAILED_BANNERS_DATA[0].owner.image }}
+        title={DETAILED_BANNERS_DATA[0].seller.name}
+        src={{ uri: DETAILED_BANNERS_DATA[0].seller.image }}
       />
       <View className="flex w-full">
         <Text className="color-contrastSecondary-900">Reputation: TOP</Text>
