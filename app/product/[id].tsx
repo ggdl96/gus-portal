@@ -1,5 +1,5 @@
 import React from 'react';
-import { useWindowDimensions, View, Image } from 'react-native';
+import { useWindowDimensions, View, Image, StyleSheet } from 'react-native';
 
 import '../../global.css';
 import { screens } from '@/styles/screens';
@@ -7,49 +7,73 @@ import BannerTitle from '@/components/new-components/banner-title';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';
 import BannerDescription from '@/components/new-components/banner-description';
 import LayoutBasic from '@/components/new-components/layout-basic';
+import borders from '@/styles/borders';
+import colors from '@/styles/colors';
+import TitleWithAvatar from '@/components/new-components/title-with-avatar';
+import ProductVariants from '@/components/new-components/product-variants';
+
+import { PRODUCT } from '../../__mocks__/screens/product';
+
+const screenSizeChange: keyof typeof screens = 'md';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
-  const screenSizeChange: keyof typeof screens = 'md';
 
   const isLowerThanMD = dimensions.width < screens[screenSizeChange];
-  const width = dimensions.width * (isLowerThanMD ? 1 : 0.5);
-  const height = width * 0.6;
-  const sharedPadding = 'p-6';
+  const mainImageWidth = dimensions.width * (isLowerThanMD ? 1 : 0.5);
+  const mainImageHeight = mainImageWidth * 0.6;
 
   return (
     <LayoutBasic>
-      <View className={`w-full bg-red ${screenSizeChange}:flex-row`}>
-        <View
-          style={{ height }}
-          className={`flex w-${isLowerThanMD ? 'full' : '1/2'} items-center justify-center ${sharedPadding}`}>
+      <View className={`w-full flex flex-col md:flex-row`}>
+        <View className={`flex w-full md:w-1/2 items-center md:pr-6`}>
           <Image
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
+            style={[
+              styles.imageMain,
+              { height: mainImageHeight, borderRadius: borders.radius.small },
+            ]}
             source={{
-              uri: 'https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+              uri: PRODUCT.image,
             }}
             resizeMode="cover"
           />
         </View>
-        <View style={{ flex: 1 }} className={`${sharedPadding}`}>
-          <View>
-            <BannerSubTitle title={'$1234'} />
+        <View style={styles.sectionInfo} className="pt-6 flex flex-row">
+          <View className="w-1/2">
+            <View>
+              <BannerSubTitle title={'$1234.00'} />
+            </View>
+            <View className="pt-4">
+              <BannerTitle title={'Title of product'} />
+            </View>
+            <ProductVariants variants={PRODUCT.variants} />
           </View>
-          <View>
-            <BannerTitle title={'Title of product'} />
-          </View>
-          <View>
-            <BannerTitle title={'Variants'} />
+          <View className="flex flex-row justify-end w-1/2">
+            <TitleWithAvatar
+              title={PRODUCT.seller.name}
+              id={PRODUCT.id}
+              src={{ uri: PRODUCT.seller.image }}
+            />
           </View>
         </View>
       </View>
-      <View className={`items-start flex w-full ${sharedPadding}`}>
+      <View className={`items-start flex w-full md:pt-6`}>
         <BannerSubTitle title={'Description'} />
-        <BannerDescription title={'some description of this'} />
+        <BannerDescription title={PRODUCT.description} />
       </View>
     </LayoutBasic>
   );
 }
+
+const styles = StyleSheet.create({
+  imageMain: {
+    width: '100%',
+    height: '100%',
+  },
+  sectionInfo: { flex: 1 },
+  imageVariant: {
+    borderRadius: borders.radius.small,
+    borderWidth: 2,
+    borderColor: colors.contrastPrimary[30],
+  },
+});
