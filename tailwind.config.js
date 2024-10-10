@@ -15,6 +15,9 @@ module.exports = {
       screens: {
         ...screens,
       },
+      fontFamily: {
+        body: ['"SpectralRegular"'],
+      },
     },
   },
   plugins: [],

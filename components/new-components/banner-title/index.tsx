@@ -7,7 +7,13 @@ type Props = {
 
 const BannerTitle = ({ title }: Props) => {
   return (
-    <Text numberOfLines={3} ellipsizeMode="tail" className="text-xl text-contrastSecondary-950">
+    <Text
+      numberOfLines={3}
+      ellipsizeMode="tail"
+      className="text-xl text-contrastSecondary-950 font-SpectralRegular"
+      style={{
+        fontFamily: 'SpectralRegular',
+      }}>
       {title}
     </Text>
   );
