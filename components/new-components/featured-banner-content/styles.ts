@@ -1,4 +1,5 @@
 import borders from '@/styles/borders';
+import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
   },
   titleWithAvatar: { justifyContent: 'center' },
   title: {
-    fontWeight: '400',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     textAlign: 'center',
     color: '#f7f6f2',
     textTransform: 'uppercase',

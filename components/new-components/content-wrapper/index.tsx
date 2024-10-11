@@ -1,8 +1,9 @@
 import React from 'react';
-import { Pressable, View, Text } from 'react-native';
+import { Pressable, View } from 'react-native';
 import styles from './styles';
 import '../../../global.css';
 import useSpacing from '@/hooks/useSpacing';
+import BannerSubTitle from '../banner-subtitle';
 
 type Props = {
   text?: any;
@@ -19,10 +20,10 @@ const ContentWrapper = ({ text, children, seeAll, onSeeAll }: Props) => {
   return (
     <View style={styles.container}>
       <View style={[styles.containerInner, { paddingHorizontal: defaultHorizontalSpacing }]}>
-        {text && <Text className="text-xl text-contrastSecondary-950">{text}</Text>}
+        {text && <BannerSubTitle title={text} />}
         {seeAll && (
           <Pressable onPress={handleOnSeeAll}>
-            <Text className="text-lg text-contrastSecondary-950 underline italic">SEE ALL</Text>
+            <BannerSubTitle title="SEE ALL" />
           </Pressable>
         )}
       </View>

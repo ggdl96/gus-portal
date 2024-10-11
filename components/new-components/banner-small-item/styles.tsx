@@ -1,5 +1,6 @@
 import borders from '@/styles/borders';
 import colors from '@/styles/colors';
+import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
   },
   views: {
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     fontSize: 12,
     textTransform: 'uppercase',
     color: colors.contrastSecondary[950],

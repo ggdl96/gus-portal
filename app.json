@@ -14,14 +14,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ggdl96-dev.gus-portal"
+      "bundleIdentifier": "com.ggdl96dev.gusportal"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.ggdl96-dev.gus-portal"
+      "package": "com.ggdl96dev.gusportal"
     },
     "web": {
       "bundler": "metro",
@@ -34,7 +34,15 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/spectral/Spectral-Regular.ttf"
+            "./assets/fonts/spectral/Spectral-Regular.ttf",
+            "./assets/fonts/spectral/Spectral-Light.ttf",
+            "./assets/fonts/spectral/Spectral-ExtraBold.ttf",
+            "./assets/fonts/spectral/Spectral-Medium.ttf",
+            "./assets/fonts/spectral/Spectral-SemiBold.ttf",
+            "./assets/fonts/spectral/Spectral-LightItalic.ttf",
+            "./assets/fonts/spectral/Spectral-ExtraBoldItalic.ttf",
+            "./assets/fonts/spectral/Spectral-MediumItalic.ttf",
+            "./assets/fonts/spectral/Spectral-SemiBoldItalic.ttf"
           ]
         }
       ]

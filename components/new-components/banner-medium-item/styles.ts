@@ -1,5 +1,6 @@
 import borders from '@/styles/borders';
 import colors from '@/styles/colors';
+import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   gradient: { flex: 1 },
   categories: {
     fontStyle: 'normal',
-    fontWeight: '500',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     fontSize: 12,
     textAlign: 'center',
     height: 14,

@@ -1,5 +1,6 @@
 import borders from '@/styles/borders';
 import colors from '@/styles/colors';
+import fonts from '@/styles/fonts';
 
 import { StyleSheet } from 'react-native';
 
@@ -40,13 +41,13 @@ const styles = StyleSheet.create({
     color: '#989898',
     fontSize: 12,
     textTransform: 'uppercase',
-    fontWeight: '500',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
   },
   textSellerName: {
     color: '#989898',
     fontSize: 12,
     textTransform: 'uppercase',
-    fontWeight: '500',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
   },
   containerSeller: {
     display: 'flex',

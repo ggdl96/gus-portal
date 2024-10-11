@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038E76CF9FA34B73B753B2C6 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A056446755458C9D1E6E16 /* noop-file.swift */; };
+		0816E6C983B1D09569B402E6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 354595E84972998D92E37F93 /* PrivacyInfo.xcprivacy */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1A24A62A72A647FC8D35202C /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 453B22B229D04C21A3E4143E /* Spectral-Regular.ttf */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		7CD8923A91B25588F7BD10CC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = BCDAA2E66F232F18CDA71189 /* PrivacyInfo.xcprivacy */; };
+		55B4F8D019FA4EAAA7C32195 /* Spectral-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8F95F605764AF5BB48CF4E /* Spectral-SemiBold.ttf */; };
+		5BC3FEFE77514C5199B65D22 /* Spectral-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7A5CDF4964A444E894208BB /* Spectral-ExtraBoldItalic.ttf */; };
+		6C8762C4CE454B649003580A /* Spectral-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6FAB52005A04A93A51108E5 /* Spectral-Light.ttf */; };
+		7AB55DF1B94E485F8B06C3E1 /* Spectral-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78C0861AB0214008A52C8C06 /* Spectral-ExtraBold.ttf */; };
+		82567D728AD34B878DA26EF3 /* Spectral-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6CC127775F954BA3A1C4BB9F /* Spectral-SemiBoldItalic.ttf */; };
 		96905EF65AED1B983A6B3ABC /* libPods-gusportal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-gusportal.a */; };
+		9DF8699ED9834A78A3A27A3E /* Spectral-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B6BD302D3BC64F1485610FF8 /* Spectral-Medium.ttf */; };
+		AA63D8180F3240A983E18692 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCECD22D17C46839D3BF129 /* noop-file.swift */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		BCB21502787346968E486766 /* Spectral-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D21249EFBB0046C485A1FF61 /* Spectral-LightItalic.ttf */; };
+		C6002C43987347D28F6C0F07 /* Spectral-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 784EB028DB884C6094E8F776 /* Spectral-MediumItalic.ttf */; };
+		DA75BB1A77BD4E0DB60D0DAE /* Spectral-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFB338F5957F43A18DAADD6F /* Spectral-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,16 +34,24 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = gusportal/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = gusportal/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = gusportal/main.m; sourceTree = "<group>"; };
-		42B621554F144BC38F093632 /* gusportal-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "gusportal-Bridging-Header.h"; path = "gusportal/gusportal-Bridging-Header.h"; sourceTree = "<group>"; };
-		453B22B229D04C21A3E4143E /* Spectral-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-Regular.ttf"; path = "../assets/fonts/spectral/Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		354595E84972998D92E37F93 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = gusportal/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-gusportal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gusportal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-gusportal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gusportal.debug.xcconfig"; path = "Target Support Files/Pods-gusportal/Pods-gusportal.debug.xcconfig"; sourceTree = "<group>"; };
-		79A056446755458C9D1E6E16 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "gusportal/noop-file.swift"; sourceTree = "<group>"; };
+		6CC127775F954BA3A1C4BB9F /* Spectral-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-SemiBoldItalic.ttf"; path = "../assets/fonts/spectral/Spectral-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		784EB028DB884C6094E8F776 /* Spectral-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-MediumItalic.ttf"; path = "../assets/fonts/spectral/Spectral-MediumItalic.ttf"; sourceTree = "<group>"; };
+		78C0861AB0214008A52C8C06 /* Spectral-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-ExtraBold.ttf"; path = "../assets/fonts/spectral/Spectral-ExtraBold.ttf"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-gusportal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gusportal.release.xcconfig"; path = "Target Support Files/Pods-gusportal/Pods-gusportal.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = gusportal/SplashScreen.storyboard; sourceTree = "<group>"; };
+		AFB338F5957F43A18DAADD6F /* Spectral-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-Regular.ttf"; path = "../assets/fonts/spectral/Spectral-Regular.ttf"; sourceTree = "<group>"; };
+		B6BD302D3BC64F1485610FF8 /* Spectral-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-Medium.ttf"; path = "../assets/fonts/spectral/Spectral-Medium.ttf"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		BCDAA2E66F232F18CDA71189 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = gusportal/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		CE8F95F605764AF5BB48CF4E /* Spectral-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-SemiBold.ttf"; path = "../assets/fonts/spectral/Spectral-SemiBold.ttf"; sourceTree = "<group>"; };
+		D21249EFBB0046C485A1FF61 /* Spectral-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-LightItalic.ttf"; path = "../assets/fonts/spectral/Spectral-LightItalic.ttf"; sourceTree = "<group>"; };
+		ECCECD22D17C46839D3BF129 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "gusportal/noop-file.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F625414D0E2D4760AB6856DB /* gusportal-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "gusportal-Bridging-Header.h"; path = "gusportal/gusportal-Bridging-Header.h"; sourceTree = "<group>"; };
+		F6FAB52005A04A93A51108E5 /* Spectral-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-Light.ttf"; path = "../assets/fonts/spectral/Spectral-Light.ttf"; sourceTree = "<group>"; };
+		F7A5CDF4964A444E894208BB /* Spectral-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Spectral-ExtraBoldItalic.ttf"; path = "../assets/fonts/spectral/Spectral-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-gusportal/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,11 +77,28 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				79A056446755458C9D1E6E16 /* noop-file.swift */,
-				42B621554F144BC38F093632 /* gusportal-Bridging-Header.h */,
-				BCDAA2E66F232F18CDA71189 /* PrivacyInfo.xcprivacy */,
+				ECCECD22D17C46839D3BF129 /* noop-file.swift */,
+				F625414D0E2D4760AB6856DB /* gusportal-Bridging-Header.h */,
+				354595E84972998D92E37F93 /* PrivacyInfo.xcprivacy */,
 			);
 			name = gusportal;
+			sourceTree = "<group>";
+		};
+		210E2700BA194B2AA7C24B34 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AFB338F5957F43A18DAADD6F /* Spectral-Regular.ttf */,
+				F6FAB52005A04A93A51108E5 /* Spectral-Light.ttf */,
+				78C0861AB0214008A52C8C06 /* Spectral-ExtraBold.ttf */,
+				B6BD302D3BC64F1485610FF8 /* Spectral-Medium.ttf */,
+				CE8F95F605764AF5BB48CF4E /* Spectral-SemiBold.ttf */,
+				D21249EFBB0046C485A1FF61 /* Spectral-LightItalic.ttf */,
+				F7A5CDF4964A444E894208BB /* Spectral-ExtraBoldItalic.ttf */,
+				784EB028DB884C6094E8F776 /* Spectral-MediumItalic.ttf */,
+				6CC127775F954BA3A1C4BB9F /* Spectral-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			path = "";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -93,7 +126,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				D65327D7A22EEC0BE12398D9 /* Pods */,
 				D7E4C46ADA2E9064B798F356 /* ExpoModulesProviders */,
-				FFCB89CE251B44BCB8807C08 /* Resources */,
+				210E2700BA194B2AA7C24B34 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -142,15 +175,6 @@
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
-		FFCB89CE251B44BCB8807C08 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				453B22B229D04C21A3E4143E /* Spectral-Regular.ttf */,
-			);
-			name = Resources;
-			path = "";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,13 +183,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "gusportal" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				A0AAA54CE95078CD542ABE06 /* [Expo] Configure project */,
+				6917D683D0584CEC5C4917D4 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				D616FE670635BC3FFF84D889 /* [CP] Embed Pods Frameworks */,
+				44F39B3D0028E483966571B6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,8 +239,16 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				1A24A62A72A647FC8D35202C /* Spectral-Regular.ttf in Resources */,
-				7CD8923A91B25588F7BD10CC /* PrivacyInfo.xcprivacy in Resources */,
+				DA75BB1A77BD4E0DB60D0DAE /* Spectral-Regular.ttf in Resources */,
+				6C8762C4CE454B649003580A /* Spectral-Light.ttf in Resources */,
+				7AB55DF1B94E485F8B06C3E1 /* Spectral-ExtraBold.ttf in Resources */,
+				9DF8699ED9834A78A3A27A3E /* Spectral-Medium.ttf in Resources */,
+				55B4F8D019FA4EAAA7C32195 /* Spectral-SemiBold.ttf in Resources */,
+				BCB21502787346968E486766 /* Spectral-LightItalic.ttf in Resources */,
+				5BC3FEFE77514C5199B65D22 /* Spectral-ExtraBoldItalic.ttf in Resources */,
+				C6002C43987347D28F6C0F07 /* Spectral-MediumItalic.ttf in Resources */,
+				82567D728AD34B878DA26EF3 /* Spectral-SemiBoldItalic.ttf in Resources */,
+				0816E6C983B1D09569B402E6 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +292,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		44F39B3D0028E483966571B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gusportal/Pods-gusportal-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gusportal/Pods-gusportal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6917D683D0584CEC5C4917D4 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-gusportal/expo-configure-project.sh\"\n";
+		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -290,43 +359,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gusportal/Pods-gusportal-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A0AAA54CE95078CD542ABE06 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-gusportal/expo-configure-project.sh\"\n";
-		};
-		D616FE670635BC3FFF84D889 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gusportal/Pods-gusportal-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gusportal/Pods-gusportal-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -337,7 +369,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				038E76CF9FA34B73B753B2C6 /* noop-file.swift in Sources */,
+				AA63D8180F3240A983E18692 /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +399,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gus-portal";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdl96dev.gusportal;
 				PRODUCT_NAME = gusportal;
 				SWIFT_OBJC_BRIDGING_HEADER = "gusportal/gusportal-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -395,7 +427,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.gus-portal";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ggdl96dev.gusportal;
 				PRODUCT_NAME = gusportal;
 				SWIFT_OBJC_BRIDGING_HEADER = "gusportal/gusportal-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

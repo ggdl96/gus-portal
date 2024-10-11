@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pressable, Text, TouchableHighlight, useWindowDimensions, View } from 'react-native';
 import colors from '@/styles/colors';
+import fonts from '@/styles/fonts';
 
 interface Props {
   value: string;
@@ -54,6 +55,7 @@ export default function History({
                     <Text
                       style={{
                         color: colors.contrastSecondary[900],
+                        fontFamily: fonts.fontFamilies.spectral.Regular,
                       }}>
                       {item}
                     </Text>

@@ -1,3 +1,4 @@
+import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -9,13 +10,13 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   title: {
-    fontWeight: '400',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     textAlign: 'center',
     color: '#f7f6f2',
     textTransform: 'uppercase',
   },
   subtitle: {
-    fontWeight: '400',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     textAlign: 'center',
     color: '#f7f6f2',
     textTransform: 'uppercase',

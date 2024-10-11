@@ -109,9 +109,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.gusportal'
+    namespace 'com.ggdl96dev.gusportal'
     defaultConfig {
-        applicationId 'com.gusportal'
+        applicationId 'com.ggdl96dev.gusportal'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

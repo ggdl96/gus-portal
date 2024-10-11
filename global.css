@@ -4,10 +4,10 @@
 
 @layer base {
     @font-face {
-        font-family: 'SpectralRegular';
+        font-family: 'Spectral-Light';
         font-style: normal;
-        font-weight: 400;
+        font-weight: 200;
         font-display: swap;
-        src: url(assets/fonts/spectral/Spectral-Regular.ttf) format('ttf');
+        src: url(assets/fonts/spectral/Spectral-Light.ttf) format('ttf');
     }
 }

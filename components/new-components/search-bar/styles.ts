@@ -1,6 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
 import colors from '@/styles/colors';
 import borders from '@/styles/borders';
+import fonts from '@/styles/fonts';
 
 const styles = StyleSheet.create({
   image: {
@@ -27,6 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     width: '100%',
     color: colors.contrastPrimary[10],
+    fontFamily: fonts.fontFamilies.spectral.Regular,
   },
   wrapperInput: { width: '100%' },
   sectionInput: {

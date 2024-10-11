@@ -12,9 +12,11 @@ import {
 import colors from '@/styles/colors';
 import useSpacing from '@/hooks/useSpacing';
 import SearchBar from '@/components/new-components/search-bar/search-bar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { useFonts } from 'expo-font';
+import fonts, { importFontsSetup } from '@/styles/fonts';
 
 const HeaderRight = () => {
   const [value, setValue] = useState<string>('');
@@ -82,6 +84,18 @@ export default function RootLayout() {
   // Prevent the splash screen from auto-hiding before asset loading is complete.
   SplashScreen.preventAutoHideAsync();
 
+  const [loaded, error] = useFonts(importFontsSetup);
+
+  useEffect(() => {
+    if (loaded || error) {
+      console.info('FONTS LOADED STATUS: ', loaded);
+      if (error) {
+        console.error('FONTS LOADED ERROR: ', error);
+      }
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack
@@ -103,5 +117,6 @@ const styles = StyleSheet.create({
     color: colors.contrastSecondary[950],
     fontWeight: '800',
     fontSize: 18,
+    fontFamily: fonts.fontFamilies.spectral.Light,
   },
 });

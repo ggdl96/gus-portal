@@ -1,4 +1,4 @@
-package com.gusportal
+package com.ggdl96dev.gusportal
 
 import android.os.Build
 import android.os.Bundle

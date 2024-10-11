@@ -25,7 +25,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="myapp"/>
-        <data android:scheme="com.gusportal"/>
+        <data android:scheme="com.ggdl96dev.gusportal"/>
         <data android:scheme="exp+gus-portal"/>
       </intent-filter>
     </activity>
