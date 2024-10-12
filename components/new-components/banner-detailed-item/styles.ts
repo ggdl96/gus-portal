@@ -6,12 +6,9 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
   },
   containerImage: {
-    width: '100%',
     backgroundColor: '#333',
     borderRadius: borders.radius.medium,
   },
@@ -19,6 +16,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   containerText: { flex: 1 },
   title: {

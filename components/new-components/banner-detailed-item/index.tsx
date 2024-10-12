@@ -27,16 +27,10 @@ const BannerDetailedItem = ({
   };
 
   return (
-    <Pressable onPress={handleOnPress} style={[styles.container, { borderRadius }]}>
-      <View
-        style={[
-          styles.containerImage,
-          {
-            height,
-          },
-        ]}>
+    <Pressable onPress={handleOnPress} style={[styles.container, { borderRadius, width }]}>
+      <View style={[styles.containerImage, { width, borderRadius: borders.radius.medium, height }]}>
         <Image
-          style={[styles.image, { width, borderRadius: borders.radius.medium, height }]}
+          style={[styles.image, { borderRadius: borders.radius.medium }]}
           source={{ uri: data.image }}
           resizeMode="cover"
         />

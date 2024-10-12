@@ -11,6 +11,7 @@ const DefaultList = <T extends unknown>({
   renderItem,
   keyExtractor,
   horizontal,
+  style,
 }: Props<T>) => {
   return (
     <FlatList
@@ -19,7 +20,8 @@ const DefaultList = <T extends unknown>({
       data={data}
       keyExtractor={keyExtractor}
       ItemSeparatorComponent={Separator}
-      style={styles.list}
+      style={[styles.list, style]}
+      contentContainerStyle={{ alignItems: horizontal ? 'flex-start' : 'center' }}
     />
   );
 };

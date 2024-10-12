@@ -33,9 +33,9 @@ const BannerDetailedSlider = ({ data, horizontal = true, displaySeller = true }:
     <DefaultList
       horizontal={horizontal}
       data={data}
-      style={styles.fullWidth}
+      style={styles.list}
       pagingEnabled={true}
-      renderItem={({ item, index }) => (
+      renderItem={({ item }) => (
         <BannerDetailedItem
           data={item}
           width={width}

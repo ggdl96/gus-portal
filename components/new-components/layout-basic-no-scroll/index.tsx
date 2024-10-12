@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import '../../../global.css';
 import useSpacing from '@/hooks/useSpacing';
 import LayoutSafeArea from '../layout-safe-area';
@@ -9,21 +9,16 @@ interface Props {
   children: React.ReactNode;
 }
 
-const LayoutBasic = ({ children }: Props) => {
+const LayoutBasicNoScroll = ({ children }: Props) => {
   const spacing = useSpacing();
 
   return (
     <LayoutSafeArea>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={[
-          styles.scrollViewContainer,
-          { padding: spacing.defaultHorizontalSpacing },
-        ]}>
+      <View style={[styles.container, { padding: spacing.defaultHorizontalSpacing }]}>
         {children}
-      </ScrollView>
+      </View>
     </LayoutSafeArea>
   );
 };
 
-export default LayoutBasic;
+export default LayoutBasicNoScroll;
