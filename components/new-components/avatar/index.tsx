@@ -9,9 +9,7 @@ interface Props {
 
 const Avatar = ({ src }: Props) => {
   const dimensions = useWindowDimensions();
-  console.log('dimensions: ', dimensions);
   const size = dimensions.width > screens.lg ? 50 : dimensions.width * 0.1;
-  console.log('dimensions: ', dimensions);
 
   const borderRadius = size / 6;
   return (
