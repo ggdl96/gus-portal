@@ -1,83 +1,10 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { router, SplashScreen, Stack } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import {
-  NativeSyntheticEvent,
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInputFocusEventData,
-  View,
-} from 'react-native';
-import colors from '@/styles/colors';
-import useSpacing from '@/hooks/useSpacing';
-import SearchBar from '@/components/new-components/search-bar/search-bar';
-import { useEffect, useState } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
-import fonts, { importFontsSetup } from '@/styles/fonts';
-
-const HeaderRight = () => {
-  const [value, setValue] = useState<string>('');
-
-  const handleOnCancel = function (): void {};
-  const handleOnFocus = function ({ nativeEvent }: { nativeEvent: any }): void {};
-  const handleOnPressSearchHistoryItem = function (item: string): void {};
-  const handleOnDeleteHistoryItem = function (item: string): void {};
-  const handleOnClosePreviousSearch = function (): void {};
-
-  const handleOnBlur = function (e: NativeSyntheticEvent<TextInputFocusEventData>): void {};
-
-  return (
-    <SearchBar
-      value={value}
-      onChangeValue={function (text: string): void {
-        setValue(text);
-      }}
-      cancelButton={false}
-      cancelPress={handleOnCancel}
-      onFocus={handleOnFocus}
-      onBlur={handleOnBlur}
-      showPreviousSearch={false}
-      previousSearch={[]}
-      onPressSearchHistoryItem={handleOnPressSearchHistoryItem}
-      onDeleteHistoryItem={handleOnDeleteHistoryItem}
-      onClosePreviousSearch={handleOnClosePreviousSearch}
-      disabledPreviousSearch={false}
-    />
-  );
-};
-
-const Header = (props: NativeStackHeaderProps) => {
-  const handleOnPress = () => {
-    router.navigate('/');
-  };
-
-  const { defaultHorizontalSpacing } = useSpacing();
-  const insets = useSafeAreaInsets();
-
-  return (
-    <View
-      style={{
-        paddingTop: insets.top,
-        paddingLeft: insets.left,
-        paddingRight: insets.right,
-        borderBottomWidth: 2,
-        borderBottomColor: colors.contrastPrimary[20],
-      }}
-      className="w-full flex-row items-center justify-between bg-contrastPrimary-400">
-      <Pressable onPress={handleOnPress} style={{ paddingHorizontal: defaultHorizontalSpacing }}>
-        <Text style={styles.headerTitleStyle}>gus portal</Text>
-      </Pressable>
-      <View
-        style={{ paddingHorizontal: defaultHorizontalSpacing }}
-        className="flex-row justify-end">
-        <HeaderRight />
-      </View>
-    </View>
-  );
-};
+import { importFontsSetup } from '@/styles/fonts';
+import Header from '@/components/new-components/header';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -108,15 +35,3 @@ export default function RootLayout() {
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  headerStyle: {
-    backgroundColor: colors.contrastPrimary[10],
-  },
-  headerTitleStyle: {
-    color: colors.contrastSecondary[950],
-    fontWeight: '800',
-    fontSize: 18,
-    fontFamily: fonts.fontFamilies.spectral.Light,
-  },
-});

@@ -4,14 +4,12 @@ import borders from '@/styles/borders';
 import fonts from '@/styles/fonts';
 
 const styles = StyleSheet.create({
-  image: {
-    height: 16,
-    width: 16,
-    backgroundColor: 'red',
+  containerSearchIcon: {
+    paddingLeft: 6,
   },
   wrapper: {
     height: Platform.OS === 'ios' ? 48 : 60,
-    width: '60%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -40,8 +38,8 @@ const styles = StyleSheet.create({
     borderColor: '#404040',
     borderRadius: borders.radius.medium,
     padding: borders.radius.high,
-    width: '100%',
     backgroundColor: colors.contrastSecondary[900],
+    flex: 1,
   },
 });
 

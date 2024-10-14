@@ -14,6 +14,7 @@ import History from './history/history';
 import colors from '@/styles/colors';
 import styles from './styles';
 import { router } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface Props {
   value: string;
@@ -21,7 +22,6 @@ interface Props {
   cancelButton: boolean;
   cancelPress: () => void;
   placeholder?: string;
-  dark?: boolean;
   handleKeyDown?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
   onFocus: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   onBlur: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
@@ -79,30 +79,30 @@ const SearchBar = ({
   return (
     <View style={styles.wrapper}>
       <View style={styles.sectionInput}>
-        <View style={styles.wrapperInput}>
-          <TextInput
-            value={value}
-            onChangeText={onChangeValue}
-            placeholder={placeholder ?? 'Search'}
-            onFocus={handleOnFocus}
-            onBlur={onBlur}
-            onKeyPress={handleKeyDown}
-            autoCorrect={false}
-            returnKeyType="search"
-            style={styles.input}
-            placeholderTextColor={colors.contrastPrimary[300]}
-            onSubmitEditing={(e) => {
-              handleOnPressSearch();
-            }}
-          />
-        </View>
+        <TextInput
+          value={value}
+          onChangeText={onChangeValue}
+          placeholder={placeholder ?? 'Search'}
+          onFocus={handleOnFocus}
+          onBlur={onBlur}
+          onKeyPress={handleKeyDown}
+          autoCorrect={false}
+          returnKeyType="search"
+          style={styles.input}
+          placeholderTextColor={colors.contrastPrimary[300]}
+          onSubmitEditing={(e) => {
+            handleOnPressSearch();
+          }}
+        />
       </View>
       {cancelButton ? (
         <Pressable onPress={() => cancelPress()} style={styles.cancel}>
           <Text className="color-contrastPrimary-500">Cancel</Text>
         </Pressable>
       ) : null}
-      <Pressable style={styles.image} onPress={handleOnPressSearch} />
+      <Pressable style={styles.containerSearchIcon} onPress={handleOnPressSearch}>
+        <Ionicons name="search-outline" color={colors.contrastSecondary[800]} size={22} />
+      </Pressable>
 
       {active && !disabledPreviousSearch ? (
         <TouchableOpacity onPress={handlePressOutside}>
