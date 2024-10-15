@@ -4,10 +4,14 @@ import { render } from '@testing-library/react-native';
 
 describe('Avatar', () => {
   test('given no src prop, it should not fail rendering', () => {
-    render(<Avatar />).getAllByTestId('avatarNoImage');
+    const avatarElement = render(<Avatar />).getAllByTestId('avatarNoImage');
+
+    expect(avatarElement).toBeDefined();
   });
 
   test('given a src prop, it should not fail rendering', () => {
-    render(<Avatar src={{ uri: '' }} />).getAllByTestId('avatarImage');
+    const avatarElement = render(<Avatar src={{ uri: '' }} />).getAllByTestId('avatarImage');
+
+    expect(avatarElement).toBeDefined();
   });
 });
