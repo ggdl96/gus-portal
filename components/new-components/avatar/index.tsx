@@ -10,8 +10,8 @@ interface Props {
 const Avatar = ({ src }: Props) => {
   const dimensions = useWindowDimensions();
   const size = dimensions.width > screens.lg ? 50 : dimensions.width * 0.1;
-
   const borderRadius = size / 6;
+
   return (
     <View style={{ paddingRight: 10 }}>
       {typeof src === 'undefined' ? (
