@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import { useFonts } from 'expo-font';
 import { importFontsSetup } from '@/styles/fonts';
 import Header from '@/components/new-components/header';
+import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+
+const HeaderProp = (_props: NativeStackHeaderProps) => <Header />;
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -27,7 +30,7 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack
         screenOptions={{
-          header: (props) => <Header {...props} />,
+          header: HeaderProp,
         }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="product" />
