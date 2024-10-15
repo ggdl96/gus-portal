@@ -2,11 +2,10 @@ import { router } from 'expo-router';
 import { Pressable, Text, View } from 'react-native';
 import useSpacing from '@/hooks/useSpacing';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 import HeaderRight from '../header-right';
 import styles from './styles';
 
-const Header = (props: NativeStackHeaderProps) => {
+const Header = () => {
   const handleOnPress = () => {
     router.navigate('/');
   };
