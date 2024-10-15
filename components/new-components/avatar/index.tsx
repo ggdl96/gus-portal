@@ -16,6 +16,7 @@ const Avatar = ({ src }: Props) => {
     <View style={{ paddingRight: 10 }}>
       {typeof src === 'undefined' ? (
         <View
+          testID="avatarNoImage"
           style={[
             styles.noImageDisplay,
             {
@@ -27,6 +28,7 @@ const Avatar = ({ src }: Props) => {
         />
       ) : (
         <Image
+          testID="avatarImage"
           source={src}
           style={[
             styles.image,
@@ -36,6 +38,7 @@ const Avatar = ({ src }: Props) => {
               borderRadius,
             },
           ]}
+          alt="avatar image"
         />
       )}
     </View>
