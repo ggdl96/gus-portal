@@ -1,4 +1,4 @@
-import BannerSlider from '@/components/new-components/banner-slider/banner-slider';
+import BannerSlider from '@/components/new-components/banner-slider';
 import BannerSmallSectionCarousel from '@/components/new-components/banner-small-section-carousel';
 import React from 'react';
 import {

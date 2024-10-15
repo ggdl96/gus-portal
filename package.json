@@ -26,7 +26,10 @@
       "!**/nativewind-env.d.ts/**",
       "!**/metro.config.js/**",
       "!**.eslintrc.js/**"
-    ]
+    ],
+    "moduleNameMapper": {
+      "global.css": "<rootDir>/__mocks__/cssStub.js"
+    }
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
