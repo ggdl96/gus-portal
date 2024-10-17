@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, useWindowDimensions, View } from 'react-native';
 import styles from './styles';
 
-export const BannerSliderSkeleton = () => {
+const BannerSliderSkeleton = () => {
   const dimensions = useWindowDimensions();
   const containerWidth = dimensions.width * 0.81;
   const containerHeight = containerWidth * 1.8;
@@ -38,3 +38,5 @@ export const BannerSliderSkeleton = () => {
     </View>
   );
 };
+
+export default BannerSliderSkeleton;

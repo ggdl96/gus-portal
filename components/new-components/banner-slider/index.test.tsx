@@ -14,7 +14,7 @@ describe('BannerSlider', () => {
       expect(jsonResultContent.children[0].children).toBeNull();
     });
 
-    describe('content type', () => {
+    describe('"content" type', () => {
       it('given array should render elements', async () => {
         const data = [
           {
@@ -51,6 +51,43 @@ describe('BannerSlider', () => {
 
         expect(jsonResult.children[0].children).toHaveLength(2);
         expect(titleElement).toHaveLength(2);
+      });
+    });
+
+    describe('"product" type', () => {
+      it('given array should render elements', async () => {
+        const data = [
+          {
+            id: 'a234df24df34534',
+            title: '',
+            subTitle: '',
+            isOwned: false,
+            image: '',
+            seller: {
+              id: 'a234df24da34537',
+              name: 'Seller 1',
+              image: '',
+            },
+          },
+          {
+            id: 'a234df24df34537',
+            title: '',
+            subTitle: '',
+            isOwned: false,
+            image: '',
+            seller: {
+              id: 'a234df24da34537',
+              name: 'Seller 1',
+              image: '',
+            },
+          },
+        ];
+
+        const renderResult = render(<BannerSlider data={data} type={'product'} />);
+
+        const jsonResult = renderResult.toJSON();
+
+        expect(jsonResult.children[0].children).toHaveLength(2);
       });
     });
   });

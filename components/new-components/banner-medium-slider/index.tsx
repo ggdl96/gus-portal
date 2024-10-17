@@ -17,7 +17,7 @@ const BannerMediumSlider = ({ data }: Props) => {
   const height = width * 1.5;
 
   if (data?.length) {
-    const _handleOnPress = () => {};
+    const handleOnPress = () => {};
 
     return (
       <DefaultList
@@ -26,7 +26,7 @@ const BannerMediumSlider = ({ data }: Props) => {
         horizontal
         renderItem={({ item, index }) => (
           <BannerMediumItem
-            onPress={() => _handleOnPress()}
+            onPress={handleOnPress}
             data={item}
             source={{ uri: item.image }}
             width={width}

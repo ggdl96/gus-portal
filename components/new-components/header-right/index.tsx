@@ -1,6 +1,7 @@
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 import SearchBar from '@/components/new-components/search-bar/search-bar';
 import { useState } from 'react';
+
 const HeaderRight = () => {
   const [value, setValue] = useState<string>('');
 

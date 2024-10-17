@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BannerSliderSkeleton should render properly 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    horizontal={true}
+  >
+    <View>
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#292929",
+              },
+              {
+                "height": 1093.5,
+                "width": 607.5,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#292929",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 15,
+                  "height": "10%",
+                  "width": "50%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "70%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "70%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "30%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 15,
+                  "height": "18%",
+                  "width": "80%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            [
+              {
+                "backgroundColor": "#292929",
+              },
+              {
+                "height": 1093.5,
+                "width": 607.5,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "backgroundColor": "#292929",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 15,
+                  "height": "10%",
+                  "width": "50%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "70%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "70%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 10,
+                  "height": "8%",
+                  "width": "30%",
+                }
+              }
+            />
+            <View
+              style={
+                {
+                  "backgroundColor": "#232323",
+                  "borderRadius": 15,
+                  "height": "18%",
+                  "width": "80%",
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

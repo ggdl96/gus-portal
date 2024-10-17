@@ -2,7 +2,7 @@ import React from 'react';
 import BannerSmallSlider from '../banner-small';
 import ContentWrapper from '../content-wrapper';
 import { BannerSmall } from '@/models/banner-small';
-import { BannerSmallSkeleton } from '../banner-small-skeleton';
+import BannerSmallSkeleton from '../banner-small-skeleton';
 import { useWindowDimensions } from 'react-native';
 import borders from '@/styles/borders';
 import { screens } from '@/styles/screens';

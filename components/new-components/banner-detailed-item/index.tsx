@@ -6,6 +6,7 @@ import { Image, View, Pressable, AnimatableNumericValue, DimensionValue } from '
 import styles from './styles';
 import TitleWithAvatar from '../title-with-avatar';
 import { router } from 'expo-router';
+import BannerDescription from '../banner-description';
 
 interface PropsItem {
   data: BannerDetailed;
@@ -43,6 +44,7 @@ const BannerDetailedItem = ({
             id={data.seller.id}
           />
         ) : null}
+        <BannerDescription title={data.title} />
       </View>
     </Pressable>
   );

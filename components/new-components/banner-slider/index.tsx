@@ -22,7 +22,7 @@ const BannerSlider = ({ data, type }: Props) => {
       renderItem={({ item }) => {
         return (
           <Banner
-            redirectOnPress={redirectToPreview}
+            onPress={redirectToPreview}
             source={{
               uri: item.image,
             }}>

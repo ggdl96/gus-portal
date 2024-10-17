@@ -10,7 +10,7 @@ import {
   NativeSyntheticEvent,
   TextInputFocusEventData,
 } from 'react-native';
-import History from './history/history';
+import History from './history';
 import colors from '@/styles/colors';
 import styles from './styles';
 import { router } from 'expo-router';
@@ -100,7 +100,10 @@ const SearchBar = ({
           <Text className="color-contrastPrimary-500">Cancel</Text>
         </Pressable>
       ) : null}
-      <Pressable style={styles.containerSearchIcon} onPress={handleOnPressSearch}>
+      <Pressable
+        style={styles.containerSearchIcon}
+        onPress={handleOnPressSearch}
+        testID="searchIcon">
         <Ionicons name="search-outline" color={colors.contrastSecondary[800]} size={22} />
       </Pressable>
 

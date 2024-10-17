@@ -10,7 +10,7 @@ interface Props {
   borderRadius: AnimatableNumericValue;
 }
 
-export const BannerSmallSkeleton = ({ id, width, height, borderRadius }: Props) => {
+const BannerSmallSkeleton = ({ id, width, height, borderRadius }: Props) => {
   return (
     <View
       key={`bannerSmallSlideSkeleton-${id}`}
@@ -33,3 +33,5 @@ export const BannerSmallSkeleton = ({ id, width, height, borderRadius }: Props) 
     </View>
   );
 };
+
+export default BannerSmallSkeleton;

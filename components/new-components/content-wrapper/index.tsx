@@ -11,21 +11,24 @@ type Props = {
   seeAll?: boolean;
   onSeeAll?: () => void;
 };
+
 const ContentWrapper = ({ text, children, seeAll, onSeeAll }: Props) => {
   const handleOnSeeAll = () => {
-    if (typeof onSeeAll === 'function') onSeeAll();
+    if (onSeeAll) {
+      onSeeAll();
+    }
   };
   const { defaultHorizontalSpacing } = useSpacing();
 
   return (
     <View style={styles.container}>
       <View style={[styles.containerInner, { paddingHorizontal: defaultHorizontalSpacing }]}>
-        {text && <BannerSubTitle title={text} />}
-        {seeAll && (
+        {text ? <BannerSubTitle title={text} /> : null}
+        {seeAll ? (
           <Pressable onPress={handleOnSeeAll}>
             <BannerSubTitle title="SEE ALL" />
           </Pressable>
-        )}
+        ) : null}
       </View>
       <View style={styles.containerChildren}>{children}</View>
     </View>
