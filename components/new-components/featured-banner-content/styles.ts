@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 1,
-    padding: 10,
-    justifyContent: 'flex-end',
+    width: '100%',
+    justifyContent: 'center',
   },
 });
 

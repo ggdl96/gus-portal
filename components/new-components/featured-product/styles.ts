@@ -4,10 +4,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     height: '100%',
     width: '100%',
-    padding: 10,
   },
   title: {
     fontFamily: fonts.fontFamilies.spectral.Medium,

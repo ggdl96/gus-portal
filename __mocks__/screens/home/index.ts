@@ -1,7 +1,8 @@
 const dataAux = {
   id: 'zdfgvbfghtr6gh8ghjl67j',
-  title: 'Some Title!',
-  subTitle: 'sub title',
+  title: 'Some Long important Title!',
+  subTitle:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius erat at erat condimentum fringilla. Cras auctor congue ex quis tincidunt. Vivamus sed est sodales erat iaculis dignissim ac ac lacus.',
   isOwned: false,
   seller: {
     id: 'fgdfg98dfg4g3glkj',
