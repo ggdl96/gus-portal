@@ -14,12 +14,18 @@ type Props = {
 const FeaturedProduct = ({ data }: Props) => {
   return (
     <View style={styles.container}>
-      <BannerSection backgroundColor={colors.tertiary[650]}>
-        <BannerTitle title={data.title} size="4xl" />
-      </BannerSection>
-      <BannerSection backgroundColor={colors.contrastPrimary[30]}>
-        <BannerSubTitle title={data.subTitle} />
-      </BannerSection>
+      <View className="w-full justify-end flex flex-1">
+        <BannerSection backgroundColor={colors.tertiary[650]}>
+          <BannerTitle title={data.title} size="4xl" />
+        </BannerSection>
+      </View>
+      <View className="w-full flex flex-row justify-end flex-1">
+        <View className="w-full">
+          <BannerSection backgroundColor={colors.contrastPrimary[30]}>
+            <BannerSubTitle title={data.subTitle} />
+          </BannerSection>
+        </View>
+      </View>
     </View>
   );
 };

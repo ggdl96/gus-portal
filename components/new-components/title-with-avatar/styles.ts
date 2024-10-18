@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingVertical: 12,
+    maxWidth: '100%',
   },
 });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GestureResponderEvent, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
 import styles from './styles';
 import Avatar from '../avatar';
 import BannerTitle from '../banner-title';
@@ -22,12 +22,12 @@ const TitleWithAvatar = ({ title, src, style, id, shouldRedirect = true }: Props
   };
 
   return (
-    <TouchableOpacity onPress={_handleOnPress}>
+    <Pressable onPress={_handleOnPress}>
       <View style={[styles.container, style]}>
         <Avatar src={src} />
         <BannerTitle title={title} />
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

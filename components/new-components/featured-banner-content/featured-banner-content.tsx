@@ -16,19 +16,23 @@ const FeaturedBannerContent = ({ data }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.body}>
-        <BannerSection backgroundColor={colors.tertiary[650]}>
-          <BannerTitle title={data.title} size="4xl" />
-        </BannerSection>
-        <View className="flex flex-row justify-end">
-          <View className="bg-contrastPrimary-30 pl-2 pr-2">
-            <TitleWithAvatar
-              title={data.seller.name}
-              id={data.id}
-              src={{
-                uri: data.seller.image,
-              }}
-              style={styles.titleWithAvatar}
-            />
+        <View className="w-full justify-end flex flex-1">
+          <BannerSection backgroundColor={colors.tertiary[650]}>
+            <BannerTitle title={data.title} size="4xl" />
+          </BannerSection>
+        </View>
+        <View className="flex flex-row justify-end flex-1 w-full">
+          <View className="max-w-full">
+            <View className="bg-contrastPrimary-30 pl-2 pr-2 flex max-w-full">
+              <TitleWithAvatar
+                title={data.seller.name}
+                id={data.id}
+                src={{
+                  uri: data.seller.image,
+                }}
+                style={styles.titleWithAvatar}
+              />
+            </View>
           </View>
         </View>
       </View>
