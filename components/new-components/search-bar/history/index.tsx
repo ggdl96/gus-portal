@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, Text, TouchableHighlight, useWindowDimensions, View } from 'react-native';
+import { Pressable, Text, useWindowDimensions, View } from 'react-native';
 import styles from './styles';
 
 interface Props {
@@ -25,7 +25,7 @@ export default function History({
         ? previousSearch
             .filter((item) => item.includes(value) && item !== value)
             .map((item) => (
-              <TouchableHighlight
+              <Pressable
                 onPressOut={() => onPressSearchHistoryItem(item)}
                 key={`searchHistory_${item}`}>
                 <View
@@ -44,7 +44,7 @@ export default function History({
                     </Pressable>
                   </View>
                 </View>
-              </TouchableHighlight>
+              </Pressable>
             ))
         : null}
     </View>

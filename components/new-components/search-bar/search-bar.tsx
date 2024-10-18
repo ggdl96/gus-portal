@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   Keyboard,
-  TouchableOpacity,
   View,
   Text,
   TextInput,
@@ -108,7 +107,7 @@ const SearchBar = ({
       </Pressable>
 
       {active && !disabledPreviousSearch ? (
-        <TouchableOpacity onPress={handlePressOutside}>
+        <Pressable onPress={handlePressOutside}>
           <History
             onDeleteHistoryItem={handleOnDeleteHistoryItem}
             onPressSearchHistoryItem={handleOnPressSearchHistoryItem}
@@ -116,7 +115,7 @@ const SearchBar = ({
             showPreviousSearch={showPreviousSearch}
             previousSearch={previousSearch}
           />
-        </TouchableOpacity>
+        </Pressable>
       ) : null}
     </View>
   );
