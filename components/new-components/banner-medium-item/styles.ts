@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     width: '100%',
     height: '100%',
-    padding: 10,
   },
   bodyContent: {
     display: 'flex',
