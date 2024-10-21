@@ -1,6 +1,4 @@
 import borders from '@/styles/borders';
-import colors from '@/styles/colors';
-import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -13,45 +11,12 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: borders.radius.medium,
   },
-  views: {
-    fontStyle: 'normal',
-    fontFamily: fonts.fontFamilies.spectral.Medium,
-    fontSize: 12,
-    textTransform: 'uppercase',
-    color: colors.contrastSecondary[950],
-    width: ' 100%',
-  },
-  containerViews: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'flex-start',
-    paddingBottom: 6,
-  },
-  containerTitle: {
-    width: '100%',
-    justifyContent: 'flex-end',
-    flex: 1,
-    paddingBottom: 2,
-    display: 'flex',
-  },
-  sectionBottom: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    borderRadius: borders.radius.medium,
-  },
   content: {
     flex: 1,
     display: 'flex',
     justifyContent: 'flex-end',
     width: '100%',
     height: '100%',
-    paddingHorizontal: 10,
-    paddingVertical: 2,
     borderRadius: borders.radius.medium,
   },
 });

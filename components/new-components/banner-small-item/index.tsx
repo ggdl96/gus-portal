@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Image,
   View,
-  Text,
   Pressable,
   GestureResponderEvent,
   DimensionValue,
@@ -11,6 +10,9 @@ import {
 import { BannerSmall } from '@/models/banner-small';
 import styles from './styles';
 import BannerTitle from '../banner-title';
+import BannerSection from '../banner-section/banner-section';
+import colors from '@/styles/colors';
+import BannerSubTitle from '../banner-subtitle';
 
 type Props = {
   onPress: (event: GestureResponderEvent) => void;
@@ -34,13 +36,15 @@ const BannerSmallItem = ({ data, onPress, width, height, borderRadius }: Props) 
       ]}>
       <Image style={styles.image} source={{ uri: data.urlImage }} />
       <View style={styles.content}>
-        <View style={styles.sectionBottom}>
-          <View style={styles.containerViews}>
-            <BannerTitle title={data.title} />
-          </View>
-          <View style={styles.containerViews}>
-            <Text style={styles.views}>{data.views} VIEWS</Text>
-          </View>
+        <View className="w-full justify-end flex flex-1">
+          <BannerSection backgroundColor={colors.tertiary[650]}>
+            <BannerTitle title={data.title} size="3xl" />
+          </BannerSection>
+        </View>
+        <View className="w-full flex flex-1">
+          <BannerSection backgroundColor={colors.primary[650]}>
+            <BannerSubTitle title={`${data.views} views`} />
+          </BannerSection>
         </View>
       </View>
     </Pressable>
