@@ -91,6 +91,9 @@ export const DETAILED_BANNERS_DATA = [
     image:
       'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Test',
+    price: 1222,
+    currencyDisplay: '$',
+    currencyCode: 'USD',
   },
   {
     seller: {
@@ -103,5 +106,8 @@ export const DETAILED_BANNERS_DATA = [
     image:
       'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     title: 'Test',
+    price: 1222,
+    currencyDisplay: '$',
+    currencyCode: 'USD',
   },
 ];

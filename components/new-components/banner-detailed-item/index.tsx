@@ -7,6 +7,7 @@ import styles from './styles';
 import TitleWithAvatar from '../title-with-avatar';
 import { router } from 'expo-router';
 import BannerDescription from '../banner-description';
+import BannerTitle from '../banner-title';
 
 interface PropsItem {
   data: BannerDetailed;
@@ -38,13 +39,22 @@ const BannerDetailedItem = ({
       </View>
       <View style={styles.body}>
         {displaySeller ? (
-          <TitleWithAvatar
-            src={{ uri: data.seller.image }}
-            title={data.seller.name}
-            id={data.seller.id}
-          />
+          <View className="flex flex-row w-1/2 pr-2">
+            <TitleWithAvatar
+              src={{ uri: data.seller.image }}
+              title={data.seller.name}
+              id={data.seller.id}
+            />
+          </View>
         ) : null}
-        <BannerDescription title={data.title} />
+        <View className="flex w-1/2 pl-2" style={{ paddingVertical: 12 }}>
+          <View className="w-full flex flex-row justify-end">
+            <BannerDescription title={data.title} />
+          </View>
+          <View className="w-full flex flex-row justify-end">
+            <BannerTitle title={`${data.currencyDisplay} ${data.price}`} size="2xl" />
+          </View>
+        </View>
       </View>
     </Pressable>
   );

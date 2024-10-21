@@ -22,9 +22,9 @@ const TitleWithAvatar = ({ title, src, style, id, shouldRedirect = true }: Props
   };
 
   return (
-    <Pressable onPress={_handleOnPress}>
-      <View style={[styles.container, style]}>
-        <Avatar src={src} />
+    <Pressable onPress={_handleOnPress} style={[styles.container, style]}>
+      <Avatar src={src} />
+      <View className="flex flex-row flex-wrap  w-2/3">
         <BannerTitle title={title} />
       </View>
     </Pressable>

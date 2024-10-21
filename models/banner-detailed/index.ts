@@ -5,4 +5,7 @@ export interface BannerDetailed {
   id: string;
   image: string;
   title: string;
+  price: number;
+  currencyDisplay: string;
+  currencyCode: string;
 }
