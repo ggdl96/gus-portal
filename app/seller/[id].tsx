@@ -1,40 +1,52 @@
 import React from 'react';
 
-import '../../global.css';
-import LayoutBasic from '@/components/new-components/layout-basic';
 import { DETAILED_BANNERS_DATA } from '../../__mocks__/screens/home';
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
-import { View, Text } from 'react-native';
+import { View, Text, useWindowDimensions } from 'react-native';
 import BannerDescription from '@/components/new-components/banner-description';
 import ContentWrapper from '@/components/new-components/content-wrapper';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import '../../global.css';
+import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scroll';
 
 export default function Index() {
+  const dimensions = useWindowDimensions();
   return (
-    <LayoutBasic>
-      <TitleWithAvatar
-        title={DETAILED_BANNERS_DATA[0].seller.name}
-        src={{ uri: DETAILED_BANNERS_DATA[0].seller.image }}
-      />
-      <View className="flex w-full">
-        <Text className="color-contrastSecondary-900">Reputation: TOP</Text>
-        <BannerDescription title="Here should go a short description of this particular seller." />
-        <View className="pt-14 w-full flex-1">
+    <LayoutBasicNoScroll>
+      <View className="flex flex-row flex-wrap w-full pb-4">
+        <TitleWithAvatar
+          title={DETAILED_BANNERS_DATA[0].seller.name}
+          src={{ uri: DETAILED_BANNERS_DATA[0].seller.image }}
+        />
+      </View>
+      <View className="flex w-full flex-1 flex-wrap">
+        <Text className="color-contrastSecondary-900 w-full">Reputation: TOP</Text>
+        <View className="pt-6 w-full flex flex-row">
+          <BannerDescription title="Here should go a short description of this particular seller." />
+        </View>
+        <View className="w-full flex-1">
           <Text className="color-primary-650">Location: Country state/province City ST 12345</Text>
           <View className="pt-2" />
           <Text className="color-contrastSecondary-900">SALES IN LAST MONTH: 1235.00</Text>
           <View className="pt-2" />
           <View className="pt-6" />
-          <ContentWrapper text={'Data 1'} key={`ThemedContentWrapper`} seeAll>
-            <BannerDetailedSlider
-              data={DETAILED_BANNERS_DATA}
-              horizontal={true}
-              displaySeller={false}
-            />
-          </ContentWrapper>
+          <View className="flex flex-row w-full">
+            <ContentWrapper text={'Data 1'} key={`ThemedContentWrapper`} seeAll>
+              <BannerDetailedSlider
+                data={DETAILED_BANNERS_DATA}
+                horizontal={true}
+                displaySeller={false}
+              />
+            </ContentWrapper>
+          </View>
+          <View
+            className="flex flex-row w-full border-t-2 border-t-contrastPrimary-80"
+            style={{
+              height: dimensions.height * 0.18,
+            }}
+          />
         </View>
       </View>
-    </LayoutBasic>
+    </LayoutBasicNoScroll>
   );
 }

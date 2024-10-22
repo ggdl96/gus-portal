@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import '../../../global.css';
 import useSpacing from '@/hooks/useSpacing';
 import LayoutSafeArea from '../layout-safe-area';
 import styles from './styles';
+import Footer from '@/components/new-components/footer';
 
 interface Props {
   children: React.ReactNode;
@@ -15,12 +16,19 @@ const LayoutBasic = ({ children }: Props) => {
   return (
     <LayoutSafeArea>
       <ScrollView
+        className="w-full lg:w-3/4 flex align-middle"
         style={styles.scrollView}
-        contentContainerStyle={[
-          styles.scrollViewContainer,
-          { padding: spacing.defaultHorizontalSpacing },
-        ]}>
-        {children}
+        contentContainerStyle={styles.scrollViewContainer}>
+        <View
+          style={[
+            styles.containerChildren,
+            {
+              paddingHorizontal: spacing.defaultHorizontalSpacing,
+            },
+          ]}>
+          {children}
+        </View>
+        <Footer />
       </ScrollView>
     </LayoutSafeArea>
   );

@@ -5,11 +5,11 @@ import { useWindowDimensions } from 'react-native';
 const useSpacing = () => {
   const dimensions = useWindowDimensions();
 
-  const [defaultHorizontalSpacing, setDefaultHorizontalSpacing] = useState(20);
+  const [defaultHorizontalSpacing, setDefaultHorizontalSpacing] = useState<number>(14);
 
   useEffect(() => {
     if (dimensions.width > screens.lg) {
-      setDefaultHorizontalSpacing(26);
+      setDefaultHorizontalSpacing(18);
     }
   }, [dimensions.width]);
 

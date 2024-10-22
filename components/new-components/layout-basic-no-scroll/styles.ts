@@ -3,7 +3,8 @@ import colors from '@/styles/colors';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.contrastPrimary[10],
+    backgroundColor: colors.contrastPrimary[50],
+    flex: 1,
   },
 });
 

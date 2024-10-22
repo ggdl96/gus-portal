@@ -110,4 +110,35 @@ export const DETAILED_BANNERS_DATA = [
     currencyDisplay: '$',
     currencyCode: 'USD',
   },
+
+  {
+    seller: {
+      id: 'kfghrty4043gkv5kl36v',
+      name: 'another name',
+      image:
+        'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    id: 'k5h4509nbf5hd363s',
+    image:
+      'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'Test',
+    price: 4221,
+    currencyDisplay: '$',
+    currencyCode: 'USD',
+  },
+  {
+    seller: {
+      id: 'kfgh3zy2043gkv5kl369',
+      name: 'name 2',
+      image:
+        'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    },
+    id: 'k5h4509nbf5hd36362dcx',
+    image:
+      'https://images.pexels.com/photos/1743165/pexels-photo-1743165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    title: 'Test',
+    price: 3221,
+    currencyDisplay: '$',
+    currencyCode: 'USD',
+  },
 ];
