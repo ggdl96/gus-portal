@@ -2,9 +2,9 @@ import { renderHook } from '@testing-library/react-native';
 import useSpacing from './useSpacing';
 
 describe('useSpacing', () => {
-  it('execution of this hook should retun {current: { defaultHorizontalSpacing: 20 }}', () => {
+  it('execution of this hook should retun {current: { defaultHorizontalSpacing: 14 }}', () => {
     const hookRenderResult = renderHook(() => useSpacing());
 
-    expect(hookRenderResult.result).toStrictEqual({ current: { defaultHorizontalSpacing: 20 } });
+    expect(hookRenderResult.result).toStrictEqual({ current: { defaultHorizontalSpacing: 14 } });
   });
 });
