@@ -1,15 +1,14 @@
 import { render } from '@testing-library/react-native';
 import Header from '.';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { SAFE_ARE_INITIAL_METRICS } from '@/constants/safe-area';
+import SafeAreaProviderTestWrapper from '@/utils/safe-area-provider-test-wrapper';
 
 describe('Header', () => {
   describe('render', () => {
     it('should render properly header title', async () => {
       const renderResult = render(
-        <SafeAreaProvider initialMetrics={SAFE_ARE_INITIAL_METRICS}>
+        <SafeAreaProviderTestWrapper>
           <Header />
-        </SafeAreaProvider>,
+        </SafeAreaProviderTestWrapper>,
       );
       expect(() => renderResult.getByText('gus portal')).not.toThrow();
     });

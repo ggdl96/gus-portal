@@ -23,14 +23,16 @@ const Header = () => {
           paddingRight: insets.right,
         },
       ]}
-      className="w-full flex-row items-center justify-between bg-contrastPrimary-400">
-      <Pressable onPress={handleOnPress} style={{ paddingHorizontal: defaultHorizontalSpacing }}>
-        <Text style={styles.headerTitleStyle}>gus portal</Text>
-      </Pressable>
-      <View
-        style={{ paddingHorizontal: defaultHorizontalSpacing }}
-        className="flex flex-row w-1/2 md:w-1/3 lg:w-1/4 justify-end">
-        <HeaderRight />
+      className="w-full flex-row items-center justify-center bg-contrastPrimary-400">
+      <View className="w-full lg:w-3/4 flex align-middle flex-row items-center justify-between bg-contrastPrimary-400">
+        <Pressable onPress={handleOnPress} style={{ paddingHorizontal: defaultHorizontalSpacing }}>
+          <Text style={styles.headerTitleStyle}>gus portal</Text>
+        </Pressable>
+        <View
+          style={{ paddingHorizontal: defaultHorizontalSpacing }}
+          className="flex flex-row w-1/2 md:w-1/3 lg:w-1/4 justify-end">
+          <HeaderRight />
+        </View>
       </View>
     </View>
   );

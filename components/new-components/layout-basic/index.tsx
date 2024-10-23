@@ -16,10 +16,11 @@ const LayoutBasic = ({ children }: Props) => {
   return (
     <LayoutSafeArea>
       <ScrollView
-        className="w-full lg:w-3/4 flex align-middle"
+        className="w-full"
         style={styles.scrollView}
         contentContainerStyle={styles.scrollViewContainer}>
         <View
+          className="w-full lg:w-3/4 flex align-middle"
           style={[
             styles.containerChildren,
             {

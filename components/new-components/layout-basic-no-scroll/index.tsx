@@ -21,7 +21,7 @@ const LayoutBasicNoScroll = ({ children }: Props) => {
         style={[styles.container, { paddingHorizontal: spacing.defaultHorizontalSpacing }]}>
         {children}
       </View>
-      <View className={`${sharedStyles}`}>
+      <View className="w-full flex align-middle">
         <Footer style={{ paddingHorizontal: spacing.defaultHorizontalSpacing }} />
       </View>
     </LayoutSafeArea>
