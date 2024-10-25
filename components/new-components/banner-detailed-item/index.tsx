@@ -44,10 +44,11 @@ const BannerDetailedItem = ({
               src={{ uri: data.seller.image }}
               title={data.seller.name}
               id={data.seller.id}
+              style={styles.seller}
             />
           </View>
         ) : null}
-        <View className="flex w-1/2 pl-2" style={{ paddingVertical: 12 }}>
+        <View className={`flex ${displaySeller ? '  pl-2 w-1/2' : 'w-full'} pt-1 pb-1`}>
           <View className="w-full flex flex-row justify-end">
             <BannerDescription title={data.title} />
           </View>

@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     width: '100%',
-    paddingVertical: 10,
   },
+  seller: { paddingVertical: 0 },
 });
 
 export default styles;
