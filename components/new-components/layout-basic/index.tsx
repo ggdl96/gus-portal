@@ -8,9 +8,10 @@ import Footer from '@/components/new-components/footer';
 
 interface Props {
   children: React.ReactNode;
+  applyVerticalPadding?: boolean;
 }
 
-const LayoutBasic = ({ children }: Props) => {
+const LayoutBasic = ({ children, applyVerticalPadding = false }: Props) => {
   const spacing = useSpacing();
 
   return (
@@ -25,6 +26,7 @@ const LayoutBasic = ({ children }: Props) => {
             styles.containerChildren,
             {
               paddingHorizontal: spacing.defaultHorizontalSpacing,
+              paddingVertical: applyVerticalPadding ? spacing.defaultHorizontalSpacing : 0,
             },
           ]}>
           {children}

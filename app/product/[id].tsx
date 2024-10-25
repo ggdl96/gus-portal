@@ -24,7 +24,7 @@ export default function Index() {
   const mainImageHeight = mainImageWidth * 0.6;
 
   return (
-    <LayoutBasic>
+    <LayoutBasic applyVerticalPadding>
       <View className={`w-full flex flex-col md:flex-row`}>
         <View className={`flex w-full md:w-1/2 items-center md:pr-6`}>
           <Image
@@ -38,22 +38,26 @@ export default function Index() {
             resizeMode="cover"
           />
         </View>
-        <View style={styles.sectionInfo} className="pt-6 flex flex-row">
-          <View className="w-1/2">
-            <View>
-              <BannerSubTitle title={'$1234.00'} />
+        <View style={styles.sectionInfo} className="pt-6 flex">
+          <View className="w-full flex flex-row">
+            <View className="flex w-1/2">
+              <View>
+                <BannerSubTitle title={'$1234.00'} />
+              </View>
+              <View className="pt-4">
+                <BannerTitle title={'Title of product'} />
+              </View>
             </View>
-            <View className="pt-4">
-              <BannerTitle title={'Title of product'} />
+            <View className="flex flex-row justify-end w-1/2">
+              <TitleWithAvatar
+                title={PRODUCT.seller.name}
+                id={PRODUCT.id}
+                src={{ uri: PRODUCT.seller.image }}
+              />
             </View>
-            <ProductVariants variants={PRODUCT.variants} />
           </View>
-          <View className="flex flex-row justify-end w-1/2">
-            <TitleWithAvatar
-              title={PRODUCT.seller.name}
-              id={PRODUCT.id}
-              src={{ uri: PRODUCT.seller.image }}
-            />
+          <View>
+            <ProductVariants variants={PRODUCT.variants} />
           </View>
         </View>
       </View>
