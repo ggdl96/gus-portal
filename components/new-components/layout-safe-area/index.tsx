@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import colors from '@/styles/colors';
+import { View } from 'react-native';
 import '../../../global.css';
+import styles from './styles';
 
 interface Props {
   children: React.ReactNode;
@@ -12,11 +12,3 @@ const LayoutSafeArea = ({ children }: Props) => {
 };
 
 export default LayoutSafeArea;
-
-const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: colors.contrastPrimary[10],
-    flex: 1,
-    alignItems: 'center',
-  },
-});

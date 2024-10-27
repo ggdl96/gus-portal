@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: colors.contrastPrimary[10],
     flex: 1,
+    alignItems: 'center',
   },
 });
 
