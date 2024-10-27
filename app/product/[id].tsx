@@ -1,5 +1,5 @@
-import React from 'react';
-import { useWindowDimensions, View, Image, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { useWindowDimensions, View, Image, StyleSheet, Pressable } from 'react-native';
 
 import '../../global.css';
 import { screens } from '@/styles/screens';
@@ -13,20 +13,32 @@ import TitleWithAvatar from '@/components/new-components/title-with-avatar';
 import ProductVariants from '@/components/new-components/product-variants';
 
 import { PRODUCT } from '../../__mocks__/screens/product';
+import ModalImge from '@/components/new-components/image-modal';
 
 const screenSizeChange: keyof typeof screens = 'md';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
+  const [modalVisible, setModalVisble] = useState<boolean>(false);
 
   const isLowerThanMD = dimensions.width < screens[screenSizeChange];
   const mainImageWidth = dimensions.width * (isLowerThanMD ? 1 : 0.5);
   const mainImageHeight = mainImageWidth * 0.6;
 
+  const handeOnPressImage = () => {
+    setModalVisble(true);
+  };
+
+  const handleToggleVisibility = () => {
+    setModalVisble(false);
+  };
+
   return (
     <LayoutBasic applyVerticalPadding>
       <View className={`w-full flex flex-col md:flex-row`}>
-        <View className={`flex w-full md:w-1/2 items-center md:pr-6`}>
+        <Pressable
+          className={`flex w-full md:w-1/2 items-center md:pr-6`}
+          onPress={handeOnPressImage}>
           <Image
             style={[
               styles.imageMain,
@@ -37,7 +49,7 @@ export default function Index() {
             }}
             resizeMode="cover"
           />
-        </View>
+        </Pressable>
         <View style={styles.sectionInfo} className="pt-6 flex">
           <View className="w-full flex flex-row">
             <View className="flex w-1/2">
@@ -65,6 +77,11 @@ export default function Index() {
         <BannerSubTitle title={'Description'} />
         <BannerDescription title={PRODUCT.description} />
       </View>
+      <ModalImge
+        url={PRODUCT.image}
+        visible={modalVisible}
+        toggleVisibility={handleToggleVisibility}
+      />
     </LayoutBasic>
   );
 }
