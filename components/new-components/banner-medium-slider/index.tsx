@@ -19,7 +19,7 @@ const BannerMediumSlider = ({ data }: Props) => {
 
   if (data?.length) {
     const handleOnPress = (id: string) => {
-      router.navigate(`mb/${id}`);
+      router.navigate(`/mb/${id}`);
     };
 
     return (
