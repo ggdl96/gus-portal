@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderRadius: borders.radius.small,
     borderWidth: 2,
   },
-  borderColorActive: { borderColor: colors.primary[400] },
+  borderColorActive: { borderColor: colors.primary[400], borderWidth: 3 },
   borderColorDefault: { borderColor: colors.contrastPrimary[30] },
 });
 
