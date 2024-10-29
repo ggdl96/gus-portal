@@ -5,9 +5,18 @@ import '../../../global.css';
 import BannerTitle from '@/components/new-components/banner-title';
 import DefaultList from '../default-list';
 import ProductVariantItem from '../product-variant-item';
-import { ProductVariant } from '@/models/product-variant';
+import { ProductVariantListData } from '@/models/product-variant-list-data';
 
-const ProductVariants = ({ variants }: { variants: ProductVariant[] }) => {
+interface Props {
+  variants: ProductVariantListData[];
+}
+const RenderItem = ({ item, index }: { item: ProductVariantListData; index: number }) => (
+  <ProductVariantItem item={item} index={index} />
+);
+
+const ProductVariants = ({ variants }: Props) => {
+  const keyExtractor = (data: ProductVariantListData): string => `productVariants_${data.id}`;
+
   return (
     <View className="pt-6">
       <BannerTitle title={'Variants'} />
@@ -15,7 +24,8 @@ const ProductVariants = ({ variants }: { variants: ProductVariant[] }) => {
         <DefaultList
           horizontal
           data={variants}
-          renderItem={({ item }) => <ProductVariantItem item={item} />}
+          renderItem={RenderItem}
+          keyExtractor={keyExtractor}
         />
       </View>
     </View>

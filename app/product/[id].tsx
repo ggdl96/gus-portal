@@ -20,6 +20,7 @@ const screenSizeChange: keyof typeof screens = 'md';
 export default function Index() {
   const dimensions = useWindowDimensions();
   const [modalVisible, setModalVisble] = useState<boolean>(false);
+  const [selectedVariant, setSelectedVariant] = useState<number>(0);
 
   const isLowerThanMD = dimensions.width < screens[screenSizeChange];
   const mainImageWidth = dimensions.width * (isLowerThanMD ? 1 : 0.5);
@@ -32,6 +33,16 @@ export default function Index() {
   const handleToggleVisibility = () => {
     setModalVisble(false);
   };
+
+  const handleOnSelectVariant = (index: number) => {
+    setSelectedVariant(index);
+  };
+
+  const variantsToDisplay = PRODUCT.variants.map((item, index) => ({
+    ...item,
+    onSelectVariant: handleOnSelectVariant,
+    active: selectedVariant === index,
+  }));
 
   return (
     <LayoutBasic applyVerticalPadding>
@@ -57,7 +68,9 @@ export default function Index() {
                 <BannerSubTitle title={'$1234.00'} />
               </View>
               <View className="pt-4">
-                <BannerTitle title={'Title of product'} />
+                <BannerTitle
+                  title={`${PRODUCT.title} - ${PRODUCT.variants[selectedVariant].name}`}
+                />
               </View>
             </View>
             <View className="flex flex-row justify-end w-1/2">
@@ -69,7 +82,7 @@ export default function Index() {
             </View>
           </View>
           <View>
-            <ProductVariants variants={PRODUCT.variants} />
+            <ProductVariants variants={variantsToDisplay} />
           </View>
         </View>
       </View>

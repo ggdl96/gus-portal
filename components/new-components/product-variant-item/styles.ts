@@ -8,8 +8,9 @@ const styles = StyleSheet.create({
   imageVariant: {
     borderRadius: borders.radius.small,
     borderWidth: 2,
-    borderColor: colors.contrastPrimary[30],
   },
+  borderColorActive: { borderColor: colors.primary[400] },
+  borderColorDefault: { borderColor: colors.contrastPrimary[30] },
 });
 
 export default styles;
