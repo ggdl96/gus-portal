@@ -4,13 +4,16 @@ import Banner from '../banner';
 import DefaultList from '../default-list';
 import FeaturedBannerContent from '../featured-banner-content/featured-banner-content';
 import FeaturedProduct from '../featured-product/featured-product';
+import { router } from 'expo-router';
 
 type Props = {
   data: BannerTop[];
   type: 'content' | 'product';
 };
 const BannerSlider = ({ data, type }: Props) => {
-  const redirectToPreview = () => {};
+  const redirectToPreview = (id: string) => {
+    router.navigate(`/hmbs/${id}`);
+  };
 
   const keyExtractor = (b: BannerTop): string => {
     return b.id;
@@ -22,7 +25,7 @@ const BannerSlider = ({ data, type }: Props) => {
       renderItem={({ item }) => {
         return (
           <Banner
-            onPress={redirectToPreview}
+            onPress={() => redirectToPreview(item.id)}
             source={{
               uri: item.image,
             }}>
