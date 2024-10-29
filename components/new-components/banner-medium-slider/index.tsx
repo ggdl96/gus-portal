@@ -6,6 +6,7 @@ import borders from '@/styles/borders';
 import MediumSlideSkeleton from '../banner-medium-skeleton';
 import BannerMediumItem from '../banner-medium-item';
 import { screens } from '@/styles/screens';
+import { router } from 'expo-router';
 
 type Props = {
   data?: BannerMedium[];
@@ -17,7 +18,9 @@ const BannerMediumSlider = ({ data }: Props) => {
   const height = width * 1.5;
 
   if (data?.length) {
-    const handleOnPress = () => {};
+    const handleOnPress = (id: string) => {
+      router.navigate(`mb/${id}`);
+    };
 
     return (
       <DefaultList
@@ -26,7 +29,9 @@ const BannerMediumSlider = ({ data }: Props) => {
         horizontal
         renderItem={({ item, index }) => (
           <BannerMediumItem
-            onPress={handleOnPress}
+            onPress={() => {
+              handleOnPress(item.text);
+            }}
             data={item}
             source={{ uri: item.image }}
             width={width}
