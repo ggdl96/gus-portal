@@ -12,7 +12,7 @@ type Props = {
 };
 const BannerSlider = ({ data, type }: Props) => {
   const redirectToPreview = (id: string) => {
-    router.navigate(`/hmbs/${id}`);
+    router.navigate(`/${type === 'content' ? 'hmbs' : 'hmb'}/${id}`);
   };
 
   const keyExtractor = (b: BannerTop): string => {
