@@ -44,6 +44,21 @@ const dataAux3 = {
     'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
 };
 
+const dataAux4 = {
+  id: 'fsdf09sdfv0cvxvc94g4fgs',
+  title: 'Some Title!',
+  subTitle: 'sub title',
+  isOwned: false,
+  seller: {
+    id: 'fgdfg98dfg4g3glkj',
+    name: 'User Name',
+    image:
+      'https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  },
+  image:
+    'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+};
+
 const smallA1 = {
   id: 'fgdfg8dfg89gd',
   title: 'Some Small',
@@ -66,7 +81,7 @@ const smallA3 = {
   views: 1,
 };
 
-export const TOP_BANNERS_DATA = [dataAux, dataAux2, dataAux3];
+export const TOP_BANNERS_DATA = [dataAux, dataAux2, dataAux3, dataAux4];
 
 export const SMALL_BANNERS_DATA = [smallA1, smallA2, smallA3];
 

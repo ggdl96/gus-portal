@@ -5,18 +5,19 @@ import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-  },
+  container: {},
   containerImage: {
     backgroundColor: '#333',
     borderRadius: borders.radius.medium,
+    width: '100%',
+    display: 'flex',
   },
   image: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
+    width: '100%',
   },
   containerText: { flex: 1 },
   title: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import BannerDetailedItem from '../banner-detailed-item';
 import { useWindowDimensions } from 'react-native';
 import { styles } from './styles';
@@ -12,11 +12,19 @@ type Props = {
   data: BannerDetailed[];
   horizontal: boolean;
   displaySeller?: boolean;
+  HeaderComponent?: React.JSX.Element;
+  FooterComponent?: ReactElement;
 };
 
-const BannerDetailedSlider = ({ data, horizontal = true, displaySeller = true }: Props) => {
+const BannerDetailedSlider = ({
+  data,
+  horizontal = true,
+  displaySeller = true,
+  HeaderComponent,
+  FooterComponent,
+}: Props) => {
   const dimensions = useWindowDimensions();
-  const width = (dimensions.width > screens.lg ? 580 : dimensions.width) * 0.7;
+  const width = (dimensions.width > screens.lg ? 580 : dimensions.width) * 0.8;
   const height = width * 0.5;
 
   if (0) {
@@ -44,6 +52,9 @@ const BannerDetailedSlider = ({ data, horizontal = true, displaySeller = true }:
           displaySeller={displaySeller}
         />
       )}
+      keyExtractor={(item) => `bannerDetailedSlider_${item.id}`}
+      ListHeaderComponent={HeaderComponent}
+      ListFooterComponent={FooterComponent}
     />
   );
 };

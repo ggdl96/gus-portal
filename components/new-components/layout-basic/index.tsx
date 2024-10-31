@@ -1,10 +1,11 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { Platform, ScrollView, View } from 'react-native';
 import '../../../global.css';
 import useSpacing from '@/hooks/useSpacing';
 import LayoutSafeArea from '../layout-safe-area';
 import styles from './styles';
 import Footer from '@/components/new-components/footer';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface Props {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ interface Props {
 
 const LayoutBasic = ({ children, applyVerticalPadding = false }: Props) => {
   const spacing = useSpacing();
+  const insets = useSafeAreaInsets();
 
   return (
     <LayoutSafeArea>
@@ -31,7 +33,11 @@ const LayoutBasic = ({ children, applyVerticalPadding = false }: Props) => {
           ]}>
           {children}
         </View>
-        <Footer />
+        {Platform.OS === 'web' ? (
+          <Footer />
+        ) : (
+          <View className="w-full" style={{ height: insets.bottom }} />
+        )}
       </ScrollView>
     </LayoutSafeArea>
   );
