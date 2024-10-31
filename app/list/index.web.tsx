@@ -41,7 +41,7 @@ export default function Index() {
         <View className="flex flex-row w-full p-4">
           <View className="flex flex-row border-t-2 border-t-contrastPrimary-80 w-full justify-center pb-2">
             {['1', '2'].map((item) => (
-              <View className="p-2">
+              <View className="p-2" key={item}>
                 <BannerSubTitle title={item} />
               </View>
             ))}
