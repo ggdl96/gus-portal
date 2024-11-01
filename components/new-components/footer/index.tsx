@@ -6,6 +6,7 @@ import colors from '@/styles/colors';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import useSpacing from '@/hooks/useSpacing';
 import ContactModal from '../contact-modal';
+import { router } from 'expo-router';
 
 interface Props {
   style?: ViewStyle;
@@ -18,6 +19,10 @@ export default function Footer({ style }: Props) {
 
   const handleOnPressContact = () => {
     setContactVisible(true);
+  };
+
+  const handleOnPressAbout = () => {
+    router.navigate('/about');
   };
 
   return (
@@ -46,7 +51,9 @@ export default function Footer({ style }: Props) {
             className="border-l-primary-300 border-l-2 lg:border-l-0 flex flex-1"
             style={{ height: 24 }}
           />
-          <BannerDescription title="De Luca, Gustavo Gabriel" color={colors.contrastPrimary[50]} />
+          <Pressable onPress={handleOnPressAbout}>
+            <BannerDescription title="About" color={colors.contrastPrimary[50]} />
+          </Pressable>
         </View>
       </View>
       <ContactModal

@@ -116,22 +116,54 @@ exports[`Footer should render properly 1`] = `
             }
           }
         />
-        <Text
-          className="text-md"
-          ellipsizeMode="tail"
-          style={
-            [
-              {
-                "fontFamily": "Spectral-Medium",
-              },
-              {
-                "color": "#3F3B31",
-              },
-            ]
+        <View
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
           }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
         >
-          De Luca, Gustavo Gabriel
-        </Text>
+          <Text
+            className="text-md"
+            ellipsizeMode="tail"
+            style={
+              [
+                {
+                  "fontFamily": "Spectral-Medium",
+                },
+                {
+                  "color": "#3F3B31",
+                },
+              ]
+            }
+          >
+            About
+          </Text>
+        </View>
       </View>
     </View>
   </View>
