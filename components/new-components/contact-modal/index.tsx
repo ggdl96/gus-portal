@@ -3,6 +3,8 @@ import { Modal, Pressable, View } from 'react-native';
 import BannerTitle from '@/components/new-components/banner-title';
 import BannerDescription from '@/components/new-components/banner-description';
 import { ExternalLink } from '@/components/ExternalLink';
+import colors from '@/styles/colors';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function ContactModal({
   visible,
@@ -16,13 +18,17 @@ export default function ContactModal({
 
   return (
     <Modal transparent visible={visible}>
-      <Pressable
+      <View
         className="w-full flex flex-row justify-center items-center flex-1"
         style={{
           backgroundColor: '#000000cc',
-        }}
-        onPress={toggleVisibility}>
+        }}>
         <View className="w-full md:w-1/2 flex">
+          <View className="flex flex-row justify-end w-full pb-2">
+            <Pressable onPress={toggleVisibility}>
+              <Ionicons name="close-outline" color={colors.contrastSecondary[800]} size={22} />
+            </Pressable>
+          </View>
           <InfoContainer title="Contact">
             <View className="flex flex-row w-full p-4 justify-center">
               <BannerTitle title={'Info'} />
@@ -33,11 +39,15 @@ export default function ContactModal({
               </View>
               <View className="pb-2">
                 <BannerDescription title="Github: " />
-                <ExternalLink href={githubProfile} children={githubProfile} />
+                <View className="flex flex-row">
+                  <ExternalLink href={githubProfile} children={githubProfile} />
+                </View>
               </View>
               <BannerDescription title="LinkedIn: " />
               <View className="pb-2">
-                <ExternalLink href={linkedInProfile} children={linkedInProfile} />
+                <View className="flex flex-row">
+                  <ExternalLink href={linkedInProfile} children={linkedInProfile} />
+                </View>
               </View>
               <BannerDescription title="Email: " />
               <View className="pb-2">
@@ -46,7 +56,7 @@ export default function ContactModal({
             </View>
           </InfoContainer>
         </View>
-      </Pressable>
+      </View>
     </Modal>
   );
 }

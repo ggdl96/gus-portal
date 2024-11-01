@@ -39,7 +39,7 @@ export default function Footer({ style }: Props) {
         <Pressable
           className="pl-2 w-1/3 lg:w-1/2 justify-center lg:justify-end flex flex-row"
           onPress={handleOnPressContact}>
-          <BannerDescription title="Conctact" color={colors.contrastPrimary[50]} />
+          <BannerDescription title="Contact" color={colors.contrastPrimary[50]} />
         </Pressable>
         <View className="pl-4 flex flex-row flex-wrap w-1/3 lg:w-full justify-end">
           <View

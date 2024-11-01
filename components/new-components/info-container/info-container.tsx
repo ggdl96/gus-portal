@@ -19,7 +19,7 @@ const InfoContainer = ({
   children,
 }: Props) => {
   return (
-    <View className="p-4" style={[styles.container, containerStyles]}>
+    <View style={[styles.container, containerStyles]}>
       <View style={styles.containerHeader}>
         <View style={styles.line} />
         <View style={[styles.connect, connectStyles]}>
@@ -27,7 +27,7 @@ const InfoContainer = ({
         </View>
         <View style={styles.line} />
       </View>
-      {children}
+      <View className="p-4">{children}</View>
     </View>
   );
 };

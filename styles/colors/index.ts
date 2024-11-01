@@ -32,6 +32,7 @@ const colors = {
   tertiary: {
     650: '#D31415',
   },
+  link: '#798ef7',
 } as const;
 
 export default colors;

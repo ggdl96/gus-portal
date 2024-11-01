@@ -102,7 +102,7 @@ exports[`Footer should render properly 1`] = `
             ]
           }
         >
-          Conctact
+          Contact
         </Text>
       </View>
       <View
