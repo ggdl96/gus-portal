@@ -5,7 +5,10 @@ import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: colors.contrastPrimary[20],
+    justifyContent: 'flex-start',
+  },
   containerImage: {
     backgroundColor: '#333',
     borderRadius: borders.radius.medium,
@@ -55,9 +58,8 @@ const styles = StyleSheet.create({
   },
   body: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
     width: '100%',
+    flex: 1,
   },
   seller: { paddingVertical: 0 },
 });

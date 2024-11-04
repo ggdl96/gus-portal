@@ -23,9 +23,11 @@ const BannerDetailedSlider = ({
   HeaderComponent,
   FooterComponent,
 }: Props) => {
+  // TODO REFACTOR THIS, SIZES FOR BANNERS SHOULD BE CENTRALIZED
   const dimensions = useWindowDimensions();
   const width = (dimensions.width > screens.lg ? 580 : dimensions.width) * 0.8;
-  const height = width * 0.5;
+  const imageHeight = width * 0.44;
+  const height = imageHeight + 160;
 
   if (0) {
     return (
@@ -50,6 +52,7 @@ const BannerDetailedSlider = ({
           height={height}
           borderRadius={borders.radius.medium}
           displaySeller={displaySeller}
+          imageHeight={imageHeight}
         />
       )}
       keyExtractor={(item) => `bannerDetailedSlider_${item.id}`}
