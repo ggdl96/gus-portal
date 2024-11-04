@@ -27,7 +27,7 @@ const BannerDetailedSlider = ({
   const dimensions = useWindowDimensions();
   const width = (dimensions.width > screens.lg ? 580 : dimensions.width) * 0.8;
   const imageHeight = width * 0.44;
-  const height = imageHeight + 160;
+  const height = imageHeight + (displaySeller ? 160 : 86);
 
   if (0) {
     return (
@@ -38,6 +38,8 @@ const BannerDetailedSlider = ({
       />
     );
   }
+
+  const keyExtractor = (item: BannerDetailed): string => `bannerDetailedSlider_${item.id}`;
 
   return (
     <DefaultList
@@ -55,7 +57,7 @@ const BannerDetailedSlider = ({
           imageHeight={imageHeight}
         />
       )}
-      keyExtractor={(item) => `bannerDetailedSlider_${item.id}`}
+      keyExtractor={keyExtractor}
       ListHeaderComponent={HeaderComponent}
       ListFooterComponent={FooterComponent}
     />
