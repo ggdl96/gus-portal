@@ -19,7 +19,7 @@ const screenSizeChange: keyof typeof screens = 'md';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
-  const [modalVisible, setModalVisble] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [selectedVariant, setSelectedVariant] = useState<number>(0);
 
   const isLowerThanMD = dimensions.width < screens[screenSizeChange];
@@ -27,11 +27,11 @@ export default function Index() {
   const mainImageHeight = mainImageWidth * 0.6;
 
   const handeOnPressImage = () => {
-    setModalVisble(true);
+    setModalVisible(true);
   };
 
   const handleToggleVisibility = () => {
-    setModalVisble(false);
+    setModalVisible(false);
   };
 
   const handleOnSelectVariant = (index: number) => {
