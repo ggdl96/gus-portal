@@ -10,9 +10,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 interface Props {
   children: React.ReactNode;
   applyVerticalPadding?: boolean;
+  displayFooter?: boolean;
 }
 
-const LayoutBasic = ({ children, applyVerticalPadding = false }: Props) => {
+const LayoutBasic = ({
+  children,
+  applyVerticalPadding = false,
+  displayFooter = Platform.OS === 'web',
+}: Props) => {
   const spacing = useSpacing();
   const insets = useSafeAreaInsets();
 
@@ -33,11 +38,7 @@ const LayoutBasic = ({ children, applyVerticalPadding = false }: Props) => {
           ]}>
           {children}
         </View>
-        {Platform.OS === 'web' ? (
-          <Footer />
-        ) : (
-          <View className="w-full" style={{ height: insets.bottom }} />
-        )}
+        {displayFooter ? <Footer /> : <View className="w-full" style={{ height: insets.bottom }} />}
       </ScrollView>
     </LayoutSafeArea>
   );

@@ -37,7 +37,7 @@ export default function Footer({ style }: Props) {
         style,
       ]}>
       <View className="w-full lg:w-3/4 flex flex-row flex-wrap justify-center">
-        <View className="pr-4 w-1/3 lg:w-1/2 flex flex-row align-middle justify-between">
+        <View className="pr-4 w-1/3 lg:w-1/2 flex flex-row align-middle justify-between pb-2">
           <BannerDescription title="Gus Portal" color={colors.contrastPrimary[50]} />
           <View className="border-r-primary-300 border-r-2 lg:border-r-0" style={{ height: 24 }} />
         </View>

@@ -11,10 +11,13 @@ import BannerMediumSlider from '@/components/new-components/banner-medium-slider
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import ContentWrapper from '@/components/new-components/content-wrapper';
 import LayoutBasic from '@/components/new-components/layout-basic';
+import { Platform } from 'react-native';
 
 export default function Index() {
+  const isMobile = Platform.OS === 'android' || Platform.OS === 'ios';
+
   return (
-    <LayoutBasic>
+    <LayoutBasic displayFooter={isMobile}>
       <BannerSlider data={TOP_BANNERS_DATA} type={'content'} />
       <BannerSlider data={TOP_BANNERS_DATA} type="product" />
       <BannerSmallSectionCarousel data={SMALL_BANNERS_DATA} />
