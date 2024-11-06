@@ -19,7 +19,7 @@ export default function ContactModal({
   return (
     <Modal transparent visible={visible}>
       <View
-        className="w-full flex flex-row justify-center items-center flex-1"
+        className="w-full flex flex-row justify-center items-center flex-1 p-4"
         style={{
           backgroundColor: '#000000cc',
         }}>
@@ -40,13 +40,13 @@ export default function ContactModal({
               <View className="pb-2">
                 <BannerDescription title="Github: " />
                 <View className="flex flex-row">
-                  <ExternalLink href={githubProfile} children={githubProfile} />
+                  <ExternalLink href={githubProfile}>{githubProfile}</ExternalLink>
                 </View>
               </View>
               <BannerDescription title="LinkedIn: " />
               <View className="pb-2">
                 <View className="flex flex-row">
-                  <ExternalLink href={linkedInProfile} children={linkedInProfile} />
+                  <ExternalLink href={linkedInProfile}>{linkedInProfile}</ExternalLink>
                 </View>
               </View>
               <BannerDescription title="Email: " />

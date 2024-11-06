@@ -15,23 +15,24 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     top: '0%',
-    transform: [{ translateY: -12 }],
+    transform: [{ translateY: -16 }],
   },
   containerHeaderTitle: {
     color: colors.contrastSecondary[900],
     fontFamily: fonts.fontFamilies.spectral.Light,
     textTransform: 'uppercase',
     textAlign: 'center',
-    backgroundColor: colors.contrastPrimary[80],
-    borderTopLeftRadius: borders.radius.medium,
-    borderTopRightRadius: borders.radius.medium,
   },
   line: {
     flex: 2,
   },
   connect: {
-    flex: 1,
-    paddingHorizontal: 4,
+    flex: 1.4,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: colors.contrastPrimary[80],
+    borderTopLeftRadius: borders.radius.medium,
+    borderTopRightRadius: borders.radius.medium,
   },
 });
 

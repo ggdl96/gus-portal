@@ -22,8 +22,10 @@ const InfoContainer = ({
     <View style={[styles.container, containerStyles]}>
       <View style={styles.containerHeader}>
         <View style={styles.line} />
-        <View style={[styles.connect, connectStyles]}>
-          <Text style={[styles.containerHeaderTitle, lineStyles]}>{title}</Text>
+        <View className="pl-2 pr-2" style={[styles.connect, connectStyles]}>
+          <Text numberOfLines={1} style={[styles.containerHeaderTitle, lineStyles]}>
+            {title}
+          </Text>
         </View>
         <View style={styles.line} />
       </View>
