@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../global.css';
+import '../../../global.css';
 
 import BannerDescription from '@/components/new-components/banner-description';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';

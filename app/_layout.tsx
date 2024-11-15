@@ -8,6 +8,7 @@ import Header from '@/components/new-components/header';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 
 const HeaderProp = (_props: NativeStackHeaderProps) => <Header />;
+const HeaderPropExtras = (_props: NativeStackHeaderProps) => <Header displayRightSection={false} />;
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -30,10 +31,21 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack
         screenOptions={{
-          header: HeaderProp,
+          header: () => null,
         }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="product" />
+        <Stack.Screen
+          name="(main)"
+          options={{
+            header: HeaderProp,
+          }}
+        />
+        <Stack.Screen
+          name="(extras)"
+          options={{
+            header: HeaderPropExtras,
+          }}
+        />
+        <Stack.Screen name="+not-found" />
       </Stack>
     </ThemeProvider>
   );

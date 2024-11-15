@@ -6,7 +6,7 @@ import {
   MEDIUM_BANNERS_DATA,
   SMALL_BANNERS_DATA,
   TOP_BANNERS_DATA,
-} from '../__mocks__/screens/home';
+} from '../../__mocks__/screens/home';
 import BannerMediumSlider from '@/components/new-components/banner-medium-slider';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import ContentWrapper from '@/components/new-components/content-wrapper';

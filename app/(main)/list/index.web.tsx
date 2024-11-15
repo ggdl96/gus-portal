@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../global.css';
+import '../../../global.css';
 
-import { DETAILED_BANNERS_DATA } from '../../__mocks__/screens/home';
+import { DETAILED_BANNERS_DATA } from '../../../__mocks__/screens/home';
 import LayoutBasic from '@/components/new-components/layout-basic';
 import borders from '@/styles/borders';
 import BannerDetailedItem from '@/components/new-components/banner-detailed-item';

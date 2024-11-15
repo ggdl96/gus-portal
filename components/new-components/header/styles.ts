@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   },
   headerTitleStyle: {
     color: colors.contrastSecondary[950],
-    fontSize: 18,
     fontFamily: fonts.fontFamilies.spectral.Light,
   },
 });

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { DETAILED_BANNERS_DATA } from '../../__mocks__/screens/home';
+import { DETAILED_BANNERS_DATA } from '../../../__mocks__/screens/home';
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
 import { View, Text, useWindowDimensions } from 'react-native';
 import BannerDescription from '@/components/new-components/banner-description';
 import ContentWrapper from '@/components/new-components/content-wrapper';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
-import '../../global.css';
+import '../../../global.css';
 import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scroll';
 
 export default function Index() {

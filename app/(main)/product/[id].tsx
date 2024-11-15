@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useWindowDimensions, View, Image, StyleSheet, Pressable } from 'react-native';
 
-import '../../global.css';
+import '../../../global.css';
 import { screens } from '@/styles/screens';
 import BannerTitle from '@/components/new-components/banner-title';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';
@@ -12,7 +12,7 @@ import colors from '@/styles/colors';
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
 import ProductVariants from '@/components/new-components/product-variants';
 
-import { PRODUCT } from '../../__mocks__/screens/product';
+import { PRODUCT } from '../../../__mocks__/screens/product';
 import ModalImge from '@/components/new-components/image-modal';
 
 const screenSizeChange: keyof typeof screens = 'md';

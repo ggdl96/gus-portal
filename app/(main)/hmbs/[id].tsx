@@ -1,8 +1,8 @@
 import React from 'react';
 
-import '../../global.css';
+import '../../../global.css';
 
-import { DETAILED_BANNERS_DATA } from '../../__mocks__/screens/home';
+import { DETAILED_BANNERS_DATA } from '../../../__mocks__/screens/home';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scroll';
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
