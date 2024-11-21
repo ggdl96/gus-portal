@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { DETAILED_BANNERS_DATA } from '../../../__mocks__/screens/home';
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
@@ -8,15 +8,30 @@ import ContentWrapper from '@/components/new-components/content-wrapper';
 import BannerDetailedSlider from '@/components/new-components/banner-detailed-slider';
 import '../../../global.css';
 import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scroll';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import { setSeller } from '@/features/sellerSlice';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
+  const dispatch = useDispatch();
+  const sellerData = useSelector((state: RootState) => state.seller);
+
+  useEffect(() => {
+    dispatch(
+      setSeller({
+        seller: DETAILED_BANNERS_DATA[0].seller,
+        detailedBannerList: DETAILED_BANNERS_DATA,
+      }),
+    );
+  }, [dispatch]);
+
   return (
     <LayoutBasicNoScroll>
       <View className="flex flex-row flex-wrap w-full pb-4">
         <TitleWithAvatar
-          title={DETAILED_BANNERS_DATA[0].seller.name}
-          src={{ uri: DETAILED_BANNERS_DATA[0].seller.image }}
+          title={sellerData.sellerInfo?.name ?? ''}
+          src={{ uri: sellerData.sellerInfo?.image ?? '' }}
         />
       </View>
       <View className="flex w-full flex-1 flex-wrap">
@@ -33,7 +48,7 @@ export default function Index() {
           <View className="flex flex-row w-full">
             <ContentWrapper text={'Data 1'} key={`ThemedContentWrapper`} seeAll>
               <BannerDetailedSlider
-                data={DETAILED_BANNERS_DATA}
+                data={sellerData.detailedBannerList}
                 horizontal={true}
                 displaySeller={false}
               />
