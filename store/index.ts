@@ -5,6 +5,7 @@ import searchReducer from '../features/searchSlice';
 import homeSlice from '@/features/homeSlice';
 import sellerSlice from '@/features/sellerSlice';
 import productSlice from '@/features/productSlice';
+import hmbsSlice from '@/features/hmbsSlice';
 
 // export const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ export const store = configureStore({
     home: homeSlice,
     seller: sellerSlice,
     product: productSlice,
+    hmbs: hmbsSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(), //.concat(sagaMiddleware),
 });
