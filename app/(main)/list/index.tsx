@@ -8,6 +8,7 @@ import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scr
 import { useLocalSearchParams } from 'expo-router';
 import SearchListHead from '@/components/new-components/search-list-head';
 import { View } from 'react-native';
+import useSearchListResults from '@/hooks/use-search-list-results';
 
 const HeaderComponent = () => {
   const params = useLocalSearchParams();
@@ -33,10 +34,12 @@ const FooterComponent = () => (
 );
 
 export default function Index() {
+  const results = useSearchListResults();
+
   return (
     <LayoutBasicNoScroll>
       <BannerDetailedSlider
-        data={DETAILED_BANNERS_DATA}
+        data={results.list}
         horizontal={false}
         HeaderComponent={HeaderComponent}
         FooterComponent={FooterComponent}

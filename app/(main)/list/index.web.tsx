@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../../../global.css';
 
@@ -11,6 +11,7 @@ import { screens } from '@/styles/screens';
 import { useLocalSearchParams } from 'expo-router';
 import SearchListHead from '@/components/new-components/search-list-head';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';
+import useSearchListResults from '@/hooks/use-search-list-results';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
@@ -20,6 +21,22 @@ export default function Index() {
   const bannerHeight = imageHeight + 160;
   const params = useLocalSearchParams();
 
+  const results = useSearchListResults();
+
+  const [pages, setPages] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (results.pageCount) {
+      let aux: string[] = [];
+
+      for (let i = 1; i <= results.pageCount; i++) {
+        aux.push(`${i}`);
+      }
+
+      setPages(aux);
+    }
+  }, [results.pageCount]);
+
   return (
     <LayoutBasic applyVerticalPadding>
       <View className="flex w-full" style={{ minHeight: dimensions.height }}>
@@ -28,7 +45,7 @@ export default function Index() {
             searchValue={params.search as string}
             resultCount={DETAILED_BANNERS_DATA.length}
           />
-          {DETAILED_BANNERS_DATA.map((item) => (
+          {results.list.map((item) => (
             <View className="pt-2 pb-2" key={`product_${item.id}`}>
               <BannerDetailedItem
                 data={item}
@@ -43,7 +60,7 @@ export default function Index() {
         </View>
         <View className="flex flex-row w-full p-4">
           <View className="flex flex-row border-t-2 border-t-contrastPrimary-80 w-full justify-center pb-2">
-            {['1', '2'].map((item) => (
+            {pages.map((item) => (
               <View className="p-2" key={item}>
                 <BannerSubTitle title={item} />
               </View>

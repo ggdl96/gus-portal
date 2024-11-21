@@ -6,6 +6,8 @@ import { useFonts } from 'expo-font';
 import { importFontsSetup } from '@/styles/fonts';
 import Header from '@/components/new-components/header';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
+import { Provider } from 'react-redux';
+import { store } from '@/store';
 
 const HeaderProp = (_props: NativeStackHeaderProps) => <Header />;
 const HeaderPropExtras = (_props: NativeStackHeaderProps) => <Header displayRightSection={false} />;
@@ -28,25 +30,27 @@ export default function RootLayout() {
   }, [loaded, error]);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          header: () => null,
-        }}>
-        <Stack.Screen
-          name="(main)"
-          options={{
-            header: HeaderProp,
-          }}
-        />
-        <Stack.Screen
-          name="(extras)"
-          options={{
-            header: HeaderPropExtras,
-          }}
-        />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack
+          screenOptions={{
+            header: () => null,
+          }}>
+          <Stack.Screen
+            name="(main)"
+            options={{
+              header: HeaderProp,
+            }}
+          />
+          <Stack.Screen
+            name="(extras)"
+            options={{
+              header: HeaderPropExtras,
+            }}
+          />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+      </ThemeProvider>
+    </Provider>
   );
 }
