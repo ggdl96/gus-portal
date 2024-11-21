@@ -6,6 +6,7 @@ import homeSlice from '@/features/homeSlice';
 import sellerSlice from '@/features/sellerSlice';
 import productSlice from '@/features/productSlice';
 import hmbsSlice from '@/features/hmbsSlice';
+import hmbSlice from '@/features/hmbSlice';
 
 // export const sagaMiddleware = createSagaMiddleware();
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     seller: sellerSlice,
     product: productSlice,
     hmbs: hmbsSlice,
+    hmb: hmbSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(), //.concat(sagaMiddleware),
 });
