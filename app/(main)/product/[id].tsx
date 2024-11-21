@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useWindowDimensions, View, Image, StyleSheet, Pressable } from 'react-native';
 
 import '../../../global.css';
@@ -14,6 +14,10 @@ import ProductVariants from '@/components/new-components/product-variants';
 
 import { PRODUCT } from '../../../__mocks__/screens/product';
 import ModalImge from '@/components/new-components/image-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import { setProduct } from '@/features/productSlice';
+import { ProductVariant } from '@/models/product-variant';
 
 const screenSizeChange: keyof typeof screens = 'md';
 
@@ -21,7 +25,11 @@ export default function Index() {
   const dimensions = useWindowDimensions();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [selectedVariant, setSelectedVariant] = useState<number>(0);
-
+  const dispatch = useDispatch();
+  const product = useSelector((state: RootState) => state.product.data);
+  const [variantsToDisplay, setVariantsToDisplay] = useState<
+    (ProductVariant & { onSelectVariant: (index: number) => void; active: boolean })[]
+  >([]);
   const isLowerThanMD = dimensions.width < screens[screenSizeChange];
   const mainImageWidth = dimensions.width * (isLowerThanMD ? 1 : 0.5);
   const mainImageHeight = mainImageWidth * 0.6;
@@ -34,15 +42,20 @@ export default function Index() {
     setModalVisible(false);
   };
 
-  const handleOnSelectVariant = (index: number) => {
+  const handleOnSelectVariant = (index: number): void => {
     setSelectedVariant(index);
   };
 
-  const variantsToDisplay = PRODUCT.variants.map((item, index) => ({
-    ...item,
-    onSelectVariant: handleOnSelectVariant,
-    active: selectedVariant === index,
-  }));
+  useEffect(() => {
+    dispatch(setProduct(PRODUCT));
+    setVariantsToDisplay(
+      PRODUCT?.variants.map((item, index) => ({
+        ...item,
+        onSelectVariant: handleOnSelectVariant,
+        active: selectedVariant === index,
+      })),
+    );
+  }, [dispatch, selectedVariant]);
 
   return (
     <LayoutBasic applyVerticalPadding>
@@ -56,7 +69,7 @@ export default function Index() {
               { height: mainImageHeight, borderRadius: borders.radius.small },
             ]}
             source={{
-              uri: PRODUCT.image,
+              uri: product?.image,
             }}
             resizeMode="cover"
           />
@@ -69,15 +82,15 @@ export default function Index() {
               </View>
               <View className="pt-4">
                 <BannerTitle
-                  title={`${PRODUCT.title} - ${PRODUCT.variants[selectedVariant].name}`}
+                  title={`${product?.title ?? ''} - ${product?.variants[selectedVariant].name ?? ''}`}
                 />
               </View>
             </View>
             <View className="flex flex-row justify-end w-1/2">
               <TitleWithAvatar
-                title={PRODUCT.seller.name}
-                id={PRODUCT.id}
-                src={{ uri: PRODUCT.seller.image }}
+                title={product?.seller.name ?? ''}
+                id={product?.id}
+                src={{ uri: product?.seller.image ?? '' }}
               />
             </View>
           </View>
@@ -88,10 +101,10 @@ export default function Index() {
       </View>
       <View className={`items-start flex w-full md:pt-6`}>
         <BannerSubTitle title={'Description'} />
-        <BannerDescription title={PRODUCT.description} />
+        <BannerDescription title={product?.description ?? ''} />
       </View>
       <ModalImge
-        url={PRODUCT.image}
+        url={product?.image ?? ''}
         visible={modalVisible}
         toggleVisibility={handleToggleVisibility}
       />

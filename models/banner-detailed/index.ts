@@ -1,3 +1,4 @@
+import { ProductVariant } from '../product-variant';
 import { Seller } from '../seller';
 
 export interface BannerDetailed {
@@ -8,4 +9,6 @@ export interface BannerDetailed {
   price: number;
   currencyDisplay: string;
   currencyCode: string;
+  description: string;
+  variants: ProductVariant[];
 }

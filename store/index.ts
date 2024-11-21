@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import searchReducer from '../features/searchSlice';
 import homeSlice from '@/features/homeSlice';
 import sellerSlice from '@/features/sellerSlice';
+import productSlice from '@/features/productSlice';
 
 // export const sagaMiddleware = createSagaMiddleware();
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     search: searchReducer,
     home: homeSlice,
     seller: sellerSlice,
+    product: productSlice,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(), //.concat(sagaMiddleware),
 });
