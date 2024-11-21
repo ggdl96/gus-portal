@@ -59,4 +59,7 @@ export const PRODUCT = {
   title: 'Test',
   variants: PRODUCT_VARIANTS,
   description: DESCRIPTION,
+  currencyDisplay: '$',
+  currencyCode: 'USD',
+  price: 122,
 };
