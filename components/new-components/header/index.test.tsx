@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react-native';
 import Header from '.';
-import SafeAreaProviderTestWrapper from '@/utils/safe-area-provider-test-wrapper';
+import AppProvidersWrapper from '@/utils/app-providers-wrapper';
 
 describe('Header', () => {
   describe('render', () => {
     it('should render properly header title', async () => {
       const renderResult = render(
-        <SafeAreaProviderTestWrapper>
+        <AppProvidersWrapper>
           <Header />
-        </SafeAreaProviderTestWrapper>,
+        </AppProvidersWrapper>,
       );
       expect(() => renderResult.getByText('gus portal')).not.toThrow();
     });
