@@ -7,6 +7,7 @@ export interface SearchState {
   list: BannerDetailed[];
   page: number;
   pageCount: number;
+  count: number;
 }
 
 const initialState: SearchState = {
@@ -14,6 +15,7 @@ const initialState: SearchState = {
   list: [],
   page: 1,
   pageCount: 6,
+  count: 0,
 };
 
 export const searchSlice = createSlice({
@@ -25,11 +27,12 @@ export const searchSlice = createSlice({
     },
     setResults: (
       state,
-      action: PayloadAction<{ results: BannerDetailed[]; pageCount: number }>,
+      action: PayloadAction<{ results: BannerDetailed[]; pageCount: number; count: number }>,
     ) => {
       state.list = action.payload.results;
       state.page = 1;
       state.pageCount = action.payload.pageCount;
+      state.count = action.payload.count;
     },
   },
 });

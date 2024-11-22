@@ -8,11 +8,11 @@ import {
   TextInputKeyPressEventData,
   NativeSyntheticEvent,
   TextInputFocusEventData,
+  TextInputSubmitEditingEventData,
 } from 'react-native';
 import History from './history';
 import colors from '@/styles/colors';
 import styles from './styles';
-import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 interface Props {
@@ -30,6 +30,7 @@ interface Props {
   onDeleteHistoryItem: (item: string) => void;
   onClosePreviousSearch: () => void;
   disabledPreviousSearch: boolean;
+  onPressSearch: (search: string) => void;
 }
 
 const SearchBar = ({
@@ -47,6 +48,7 @@ const SearchBar = ({
   onClosePreviousSearch,
   handleKeyDown,
   disabledPreviousSearch,
+  onPressSearch,
 }: Props) => {
   const [active, setActive] = useState<boolean>(false);
 
@@ -71,8 +73,12 @@ const SearchBar = ({
     Keyboard.dismiss();
   };
 
+  const handleOnSubmit = (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => {
+    onPressSearch(e.nativeEvent.text);
+  };
+
   const handleOnPressSearch = () => {
-    router.navigate('/list');
+    onPressSearch(value);
   };
 
   return (
@@ -89,13 +95,11 @@ const SearchBar = ({
           returnKeyType="search"
           style={styles.input}
           placeholderTextColor={colors.contrastPrimary[300]}
-          onSubmitEditing={(e) => {
-            handleOnPressSearch();
-          }}
+          onSubmitEditing={handleOnSubmit}
         />
       </View>
       {cancelButton ? (
-        <Pressable onPress={() => cancelPress()} style={styles.cancel}>
+        <Pressable onPress={cancelPress} style={styles.cancel}>
           <Text className="color-contrastPrimary-500">Cancel</Text>
         </Pressable>
       ) : null}

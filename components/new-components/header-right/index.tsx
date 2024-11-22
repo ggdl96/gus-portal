@@ -1,6 +1,7 @@
 import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 import SearchBar from '@/components/new-components/search-bar/search-bar';
 import { useState } from 'react';
+import { router } from 'expo-router';
 
 const HeaderRight = () => {
   const [value, setValue] = useState<string>('');
@@ -12,7 +13,13 @@ const HeaderRight = () => {
   const handleOnClosePreviousSearch = function (): void {};
 
   const handleOnBlur = function (e: NativeSyntheticEvent<TextInputFocusEventData>): void {};
+  const handleOnPressSearch = (value: string) => {
+    const trimmedValue = value.trim();
 
+    if (trimmedValue) {
+      router.navigate(`/list?search=${encodeURIComponent(trimmedValue)}`);
+    }
+  };
   return (
     <SearchBar
       value={value}
@@ -29,6 +36,7 @@ const HeaderRight = () => {
       onDeleteHistoryItem={handleOnDeleteHistoryItem}
       onClosePreviousSearch={handleOnClosePreviousSearch}
       disabledPreviousSearch={false}
+      onPressSearch={handleOnPressSearch}
     />
   );
 };
