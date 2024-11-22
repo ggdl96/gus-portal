@@ -44,7 +44,7 @@ export default function Index() {
         style={{
           minHeight: dimensions.height,
         }}>
-        {hmbData.hbmListData.map((item) => (
+        {hmbData.hmbListData.map((item) => (
           <View className="w-full flex pb-6" key={item.id}>
             <TitleWithAvatar
               title={item.sellerInfo.name}

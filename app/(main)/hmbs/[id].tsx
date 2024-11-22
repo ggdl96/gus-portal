@@ -8,7 +8,7 @@ import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scr
 import TitleWithAvatar from '@/components/new-components/title-with-avatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
-import { setHbmsListData, setSellerInfo } from '@/features/hmbsSlice';
+import { setHmbsListData, setSellerInfo } from '@/features/hmbsSlice';
 
 export default function Index() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ export default function Index() {
 
   useEffect(() => {
     dispatch(setSellerInfo(DETAILED_BANNERS_DATA[0].seller));
-    dispatch(setHbmsListData(DETAILED_BANNERS_DATA));
+    dispatch(setHmbsListData(DETAILED_BANNERS_DATA));
   }, [dispatch]);
 
   return (
@@ -26,7 +26,7 @@ export default function Index() {
         id={hmbsData.sellerInfo?.id ?? ''}
         src={{ uri: hmbsData.sellerInfo?.image ?? '' }}
       />
-      <BannerDetailedSlider data={hmbsData.hbmsListData} horizontal={false} displaySeller={false} />
+      <BannerDetailedSlider data={hmbsData.hmbsListData} horizontal={false} displaySeller={false} />
     </LayoutBasicNoScroll>
   );
 }

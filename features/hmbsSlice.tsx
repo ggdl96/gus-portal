@@ -3,12 +3,12 @@ import { Seller } from '@/models/seller';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface HMBSState {
-  hbmsListData: BannerDetailed[];
+  hmbsListData: BannerDetailed[];
   sellerInfo?: Seller;
 }
 
 const initialState: HMBSState = {
-  hbmsListData: [],
+  hmbsListData: [],
   sellerInfo: undefined,
 };
 
@@ -16,8 +16,9 @@ export const hmbsSlice = createSlice({
   name: 'hmbs',
   initialState,
   reducers: {
-    setHbmsListData: (state, action: PayloadAction<BannerDetailed[]>) => {
-      state.hbmsListData = action.payload;
+    // rename
+    setHmbsListData: (state, action: PayloadAction<BannerDetailed[]>) => {
+      state.hmbsListData = action.payload;
     },
     setSellerInfo: (state, action: PayloadAction<Seller>) => {
       state.sellerInfo = action.payload;
@@ -26,6 +27,6 @@ export const hmbsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setHbmsListData, setSellerInfo } = hmbsSlice.actions;
+export const { setHmbsListData, setSellerInfo } = hmbsSlice.actions;
 
 export default hmbsSlice.reducer;

@@ -8,11 +8,11 @@ interface HBMData {
 }
 
 export interface HMBState {
-  hbmListData: HBMData[];
+  hmbListData: HBMData[];
 }
 
 const initialState: HMBState = {
-  hbmListData: [],
+  hmbListData: [],
 };
 
 export const hmbSlice = createSlice({
@@ -20,7 +20,7 @@ export const hmbSlice = createSlice({
   initialState,
   reducers: {
     setHbmListData: (state, action: PayloadAction<HBMData[]>) => {
-      state.hbmListData = action.payload;
+      state.hmbListData = action.payload;
     },
   },
 });
