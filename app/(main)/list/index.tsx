@@ -7,13 +7,17 @@ import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scr
 import SearchListHead from '@/components/new-components/search-list-head';
 import { View } from 'react-native';
 import useSearchListResults from '@/hooks/use-search-list-results';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store';
+import useSearchParams from '@/hooks/use-search-params';
 
 const HeaderComponent = () => {
-  const searchData = useSearchListResults();
+  const searchData = useSelector((state: RootState) => state.search);
+  const searchValue = useSearchParams();
 
   return (
     <View className="w-full flex flex-row" style={{ height: 80 }}>
-      <SearchListHead searchValue={searchData.searchValue} resultCount={searchData.results.count} />
+      <SearchListHead searchValue={searchValue} resultCount={searchData.count} />
     </View>
   );
 };

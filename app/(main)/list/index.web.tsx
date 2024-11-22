@@ -10,6 +10,7 @@ import { screens } from '@/styles/screens';
 import SearchListHead from '@/components/new-components/search-list-head';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';
 import useSearchListResults from '@/hooks/use-search-list-results';
+import useSearchParams from '@/hooks/use-search-params';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
@@ -19,6 +20,7 @@ export default function Index() {
   const bannerHeight = imageHeight + 160;
 
   const searchData = useSearchListResults();
+  const searchValue = useSearchParams();
   const [pages, setPages] = useState<string[]>([]);
 
   useEffect(() => {
@@ -37,10 +39,7 @@ export default function Index() {
     <LayoutBasic applyVerticalPadding>
       <View className="flex w-full" style={{ minHeight: dimensions.height }}>
         <View className="flex w-full flex-row flex-wrap  justify-center lg:justify-between">
-          <SearchListHead
-            searchValue={searchData.searchValue}
-            resultCount={searchData.results.count}
-          />
+          <SearchListHead searchValue={searchValue} resultCount={searchData.results.count} />
           {searchData.results.list.map((item) => (
             <View className="pt-2 pb-2" key={`product_${item.id}`}>
               <BannerDetailedItem

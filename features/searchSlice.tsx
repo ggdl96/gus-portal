@@ -27,18 +27,31 @@ export const searchSlice = createSlice({
     },
     setResults: (
       state,
-      action: PayloadAction<{ results: BannerDetailed[]; pageCount: number; count: number }>,
+      action: PayloadAction<{
+        results: BannerDetailed[];
+        pageCount: number;
+        count: number;
+        searchValue: string;
+      }>,
     ) => {
       state.list = action.payload.results;
       state.page = 1;
       state.pageCount = action.payload.pageCount;
       state.count = action.payload.count;
+      state.searchValue = action.payload.searchValue;
+    },
+    resetResults: (state) => {
+      state.list = [];
+      state.page = 1;
+      state.pageCount = 6;
+      state.count = 0;
+      state.searchValue = '';
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { search, setResults } = searchSlice.actions;
+export const { search, setResults, resetResults } = searchSlice.actions;
 
 export default searchSlice.reducer;
 

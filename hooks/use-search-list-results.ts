@@ -1,17 +1,25 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 
 import '../global.css';
 
 import { DETAILED_BANNERS_DATA } from '../__mocks__/screens/home';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSearchList, setResults } from '@/features/searchSlice';
-import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
+import { resetResults, selectSearchList, setResults } from '@/features/searchSlice';
+import { useFocusEffect } from 'expo-router';
+import useSearchParams from './use-search-params';
 
 export default function useSearchListResults() {
   const results = useSelector(selectSearchList);
-  const [searchValue, setSearchValue] = useState<string>('');
+  const searchValue = useSearchParams();
 
   const dispatch = useDispatch();
+
+  const onFocusScreen = useCallback(() => {
+    return () => {
+      dispatch(resetResults());
+    };
+  }, [dispatch]);
+  useFocusEffect(onFocusScreen);
 
   useEffect(() => {
     if (searchValue) {
@@ -21,35 +29,17 @@ export default function useSearchListResults() {
           results: DETAILED_BANNERS_DATA,
           pageCount,
           count: DETAILED_BANNERS_DATA.length * pageCount,
+          searchValue,
         }),
       );
-    } else {
     }
   }, [dispatch, searchValue]);
-
-  const params = useLocalSearchParams();
-
-  const getSearchParam = useCallback(() => {
-    let decodedSearchParam = '';
-    console.log('params: ', params, typeof params.search);
-    if (typeof params.search === 'string') {
-      decodedSearchParam = decodeURIComponent(params.search).trim();
-    }
-
-    if (decodedSearchParam.length === 0) {
-      router.navigate('/');
-    } else {
-      setSearchValue(decodeURIComponent(decodedSearchParam).trim());
-    }
-  }, [params]);
-  useFocusEffect(getSearchParam);
 
   const value = useMemo(
     () => ({
       results,
-      searchValue,
     }),
-    [results, searchValue],
+    [results],
   );
   return value;
 }
