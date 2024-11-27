@@ -60,6 +60,7 @@ const dataAux = {
   },
   image:
     'https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  type: 'content' as const,
 };
 
 const dataAux2 = {
@@ -75,6 +76,7 @@ const dataAux2 = {
   },
   image:
     'https://images.pexels.com/photos/219692/pexels-photo-219692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  type: 'content' as const,
 };
 
 const dataAux3 = {
@@ -90,6 +92,7 @@ const dataAux3 = {
   },
   image:
     'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  type: 'content' as const,
 };
 
 const dataAux4 = {
@@ -105,6 +108,7 @@ const dataAux4 = {
   },
   image:
     'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+  type: 'content' as const,
 };
 
 const smallA1 = {
@@ -130,6 +134,10 @@ const smallA3 = {
 };
 
 export const TOP_BANNERS_DATA = [dataAux, dataAux2, dataAux3, dataAux4];
+export const TOP_BANNERS_NO_SELLER_DATA = TOP_BANNERS_DATA.map((item) => ({
+  ...item,
+  type: 'product' as const,
+}));
 
 export const SMALL_BANNERS_DATA = [smallA1, smallA2, smallA3];
 
