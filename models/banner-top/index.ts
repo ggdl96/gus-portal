@@ -7,4 +7,5 @@ export interface BannerTop {
   isOwned: boolean;
   image: string;
   seller: Seller;
+  type: 'content' | 'product';
 }
