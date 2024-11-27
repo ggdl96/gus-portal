@@ -1,0 +1,36 @@
+import borders from '@/styles/borders';
+import React from 'react';
+
+import { View } from 'react-native';
+
+const mapper = {
+  xl: 48,
+  '2xl': 52,
+  '3xl': 54,
+  '4xl': 56,
+} as const;
+
+type Sizes = keyof typeof mapper;
+
+const TitleSkeleton = ({ size = 'xl', lines = 1 }: { size?: Sizes; lines?: number }) => {
+  const lineList = Array.from({ length: lines }, (_value, index) => index);
+
+  return (
+    <>
+      {lineList.map((item) => (
+        <View className=" pt-1 pb-1 overflow-hidden" key={`titleLine_${item}`}>
+          <View
+            className="title-skeleton bg-contrastPrimary-50"
+            style={{
+              width: 280 / (Number(item) + 1.2),
+              height: mapper[size],
+              borderRadius: borders.radius.small,
+            }}
+          />
+        </View>
+      ))}
+    </>
+  );
+};
+
+export default TitleSkeleton;
