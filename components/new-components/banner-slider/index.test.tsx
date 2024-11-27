@@ -4,8 +4,8 @@ import BannerSlider from '.';
 describe('BannerSlider', () => {
   describe('render', () => {
     it('given empty array should not render elements', () => {
-      const renderResultContent = render(<BannerSlider data={[]} type={'content'} />);
-      const renderResultProduct = render(<BannerSlider data={[]} type="product" />);
+      const renderResultContent = render(<BannerSlider data={[]} />);
+      const renderResultProduct = render(<BannerSlider data={[]} />);
 
       const jsonResultContent = renderResultContent.toJSON();
       const jsonResultProduct = renderResultProduct.toJSON();
@@ -28,6 +28,8 @@ describe('BannerSlider', () => {
               name: 'Seller 1',
               image: '',
             },
+            type: 'content' as const,
+            isLoading: false,
           },
           {
             id: 'a234df24df34537',
@@ -40,10 +42,12 @@ describe('BannerSlider', () => {
               name: 'Seller 1',
               image: '',
             },
+            type: 'content' as const,
+            isLoading: false,
           },
         ];
 
-        const renderResult = render(<BannerSlider data={data} type={'content'} />);
+        const renderResult = render(<BannerSlider data={data} />);
 
         const titleElement = await renderResult.findAllByText('Seller 1');
 
@@ -68,6 +72,8 @@ describe('BannerSlider', () => {
               name: 'Seller 1',
               image: '',
             },
+            type: 'content' as const,
+            isLoading: false,
           },
           {
             id: 'a234df24df34537',
@@ -80,10 +86,12 @@ describe('BannerSlider', () => {
               name: 'Seller 1',
               image: '',
             },
+            type: 'content' as const,
+            isLoading: false,
           },
         ];
 
-        const renderResult = render(<BannerSlider data={data} type={'product'} />);
+        const renderResult = render(<BannerSlider data={data} />);
 
         const jsonResult = renderResult.toJSON();
 

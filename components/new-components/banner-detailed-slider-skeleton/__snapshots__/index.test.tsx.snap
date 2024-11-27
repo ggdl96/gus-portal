@@ -37,18 +37,13 @@ exports[`BannerDetailedSliderSkeleton should render properly 1`] = `
       }
     >
       <View
-        style={
-          {
-            "paddingRight": 10,
-          }
-        }
+        className="pr-4"
       >
         <View
           style={
             [
               {
-                "backgroundColor": "#191712",
-                "paddingLeft": 3,
+                "backgroundColor": "#27241D",
               },
               {
                 "borderRadius": 9,

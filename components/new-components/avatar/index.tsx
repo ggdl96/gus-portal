@@ -4,15 +4,16 @@ import styles from './styles';
 
 interface Props {
   src?: { uri: string };
+  isLoading?: boolean;
 }
 
-const Avatar = ({ src }: Props) => {
+const Avatar = ({ src, isLoading }: Props) => {
   const size = 54;
   const borderRadius = size / 6;
 
   return (
-    <View style={{ paddingRight: 10 }}>
-      {typeof src === 'undefined' ? (
+    <View className="pr-4">
+      {isLoading || typeof src === 'undefined' ? (
         <View
           testID="avatarNoImage"
           style={[

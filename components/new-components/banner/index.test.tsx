@@ -1,15 +1,25 @@
 import { render, userEvent } from '@testing-library/react-native';
 import Banner from '.';
+import { BannerTopComponent } from '@/models/banner-top-component';
 
 describe('Banner', () => {
   it('should render properly', () => {
-    const renderResult = render(
-      <Banner
-        source={{
-          uri: '',
-        }}
-      />,
-    );
+    const item: BannerTopComponent = {
+      isLoading: false,
+      id: 'id',
+      title: '',
+      subTitle: '',
+      isOwned: false,
+      image: '',
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      type: 'content',
+    };
+
+    const renderResult = render(<Banner item={item} />);
 
     const banner = () => renderResult.getByTestId('bannerId');
 
@@ -18,15 +28,21 @@ describe('Banner', () => {
 
   it('given an on Press event over the component, it should trigger the action', async () => {
     const handleOnPress = jest.fn(() => {});
-
-    const renderResult = render(
-      <Banner
-        source={{
-          uri: '',
-        }}
-        onPress={handleOnPress}
-      />,
-    );
+    const item: BannerTopComponent = {
+      isLoading: false,
+      id: 'id',
+      title: '',
+      subTitle: '',
+      isOwned: false,
+      image: '',
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      type: 'content',
+    };
+    const renderResult = render(<Banner item={item} onPress={handleOnPress} />);
 
     const banner = renderResult.getByTestId('bannerId');
 
@@ -36,13 +52,21 @@ describe('Banner', () => {
   });
 
   it('given an on Press event over the component when no onPress prop, it should not break', async () => {
-    const renderResult = render(
-      <Banner
-        source={{
-          uri: '',
-        }}
-      />,
-    );
+    const item: BannerTopComponent = {
+      isLoading: false,
+      id: 'id',
+      title: '',
+      subTitle: '',
+      isOwned: false,
+      image: '',
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      type: 'content',
+    };
+    const renderResult = render(<Banner item={item} />);
 
     const banner = renderResult.getByTestId('bannerId');
 

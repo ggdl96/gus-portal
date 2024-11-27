@@ -4,6 +4,7 @@ import styles from './styles';
 import Avatar from '../avatar';
 import BannerTitle from '../banner-title';
 import { router } from 'expo-router';
+import ParagraphSkeleton from '../paragraph-skeleton';
 
 interface Props {
   title: string;
@@ -11,9 +12,17 @@ interface Props {
   style?: ViewStyle;
   id?: string;
   shouldRedirect?: boolean;
+  isLoading?: boolean;
 }
 
-const TitleWithAvatar = ({ title, src, style, id, shouldRedirect = true }: Props) => {
+const TitleWithAvatar = ({
+  title,
+  src,
+  style,
+  id,
+  shouldRedirect = true,
+  isLoading = false,
+}: Props) => {
   const _handleOnPress = (e: GestureResponderEvent) => {
     if (id && shouldRedirect) {
       e.stopPropagation();
@@ -22,10 +31,10 @@ const TitleWithAvatar = ({ title, src, style, id, shouldRedirect = true }: Props
   };
 
   return (
-    <Pressable onPress={_handleOnPress} style={[styles.container, style]}>
-      <Avatar src={src} />
-      <View className="flex flex-row flex-wrap  w-2/3">
-        <BannerTitle title={title} />
+    <Pressable onPress={_handleOnPress} style={[styles.container, style]} disabled={isLoading}>
+      <Avatar src={src} isLoading={isLoading} />
+      <View className="flex flex-row flex-wrap  w-2/3 pl-1 pr-1">
+        {!isLoading ? <BannerTitle title={title} /> : <ParagraphSkeleton />}
       </View>
     </Pressable>
   );

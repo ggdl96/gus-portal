@@ -2,14 +2,15 @@ import React from 'react';
 
 import styles from './styles';
 import { View } from 'react-native';
-import { BannerTop } from '@/models/banner-top';
 import TitleWithAvatar from '../title-with-avatar';
 import BannerTitle from '../banner-title';
 import BannerSection from '../banner-section/banner-section';
 import colors from '@/styles/colors';
+import { BannerTopComponent } from '@/models/banner-top-component';
+import TitleSkeleton from '../title-skeleton';
 
 type Props = {
-  data: BannerTop;
+  data: BannerTopComponent;
 };
 
 const FeaturedBannerContent = ({ data }: Props) => {
@@ -17,8 +18,13 @@ const FeaturedBannerContent = ({ data }: Props) => {
     <View style={styles.container}>
       <View style={styles.body}>
         <View className="w-full justify-end flex flex-1">
-          <BannerSection backgroundColor={colors.tertiary[650]}>
-            <BannerTitle title={data.title} size="4xl" />
+          <BannerSection
+            backgroundColor={!data.isLoading ? colors.tertiary[650] : colors.contrastPrimary[30]}>
+            {!data.isLoading ? (
+              <BannerTitle title={data.title} size="4xl" />
+            ) : (
+              <TitleSkeleton size="4xl" lines={2} />
+            )}
           </BannerSection>
         </View>
         <View className="flex flex-row justify-end flex-1 w-full">
@@ -31,6 +37,7 @@ const FeaturedBannerContent = ({ data }: Props) => {
                   uri: data.seller.image,
                 }}
                 style={styles.titleWithAvatar}
+                isLoading={data.isLoading}
               />
             </View>
           </View>
