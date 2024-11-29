@@ -43,7 +43,9 @@ export default function Index() {
       dispatch(dispatch(setTopBannersWithoutSeller(TOP_BANNERS_NO_SELLER_DATA)));
     }, 5341);
     dispatch(setMediumBannersData(MEDIUM_BANNERS_DATA));
-    dispatch(setDetailedBannersData(DETAILED_BANNERS_DATA));
+    setTimeout(() => {
+      dispatch(setDetailedBannersData(DETAILED_BANNERS_DATA));
+    }, 3221);
     dispatch(setSmallBannersData(SMALL_BANNERS_DATA));
   }, [dispatch]);
 

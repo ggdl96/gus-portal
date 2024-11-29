@@ -47,7 +47,6 @@ export default function Index() {
                 width={bannerWidth}
                 height={bannerHeight}
                 borderRadius={borders.radius.medium}
-                displaySeller
                 imageHeight={imageHeight}
               />
             </View>
