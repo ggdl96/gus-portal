@@ -15,6 +15,13 @@ describe('BannerDetailedSlider', () => {
             id: 'sad34kl54h45c54n58g7',
             image: '',
             title: 'Banner Name',
+            isLoading: false,
+            displaySeller: true,
+            price: 0,
+            currencyDisplay: '',
+            currencyCode: '',
+            description: '',
+            variants: [],
           },
         ]}
         horizontal={false}
@@ -30,7 +37,7 @@ describe('BannerDetailedSlider', () => {
     expect(bannerNameElementFunction).toHaveLength(1);
   });
 
-  it('given the prop "displaySeller" it should not display seller', () => {
+  it('given the key "displaySeller" in false of data pro it should not display seller', () => {
     const renderResults = render(
       <BannerDetailedSlider
         data={[
@@ -43,10 +50,16 @@ describe('BannerDetailedSlider', () => {
             id: 'sad34kl54h45c54n58g7',
             image: '',
             title: 'Banner Name',
+            isLoading: false,
+            displaySeller: false,
+            price: 0,
+            currencyDisplay: '',
+            currencyCode: '',
+            description: '',
+            variants: [],
           },
         ]}
         horizontal={false}
-        displaySeller={false}
       />,
     );
 
