@@ -1,41 +1,36 @@
 import React from 'react';
-import { AnimatableNumericValue, DimensionValue } from 'react-native';
 import { BannerSmall } from '@/models/banner-small';
 import DefaultList from '../default-list';
 import BannerSmallItem from '../banner-small-item';
 import { router } from 'expo-router';
+import { BannerSmallComponent } from '@/models/banner-small-component';
+import BannerSizes from '@/constants/banner-sizes';
 
 type Props = {
-  data: BannerSmall[];
-  width: DimensionValue;
-  height: DimensionValue;
-  borderRadius: AnimatableNumericValue;
+  data: BannerSmallComponent[];
 };
 
-const BannerSmallSlider = ({ data, width, height, borderRadius }: Props) => {
+const RenderItem = ({ item }: { item: BannerSmallComponent }) => {
+  const handleOnPress = () => {
+    router.navigate(`/sb/${item.id}`);
+  };
+
   return (
-    <DefaultList
-      horizontal
-      renderItem={({ item }) => {
-        const handleOnPress = () => {
-          router.navigate(`sb/${item.id}`);
-        };
-        return (
-          <BannerSmallItem
-            onPress={handleOnPress}
-            data={item}
-            height={height}
-            width={width}
-            borderRadius={borderRadius}
-          />
-        );
-      }}
-      data={data}
-      keyExtractor={(b) => {
-        return b.id;
-      }}
+    <BannerSmallItem
+      onPress={handleOnPress}
+      data={item}
+      height={BannerSizes.small.height}
+      width={BannerSizes.small.width}
     />
   );
+};
+
+const BannerSmallSlider = ({ data }: Props) => {
+  const keyExtractor = (bannerSmall: BannerSmall): string => {
+    return bannerSmall.id;
+  };
+
+  return <DefaultList horizontal renderItem={RenderItem} data={data} keyExtractor={keyExtractor} />;
 };
 
 export default BannerSmallSlider;

@@ -19,9 +19,18 @@ export const setBannerDetailedSize = (windowWidth = Dimensions.get('window').wid
   };
 };
 
+export const setBannerSmallSize = (windowWidth = Dimensions.get('window').width) => {
+  const width = (windowWidth > screens.lg ? 430 : windowWidth) * 0.32;
+
+  return {
+    width,
+    height: width * 1.7,
+  };
+};
 const BannerSizes = {
   highlightMain: setHighlightMainSize(),
   Detailed: setBannerDetailedSize(),
+  small: setBannerSmallSize(),
 };
 
 export default BannerSizes;

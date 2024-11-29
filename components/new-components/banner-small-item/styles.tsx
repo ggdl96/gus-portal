@@ -1,9 +1,11 @@
 import borders from '@/styles/borders';
+import colors from '@/styles/colors';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#B2BEB5',
+    backgroundColor: colors.contrastPrimary[30],
+    borderRadius: borders.radius.medium,
   },
   image: {
     position: 'absolute',

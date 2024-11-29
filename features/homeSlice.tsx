@@ -2,6 +2,7 @@ import { BannerDetailed } from '@/models/banner-detailed';
 import { BannerDetailedComponent } from '@/models/banner-detailed-component';
 import { BannerMedium } from '@/models/banner-medium/indext';
 import { BannerSmall } from '@/models/banner-small';
+import { BannerSmallComponent } from '@/models/banner-small-component';
 import { BannerTop } from '@/models/banner-top';
 import { BannerTopComponent } from '@/models/banner-top-component';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
@@ -10,7 +11,7 @@ export interface HomeState {
   topBannersWithSeller: BannerTopComponent[];
   topBannersWithoutSeller: BannerTopComponent[];
   mediumBannersData: BannerMedium[];
-  smallBannersData: BannerSmall[];
+  smallBannersData: BannerSmallComponent[];
   detailedBannersData: BannerDetailedComponent[];
 }
 
@@ -76,7 +77,29 @@ const initialState: HomeState = {
     },
   ],
   mediumBannersData: [],
-  smallBannersData: [],
+  smallBannersData: [
+    {
+      isLoading: true,
+      id: 'small-1',
+      title: '',
+      urlImage: '',
+      views: 0,
+    },
+    {
+      isLoading: true,
+      id: 'small-2',
+      title: '',
+      urlImage: '',
+      views: 0,
+    },
+    {
+      isLoading: true,
+      id: 'small-3',
+      title: '',
+      urlImage: '',
+      views: 0,
+    },
+  ],
   detailedBannersData: [
     {
       seller: {
@@ -146,7 +169,10 @@ export const homeSlice = createSlice({
       state.mediumBannersData = action.payload;
     },
     setSmallBannersData: (state, action: PayloadAction<BannerSmall[]>) => {
-      state.smallBannersData = action.payload;
+      state.smallBannersData = action.payload.map((item) => ({
+        ...item,
+        isLoading: false,
+      }));
     },
     setDetailedBannersData: (state, action: PayloadAction<BannerDetailed[]>) => {
       state.detailedBannersData = action.payload.map((item) => ({

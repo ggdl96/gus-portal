@@ -1,28 +1,23 @@
 import React from 'react';
-import {
-  Image,
-  View,
-  Pressable,
-  GestureResponderEvent,
-  DimensionValue,
-  AnimatableNumericValue,
-} from 'react-native';
-import { BannerSmall } from '@/models/banner-small';
+import { Image, View, Pressable, GestureResponderEvent, DimensionValue } from 'react-native';
 import styles from './styles';
 import BannerTitle from '../banner-title';
 import BannerSection from '../banner-section/banner-section';
 import colors from '@/styles/colors';
 import BannerSubTitle from '../banner-subtitle';
+import { BannerSmallComponent } from '@/models/banner-small-component';
+import TitleSkeleton from '../title-skeleton';
+import SubTitleSkeleton from '../sub-title-skeleton';
+import BannerSizes from '@/constants/banner-sizes';
 
 type Props = {
   onPress: (event: GestureResponderEvent) => void;
-  data: BannerSmall;
+  data: BannerSmallComponent;
   width: DimensionValue;
   height: DimensionValue;
-  borderRadius: AnimatableNumericValue;
 };
 
-const BannerSmallItem = ({ data, onPress, width, height, borderRadius }: Props) => {
+const BannerSmallItem = ({ data, onPress, width, height }: Props) => {
   return (
     <Pressable
       onPress={onPress}
@@ -31,19 +26,31 @@ const BannerSmallItem = ({ data, onPress, width, height, borderRadius }: Props) 
         {
           height,
           width,
-          borderRadius,
         },
       ]}>
-      <Image style={styles.image} source={{ uri: data.urlImage }} />
+      {!data.isLoading && data.urlImage ? (
+        <Image style={styles.image} source={{ uri: data.urlImage }} />
+      ) : null}
       <View style={styles.content}>
         <View className="w-full justify-end flex flex-1">
-          <BannerSection backgroundColor={colors.tertiary[650]}>
-            <BannerTitle title={data.title} size="3xl" />
+          <BannerSection
+            backgroundColor={data.isLoading ? colors.contrastPrimary[30] : colors.tertiary[650]}>
+            {!data.isLoading ? (
+              <BannerTitle title={data.title} size="3xl" />
+            ) : (
+              <TitleSkeleton size="3xl" width={BannerSizes.small.width / 1.1} />
+            )}
           </BannerSection>
         </View>
         <View className="w-full flex flex-1">
-          <BannerSection backgroundColor={colors.primary[650]}>
-            <BannerSubTitle title={`${data.views} views`} />
+          <BannerSection
+            backgroundColor={data.isLoading ? colors.contrastPrimary[30] : colors.primary[650]}>
+            {!data.isLoading ? (
+              <BannerSubTitle title={`${data.views} views`} />
+            ) : (
+              // probably should create sub title skeleton
+              <SubTitleSkeleton width={BannerSizes.small.width / 1.4} />
+            )}
           </BannerSection>
         </View>
       </View>
