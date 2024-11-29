@@ -22,7 +22,11 @@ import {
 } from '@/features/homeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
-import { setBannerSmallSize, setHighlightMainSize } from '@/constants/banner-sizes';
+import {
+  setBannerMediumSize,
+  setBannerSmallSize,
+  setHighlightMainSize,
+} from '@/constants/banner-sizes';
 
 export default function Index() {
   const isMobile = Platform.OS === 'android' || Platform.OS === 'ios';
@@ -33,6 +37,7 @@ export default function Index() {
   useEffect(() => {
     setHighlightMainSize(dimensions.width);
     setBannerSmallSize(dimensions.width);
+    setBannerMediumSize(dimensions.width);
   }, [dimensions]);
 
   useEffect(() => {
@@ -43,10 +48,15 @@ export default function Index() {
     setTimeout(() => {
       dispatch(dispatch(setTopBannersWithoutSeller(TOP_BANNERS_NO_SELLER_DATA)));
     }, 5341);
-    dispatch(setMediumBannersData(MEDIUM_BANNERS_DATA));
+
+    setTimeout(() => {
+      dispatch(setMediumBannersData(MEDIUM_BANNERS_DATA));
+    }, 2141);
+
     setTimeout(() => {
       dispatch(setDetailedBannersData(DETAILED_BANNERS_DATA));
     }, 3221);
+
     setTimeout(() => {
       dispatch(setSmallBannersData(SMALL_BANNERS_DATA));
     }, 2111);

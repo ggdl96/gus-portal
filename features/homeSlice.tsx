@@ -1,5 +1,6 @@
 import { BannerDetailed } from '@/models/banner-detailed';
 import { BannerDetailedComponent } from '@/models/banner-detailed-component';
+import { BannerMediumComponent } from '@/models/banner-medium-component/indext';
 import { BannerMedium } from '@/models/banner-medium/indext';
 import { BannerSmall } from '@/models/banner-small';
 import { BannerSmallComponent } from '@/models/banner-small-component';
@@ -10,7 +11,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface HomeState {
   topBannersWithSeller: BannerTopComponent[];
   topBannersWithoutSeller: BannerTopComponent[];
-  mediumBannersData: BannerMedium[];
+  mediumBannersData: BannerMediumComponent[];
   smallBannersData: BannerSmallComponent[];
   detailedBannersData: BannerDetailedComponent[];
 }
@@ -76,7 +77,36 @@ const initialState: HomeState = {
       type: 'product' as const,
     },
   ],
-  mediumBannersData: [],
+  mediumBannersData: [
+    {
+      isLoading: true,
+      image: '',
+      categories: [],
+      text: '',
+      id: 'medium-skeleton-1',
+    },
+    {
+      isLoading: true,
+      image: '',
+      categories: [],
+      text: '',
+      id: 'medium-skeleton-2',
+    },
+    {
+      isLoading: true,
+      image: '',
+      categories: [],
+      text: '',
+      id: 'medium-skeleton-3',
+    },
+    {
+      isLoading: true,
+      image: '',
+      categories: [],
+      text: '',
+      id: 'medium-skeleton-4',
+    },
+  ],
   smallBannersData: [
     {
       isLoading: true,
@@ -166,7 +196,10 @@ export const homeSlice = createSlice({
       state.topBannersWithoutSeller = action.payload.map((item) => ({ ...item, isLoading: false }));
     },
     setMediumBannersData: (state, action: PayloadAction<BannerMedium[]>) => {
-      state.mediumBannersData = action.payload;
+      state.mediumBannersData = action.payload.map((item) => ({
+        ...item,
+        isLoading: false,
+      }));
     },
     setSmallBannersData: (state, action: PayloadAction<BannerSmall[]>) => {
       state.smallBannersData = action.payload.map((item) => ({

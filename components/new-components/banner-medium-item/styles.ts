@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   wrapper: {
     overflow: 'hidden',
+    backgroundColor: colors.contrastPrimary[20],
   },
   container: {
     position: 'absolute',
