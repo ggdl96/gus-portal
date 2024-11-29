@@ -143,6 +143,7 @@ export const SMALL_BANNERS_DATA = [smallA1, smallA2, smallA3];
 
 export const MEDIUM_BANNERS_DATA = [
   {
+    id: 'dodjkldsfsr3f43sd4glk2',
     categories: ['cat1'],
     text: 'some text',
     image:
