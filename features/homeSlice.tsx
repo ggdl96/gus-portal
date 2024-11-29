@@ -1,4 +1,5 @@
 import { BannerDetailed } from '@/models/banner-detailed';
+import { BannerDetailedComponent } from '@/models/banner-detailed-component';
 import { BannerMedium } from '@/models/banner-medium/indext';
 import { BannerSmall } from '@/models/banner-small';
 import { BannerTop } from '@/models/banner-top';
@@ -10,7 +11,7 @@ export interface HomeState {
   topBannersWithoutSeller: BannerTopComponent[];
   mediumBannersData: BannerMedium[];
   smallBannersData: BannerSmall[];
-  detailedBannersData: BannerDetailed[];
+  detailedBannersData: BannerDetailedComponent[];
 }
 
 const initialState: HomeState = {
@@ -76,7 +77,59 @@ const initialState: HomeState = {
   ],
   mediumBannersData: [],
   smallBannersData: [],
-  detailedBannersData: [],
+  detailedBannersData: [
+    {
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      id: 'id1',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+      isLoading: true,
+      displaySeller: true,
+    },
+    {
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      id: 'id2',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+      isLoading: true,
+      displaySeller: true,
+    },
+    {
+      seller: {
+        id: '',
+        name: '',
+        image: '',
+      },
+      id: 'id3',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+      isLoading: true,
+      displaySeller: true,
+    },
+  ],
 };
 
 export const homeSlice = createSlice({
@@ -96,7 +149,11 @@ export const homeSlice = createSlice({
       state.smallBannersData = action.payload;
     },
     setDetailedBannersData: (state, action: PayloadAction<BannerDetailed[]>) => {
-      state.detailedBannersData = action.payload;
+      state.detailedBannersData = action.payload.map((item) => ({
+        ...item,
+        isLoading: false,
+        displaySeller: true,
+      }));
     },
   },
 });
