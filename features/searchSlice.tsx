@@ -1,10 +1,11 @@
 import { BannerDetailed } from '@/models/banner-detailed';
+import { BannerDetailedComponent } from '@/models/banner-detailed-component';
 import { RootState } from '@/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface SearchState {
   searchValue: string;
-  list: BannerDetailed[];
+  list: BannerDetailedComponent[];
   page: number;
   pageCount: number;
   count: number;
@@ -34,7 +35,11 @@ export const searchSlice = createSlice({
         searchValue: string;
       }>,
     ) => {
-      state.list = action.payload.results;
+      state.list = action.payload.results.map((item) => ({
+        ...item,
+        isLoading: false,
+        displaySeller: true,
+      }));
       state.page = 1;
       state.pageCount = action.payload.pageCount;
       state.count = action.payload.count;
