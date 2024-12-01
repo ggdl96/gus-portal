@@ -11,6 +11,7 @@ import SearchListHead from '@/components/new-components/search-list-head';
 import BannerSubTitle from '@/components/new-components/banner-subtitle';
 import useSearchListResults from '@/hooks/use-search-list-results';
 import useSearchParams from '@/hooks/use-search-params';
+import SubTitleSkeleton from '@/components/new-components/sub-title-skeleton';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
@@ -39,7 +40,11 @@ export default function Index() {
     <LayoutBasic applyVerticalPadding>
       <View className="flex w-full" style={{ minHeight: dimensions.height }}>
         <View className="flex w-full flex-row flex-wrap  justify-center lg:justify-between">
-          <SearchListHead searchValue={searchValue} resultCount={searchData.results.count} />
+          <SearchListHead
+            searchValue={searchValue}
+            resultCount={searchData.results.count}
+            isLoading={searchData.results.isLoading}
+          />
           {searchData.results.list.map((item) => (
             <View className="pt-2 pb-2" key={`product_${item.id}`}>
               <BannerDetailedItem
@@ -56,7 +61,11 @@ export default function Index() {
           <View className="flex flex-row border-t-2 border-t-contrastPrimary-80 w-full justify-center pb-2">
             {pages.map((item) => (
               <View className="p-2" key={item}>
-                <BannerSubTitle title={item} />
+                {!searchData.results.isLoading ? (
+                  <BannerSubTitle title={item} />
+                ) : (
+                  <SubTitleSkeleton width={20} />
+                )}
               </View>
             ))}
           </View>

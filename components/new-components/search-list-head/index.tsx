@@ -9,9 +9,10 @@ import BannerTitle from '@/components/new-components/banner-title';
 interface Props {
   searchValue: string;
   resultCount: number;
+  isLoading: boolean;
 }
 
-const SearchListHead = ({ searchValue, resultCount }: Props) => {
+const SearchListHead = ({ searchValue, resultCount, isLoading }: Props) => {
   return (
     <View className="flex w-full">
       {searchValue ? (
@@ -19,7 +20,7 @@ const SearchListHead = ({ searchValue, resultCount }: Props) => {
           <BannerDescription title={`Search Results by: ${searchValue}`} />
         </View>
       ) : null}
-      {resultCount === 0 ? (
+      {resultCount === 0 && !isLoading ? (
         <View className="w-full flex flex-row justify-center">
           <BannerTitle title="No Results" />
         </View>

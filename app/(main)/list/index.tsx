@@ -17,7 +17,11 @@ const HeaderComponent = () => {
 
   return (
     <View className="w-full flex flex-row" style={{ height: 80 }}>
-      <SearchListHead searchValue={searchValue} resultCount={searchData.count} />
+      <SearchListHead
+        searchValue={searchValue}
+        resultCount={searchData.count}
+        isLoading={searchData.isLoading}
+      />
     </View>
   );
 };
