@@ -11,7 +11,7 @@ const SubTitleSkeleton = ({ lines = 1, width = 280 }: { lines?: number; width?: 
       {lineList.map((item) => (
         <View className=" pt-1 pb-1 overflow-hidden" key={`titleLine_${item}`}>
           <View
-            className="sub-title-skeleton bg-contrastPrimary-50"
+            className="sub-title-skeleton bg-contrastPrimary-80"
             style={{
               width: width / (Number(item) + 1.2),
               height: 32,

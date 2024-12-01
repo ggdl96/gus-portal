@@ -28,7 +28,7 @@ const TitleSkeleton = ({
       {lineList.map((item) => (
         <View className=" pt-1 pb-1 overflow-hidden" key={`titleLine_${item}`}>
           <View
-            className="title-skeleton bg-contrastPrimary-50"
+            className="title-skeleton bg-contrastPrimary-80"
             style={{
               width: width / (Number(item) + 1.2),
               height: mapper[size],
