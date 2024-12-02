@@ -1,12 +1,82 @@
 import { BannerDetailed } from '@/models/banner-detailed';
+import { BannerDetailedComponent } from '@/models/banner-detailed-component';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface SBState {
-  sbListData: BannerDetailed[];
+  sbListData: BannerDetailedComponent[];
 }
 
 const initialState: SBState = {
-  sbListData: [],
+  sbListData: [
+    {
+      isLoading: true,
+      displaySeller: true,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p1',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: true,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p2',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: true,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p3',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: true,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p4',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+  ],
 };
 
 export const sbSlice = createSlice({
@@ -14,7 +84,11 @@ export const sbSlice = createSlice({
   initialState,
   reducers: {
     setSbListData: (state, action: PayloadAction<BannerDetailed[]>) => {
-      state.sbListData = action.payload;
+      state.sbListData = action.payload.map((item) => ({
+        ...item,
+        isLoading: false,
+        displaySeller: true,
+      }));
     },
   },
 });

@@ -14,7 +14,9 @@ export default function Index() {
   const sbData = useSelector((state: RootState) => state.sb);
 
   useEffect(() => {
-    dispatch(setSbListData(DETAILED_BANNERS_DATA));
+    setTimeout(() => {
+      dispatch(setSbListData(DETAILED_BANNERS_DATA));
+    }, 3222);
   }, [dispatch]);
 
   return (
