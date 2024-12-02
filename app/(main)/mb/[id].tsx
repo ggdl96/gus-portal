@@ -16,25 +16,27 @@ export default function Index() {
   const mbData = useSelector((state: RootState) => state.mb);
 
   useEffect(() => {
-    dispatch(
-      setMbListData([
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght1',
-        },
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght2',
-        },
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght3',
-        },
-      ]),
-    );
+    setTimeout(() => {
+      dispatch(
+        setMbListData([
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght1',
+          },
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght2',
+          },
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'nnght3',
+          },
+        ]),
+      );
+    }, 3211);
   }, [dispatch]);
 
   return (
@@ -42,11 +44,12 @@ export default function Index() {
       {mbData.mbListData.map((item) => (
         <Fragment key={item.id}>
           <TitleWithAvatar
-            title={DETAILED_BANNERS_DATA[0].seller.name}
-            id={DETAILED_BANNERS_DATA[0].seller.id}
-            src={{ uri: DETAILED_BANNERS_DATA[0].seller.image }}
+            title={item.sellerInfo.name}
+            id={item.sellerInfo.id}
+            src={{ uri: item.sellerInfo.image }}
+            isLoading={item.sellerInfo.isLoading}
           />
-          <BannerDetailedSlider data={DETAILED_BANNERS_DATA} horizontal displaySeller={false} />
+          <BannerDetailedSlider data={item.list} horizontal displaySeller={false} />
         </Fragment>
       ))}
     </LayoutBasic>
