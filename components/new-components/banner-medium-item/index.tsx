@@ -38,7 +38,7 @@ const BannerMediumItem = ({ data, onPress, borderRadius }: Props) => {
             {!data.isLoading ? (
               <BannerTitle title={data.categories.join(', ')} size="4xl" />
             ) : (
-              <TitleSkeleton size="4xl" width={BannerSizes.medium.width / 1.4} />
+              <TitleSkeleton size="4xl" width={BannerSizes.medium.width / 1.4} align="right" />
             )}
           </BannerSection>
         </View>
@@ -48,7 +48,7 @@ const BannerMediumItem = ({ data, onPress, borderRadius }: Props) => {
             {!data.isLoading ? (
               <BannerTitle title={data.text} />
             ) : (
-              <TitleSkeleton width={BannerSizes.medium.width / 1.2} />
+              <TitleSkeleton width={BannerSizes.medium.width / 1.2} align="right" />
             )}
           </BannerSection>
         </View>

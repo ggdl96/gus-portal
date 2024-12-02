@@ -22,7 +22,7 @@ const FeaturedProduct = ({ data }: Props) => {
           {!data.isLoading ? (
             <BannerTitle title={data.title} size="4xl" />
           ) : (
-            <TitleSkeleton size="4xl" lines={2} />
+            <TitleSkeleton size="4xl" lines={2} align="right" />
           )}
         </BannerSection>
       </View>
@@ -32,7 +32,7 @@ const FeaturedProduct = ({ data }: Props) => {
             {!data.isLoading ? (
               <BannerSubTitle title={data.subTitle} />
             ) : (
-              <ParagraphSkeleton lines={3} />
+              <ParagraphSkeleton lines={3} align="right" />
             )}
           </BannerSection>
         </View>

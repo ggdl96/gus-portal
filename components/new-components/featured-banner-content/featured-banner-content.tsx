@@ -23,7 +23,7 @@ const FeaturedBannerContent = ({ data }: Props) => {
             {!data.isLoading ? (
               <BannerTitle title={data.title} size="4xl" />
             ) : (
-              <TitleSkeleton size="4xl" lines={2} />
+              <TitleSkeleton size="4xl" lines={2} align="right" />
             )}
           </BannerSection>
         </View>

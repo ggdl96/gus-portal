@@ -38,7 +38,7 @@ const BannerSmallItem = ({ data, onPress, width, height }: Props) => {
             {!data.isLoading ? (
               <BannerTitle title={data.title} size="3xl" />
             ) : (
-              <TitleSkeleton size="3xl" width={BannerSizes.small.width / 1.1} />
+              <TitleSkeleton size="3xl" width={BannerSizes.small.width / 1.1} align="right" />
             )}
           </BannerSection>
         </View>
@@ -48,8 +48,7 @@ const BannerSmallItem = ({ data, onPress, width, height }: Props) => {
             {!data.isLoading ? (
               <BannerSubTitle title={`${data.views} views`} />
             ) : (
-              // probably should create sub title skeleton
-              <SubTitleSkeleton width={BannerSizes.small.width / 1.4} />
+              <SubTitleSkeleton width={BannerSizes.small.width / 1.4} align="right" />
             )}
           </BannerSection>
         </View>
