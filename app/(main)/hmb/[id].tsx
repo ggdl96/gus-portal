@@ -17,25 +17,27 @@ export default function Index() {
   const hmbData = useSelector((state: RootState) => state.hmb);
 
   useEffect(() => {
-    dispatch(
-      setHbmListData([
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'avb1',
-        },
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'avb2',
-        },
-        {
-          list: DETAILED_BANNERS_DATA,
-          sellerInfo: DETAILED_BANNERS_DATA[0].seller,
-          id: DETAILED_BANNERS_DATA[0].seller.id + 'avb3',
-        },
-      ]),
-    );
+    setTimeout(() => {
+      dispatch(
+        setHbmListData([
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'avb1',
+          },
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'avb2',
+          },
+          {
+            list: DETAILED_BANNERS_DATA,
+            sellerInfo: DETAILED_BANNERS_DATA[0].seller,
+            id: DETAILED_BANNERS_DATA[0].seller.id + 'avb3',
+          },
+        ]),
+      );
+    }, 2311);
   }, [dispatch]);
   return (
     <LayoutBasic>
@@ -50,6 +52,7 @@ export default function Index() {
               title={item.sellerInfo.name}
               id={item.sellerInfo.id}
               src={{ uri: item.sellerInfo.image }}
+              isLoading={item.sellerInfo.isLoading}
             />
             <BannerDetailedSlider data={item.list} horizontal displaySeller={false} />
           </View>
