@@ -15,8 +15,13 @@ export default function Index() {
   const hmbsData = useSelector((state: RootState) => state.hmbs);
 
   useEffect(() => {
-    dispatch(setSellerInfo(DETAILED_BANNERS_DATA[0].seller));
-    dispatch(setHmbsListData(DETAILED_BANNERS_DATA));
+    setTimeout(() => {
+      dispatch(setSellerInfo(DETAILED_BANNERS_DATA[0].seller));
+    }, 2331);
+
+    setTimeout(() => {
+      dispatch(setHmbsListData(DETAILED_BANNERS_DATA));
+    }, 3331);
   }, [dispatch]);
 
   return (
@@ -25,6 +30,7 @@ export default function Index() {
         title={hmbsData.sellerInfo?.name ?? ''}
         id={hmbsData.sellerInfo?.id ?? ''}
         src={{ uri: hmbsData.sellerInfo?.image ?? '' }}
+        isLoading={hmbsData.sellerInfo.isLoading}
       />
       <BannerDetailedSlider data={hmbsData.hmbsListData} horizontal={false} displaySeller={false} />
     </LayoutBasicNoScroll>

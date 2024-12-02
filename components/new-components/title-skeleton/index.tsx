@@ -4,10 +4,10 @@ import React from 'react';
 import { View } from 'react-native';
 
 const mapper = {
-  xl: 48,
-  '2xl': 52,
-  '3xl': 54,
-  '4xl': 56,
+  xl: 40,
+  '2xl': 42,
+  '3xl': 44,
+  '4xl': 46,
 } as const;
 
 type Sizes = keyof typeof mapper;

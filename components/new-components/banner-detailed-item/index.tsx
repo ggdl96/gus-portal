@@ -8,6 +8,7 @@ import BannerDescription from '../banner-description';
 import BannerTitle from '../banner-title';
 import { BannerDetailedComponent } from '@/models/banner-detailed-component';
 import TitleSkeleton from '../title-skeleton';
+import ParagraphSkeleton from '../paragraph-skeleton';
 
 interface PropsItem {
   data: BannerDetailedComponent;
@@ -57,7 +58,7 @@ const BannerDetailedItem = ({ width, data, height, borderRadius, imageHeight }: 
         <View className="pl-2 pr-2 w-full flex flex-1">
           <View className={`flex w-full pt-1 pb-1`}>
             <View className="w-full flex flex-row justify-end">
-              {!data.isLoading ? <BannerDescription title={data.title} /> : <TitleSkeleton />}
+              {!data.isLoading ? <BannerDescription title={data.title} /> : <ParagraphSkeleton />}
             </View>
             <View className="w-full flex flex-row justify-end">
               {!data.isLoading ? (
