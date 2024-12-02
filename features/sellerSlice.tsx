@@ -1,15 +1,97 @@
 import { BannerDetailed } from '@/models/banner-detailed';
-import { Seller } from '@/models/seller';
+import { BannerDetailedComponent } from '@/models/banner-detailed-component';
+import { SellerDetail } from '@/models/seller-detail';
+import { SellerDetailComponent } from '@/models/seller-detail-component';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface SellerState {
-  sellerInfo?: Seller;
-  detailedBannerList: BannerDetailed[];
+  sellerInfo: SellerDetailComponent;
+  detailedBannerList: BannerDetailedComponent[];
 }
 
 const initialState: SellerState = {
-  sellerInfo: undefined,
-  detailedBannerList: [],
+  sellerInfo: {
+    isLoading: true,
+    id: 'seller1',
+    name: '',
+    image: '',
+    description: '',
+    reputation: '',
+    sales: {
+      lastMonth: 0,
+    },
+    location: '',
+  },
+  detailedBannerList: [
+    {
+      isLoading: true,
+      displaySeller: false,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p1',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: false,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p2',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: false,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p3',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+    {
+      isLoading: true,
+      displaySeller: false,
+      seller: {
+        id: 'seller1',
+        name: '',
+        image: '',
+      },
+      id: 'p4',
+      image: '',
+      title: '',
+      price: 0,
+      currencyDisplay: '',
+      currencyCode: '',
+      description: '',
+      variants: [],
+    },
+  ],
 };
 
 export const sellerSlice = createSlice({
@@ -18,10 +100,14 @@ export const sellerSlice = createSlice({
   reducers: {
     setSeller: (
       state,
-      action: PayloadAction<{ seller: Seller; detailedBannerList: BannerDetailed[] }>,
+      action: PayloadAction<{ seller: SellerDetail; detailedBannerList: BannerDetailed[] }>,
     ) => {
-      state.sellerInfo = action.payload.seller;
-      state.detailedBannerList = action.payload.detailedBannerList;
+      state.sellerInfo = { ...action.payload.seller, isLoading: false };
+      state.detailedBannerList = action.payload.detailedBannerList.map((item) => ({
+        ...item,
+        isLoading: false,
+        displaySeller: false,
+      }));
     },
   },
 });

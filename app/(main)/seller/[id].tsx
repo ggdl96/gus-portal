@@ -11,6 +11,8 @@ import LayoutBasicNoScroll from '@/components/new-components/layout-basic-no-scr
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { setSeller } from '@/features/sellerSlice';
+import { SELLER_INFO } from '@/__mocks__/screens/seller';
+import ParagraphSkeleton from '@/components/new-components/paragraph-skeleton';
 
 export default function Index() {
   const dimensions = useWindowDimensions();
@@ -18,12 +20,14 @@ export default function Index() {
   const sellerData = useSelector((state: RootState) => state.seller);
 
   useEffect(() => {
-    dispatch(
-      setSeller({
-        seller: DETAILED_BANNERS_DATA[0].seller,
-        detailedBannerList: DETAILED_BANNERS_DATA,
-      }),
-    );
+    setTimeout(() => {
+      dispatch(
+        setSeller({
+          seller: SELLER_INFO,
+          detailedBannerList: DETAILED_BANNERS_DATA,
+        }),
+      );
+    }, 3221);
   }, [dispatch]);
 
   return (
@@ -32,17 +36,38 @@ export default function Index() {
         <TitleWithAvatar
           title={sellerData.sellerInfo?.name ?? ''}
           src={{ uri: sellerData.sellerInfo?.image ?? '' }}
+          isLoading={sellerData.sellerInfo.isLoading}
         />
       </View>
       <View className="flex w-full flex-1 flex-wrap">
-        <Text className="color-contrastSecondary-900 w-full">Reputation: TOP</Text>
+        {!sellerData.sellerInfo.isLoading ? (
+          <Text className="color-contrastSecondary-900 w-full">
+            Reputation: {sellerData.sellerInfo.reputation}
+          </Text>
+        ) : (
+          <ParagraphSkeleton />
+        )}
         <View className="pt-6 w-full flex flex-row">
-          <BannerDescription title="Here should go a short description of this particular seller." />
+          {!sellerData.sellerInfo.isLoading ? (
+            <BannerDescription title={sellerData.sellerInfo.description} />
+          ) : (
+            <ParagraphSkeleton />
+          )}
         </View>
         <View className="w-full flex-1">
-          <Text className="color-primary-650">Location: Country state/province City ST 12345</Text>
+          {!sellerData.sellerInfo.isLoading ? (
+            <Text className="color-primary-650">Location: {sellerData.sellerInfo.location}</Text>
+          ) : (
+            <ParagraphSkeleton />
+          )}
           <View className="pt-2" />
-          <Text className="color-contrastSecondary-900">SALES IN LAST MONTH: 1235.00</Text>
+          {!sellerData.sellerInfo.isLoading ? (
+            <Text className="color-contrastSecondary-900">
+              SALES IN LAST MONTH: {sellerData.sellerInfo.sales.lastMonth}
+            </Text>
+          ) : (
+            <ParagraphSkeleton />
+          )}
           <View className="pt-2" />
           <View className="pt-6" />
           <View className="flex flex-row w-full">
