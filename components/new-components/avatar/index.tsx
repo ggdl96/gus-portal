@@ -1,40 +1,43 @@
 import React from 'react';
-import { Image, useWindowDimensions, View } from 'react-native';
+import { Image, View } from 'react-native';
 import styles from './styles';
-import { screens } from '@/styles/screens';
 
 interface Props {
   src?: { uri: string };
+  isLoading?: boolean;
 }
 
-const Avatar = ({ src }: Props) => {
-  const dimensions = useWindowDimensions();
-  const size = (dimensions.width > screens.lg ? 50 : dimensions.width) * 0.1;
+const Avatar = ({ src, isLoading }: Props) => {
+  const size = 54;
+  const borderRadius = size / 6;
 
   return (
-    <View style={{ paddingRight: 10 }}>
-      {typeof src === 'undefined' ? (
+    <View className="pr-4">
+      {isLoading || typeof src === 'undefined' ? (
         <View
+          testID="avatarNoImage"
           style={[
             styles.noImageDisplay,
             {
               width: size,
               height: size,
-              borderRadius: size / 2,
+              borderRadius,
             },
           ]}
         />
       ) : (
         <Image
+          testID="avatarImage"
           source={src}
           style={[
             styles.image,
             {
               width: size,
               height: size,
-              borderRadius: size / 2,
+              borderRadius,
             },
           ]}
+          alt="avatar image"
         />
       )}
     </View>

@@ -7,15 +7,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     paddingVertical: 12,
-  },
-  title: {
-    fontStyle: 'normal',
-    fontWeight: '500',
-    fontSize: 14,
-    textAlign: 'center',
-    textTransform: 'uppercase',
-    color: '#f7f6f2',
-    paddingLeft: 3,
+    maxWidth: '100%',
   },
 });
 

@@ -1,8 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  fullWidth: {
+  list: {
     width: '100%',
   },
-  itemWrapper: { flex: 1 },
 });

@@ -1,10 +1,12 @@
 import borders from '@/styles/borders';
 import colors from '@/styles/colors';
+import fonts from '@/styles/fonts';
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   wrapper: {
     overflow: 'hidden',
+    backgroundColor: colors.contrastPrimary[20],
   },
   container: {
     position: 'absolute',
@@ -17,7 +19,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     width: '100%',
     height: '100%',
-    padding: 10,
   },
   bodyContent: {
     display: 'flex',
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   gradient: { flex: 1 },
   categories: {
     fontStyle: 'normal',
-    fontWeight: '500',
+    fontFamily: fonts.fontFamilies.spectral.Medium,
     fontSize: 12,
     textAlign: 'center',
     height: 14,

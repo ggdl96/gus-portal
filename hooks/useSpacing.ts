@@ -1,15 +1,17 @@
 import { screens } from '@/styles/screens';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useWindowDimensions } from 'react-native';
 
 const useSpacing = () => {
   const dimensions = useWindowDimensions();
 
-  let defaultHorizontalSpacing = 20;
+  const [defaultHorizontalSpacing, setDefaultHorizontalSpacing] = useState<number>(14);
 
-  if (dimensions.width > screens.lg) {
-    defaultHorizontalSpacing = 26;
-  }
+  useEffect(() => {
+    if (dimensions.width > screens.lg) {
+      setDefaultHorizontalSpacing(18);
+    }
+  }, [dimensions.width]);
 
   return useMemo(
     () => ({

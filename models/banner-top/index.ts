@@ -1,4 +1,4 @@
-import { Owner } from '../owner';
+import { Seller } from '../seller';
 
 export interface BannerTop {
   id: string;
@@ -6,5 +6,6 @@ export interface BannerTop {
   subTitle: string;
   isOwned: boolean;
   image: string;
-  owner: Owner;
+  seller: Seller;
+  type: 'content' | 'product';
 }

@@ -1,37 +1,56 @@
-import { BannerMedium } from '@/models/banner-medium/indext';
 import React from 'react';
-import { Image, Pressable, View, Text, AnimatableNumericValue, DimensionValue } from 'react-native';
+import { Image, Pressable, View, AnimatableNumericValue } from 'react-native';
 import styles from './styles';
 import BannerTitle from '../banner-title';
+import BannerSection from '../banner-section/banner-section';
+import colors from '@/styles/colors';
+import { BannerMediumComponent } from '@/models/banner-medium-component/indext';
+import TitleSkeleton from '../title-skeleton';
+import BannerSizes from '@/constants/banner-sizes';
 
 type Props = {
-  onPress: Function;
-  data: BannerMedium;
-  source: {
-    uri: string;
-  };
-  width: DimensionValue;
-  height: DimensionValue;
+  onPress: () => void;
+  data: BannerMediumComponent;
   borderRadius: AnimatableNumericValue;
 };
 
-const BannerMediumItem = ({ data, source, onPress, width, height, borderRadius }: Props) => {
+const BannerMediumItem = ({ data, onPress, borderRadius }: Props) => {
+  const source = { uri: data.image };
+
   return (
     <Pressable
       style={[
         styles.wrapper,
         {
-          width,
+          width: BannerSizes.medium.width,
+          height: BannerSizes.medium.height,
           borderRadius,
-          height,
         },
       ]}
       onPress={onPress}>
-      <Image style={styles.container} source={source} resizeMode={'cover'} />
+      {!data.isLoading && data.image ? (
+        <Image style={styles.container} source={source} resizeMode={'cover'} />
+      ) : null}
       <View style={styles.body}>
-        <View style={styles.bodyContent}>
-          <Text style={styles.categories}>{data.categories.join(', ')}</Text>
-          <BannerTitle title={data.text} />
+        <View className="w-full justify-end flex flex-1">
+          <BannerSection
+            backgroundColor={!data.isLoading ? colors.tertiary[650] : colors.contrastPrimary[30]}>
+            {!data.isLoading ? (
+              <BannerTitle title={data.categories.join(', ')} size="4xl" />
+            ) : (
+              <TitleSkeleton size="4xl" width={BannerSizes.medium.width / 1.4} align="right" />
+            )}
+          </BannerSection>
+        </View>
+        <View className="w-full flex flex-1">
+          <BannerSection
+            backgroundColor={!data.isLoading ? colors.secondary[650] : colors.contrastPrimary[30]}>
+            {!data.isLoading ? (
+              <BannerTitle title={data.text} />
+            ) : (
+              <TitleSkeleton width={BannerSizes.medium.width / 1.2} align="right" />
+            )}
+          </BannerSection>
         </View>
       </View>
     </Pressable>

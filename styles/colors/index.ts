@@ -3,6 +3,7 @@ const colors = {
     10: '#191712',
     20: '#27241D',
     30: '#302D25',
+    50: '#3F3B31',
     80: '#504B3E',
     90: '#554F42',
     100: '#595345',
@@ -20,6 +21,9 @@ const colors = {
     500: '#BBBCBB',
   },
   primary: {
+    100: '#1E593C',
+    300: '#379567',
+    400: '#40AA76',
     650: '#52D394',
   },
   secondary: {
@@ -28,6 +32,7 @@ const colors = {
   tertiary: {
     650: '#D31415',
   },
+  link: '#798ef7',
 } as const;
 
 export default colors;

@@ -5,61 +5,35 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
+    backgroundColor: colors.contrastPrimary[20],
+    justifyContent: 'flex-start',
   },
   containerImage: {
+    backgroundColor: colors.contrastPrimary[20],
+    borderTopRightRadius: borders.radius.medium,
+    borderTopLeftRadius: borders.radius.medium,
     width: '100%',
-    backgroundColor: '#333',
-    borderRadius: borders.radius.medium,
+    display: 'flex',
   },
   image: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
+    width: '100%',
   },
   containerText: { flex: 1 },
-  title: {
-    color: colors.contrastSecondary[950],
-    fontSize: 16,
-    textTransform: 'capitalize',
-    width: '100%',
-  },
-  containerTitle: {
-    display: 'flex',
-    flexDirection: 'row',
-    height: 40,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    flexWrap: 'wrap',
-    width: '100%',
-    paddingLeft: 8,
-  },
-  detail: {
-    color: '#989898',
-    fontSize: 12,
-    textTransform: 'uppercase',
-    fontWeight: '500',
-  },
-  textOwnerName: {
-    color: '#989898',
-    fontSize: 12,
-    textTransform: 'uppercase',
-    fontWeight: '500',
-  },
-  containerOwner: {
+  containerSeller: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
   },
   body: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
     width: '100%',
-    paddingVertical: 10,
+    flex: 1,
   },
+  seller: { paddingVertical: 0 },
 });
 
 export default styles;

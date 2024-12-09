@@ -1,45 +1,47 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
-import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
-import colors from '@/styles/colors';
+import { Platform, ScrollView, View } from 'react-native';
 import '../../../global.css';
 import useSpacing from '@/hooks/useSpacing';
+import LayoutSafeArea from '../layout-safe-area';
+import styles from './styles';
+import Footer from '@/components/new-components/footer';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface Props {
   children: React.ReactNode;
+  applyVerticalPadding?: boolean;
+  displayFooter?: boolean;
 }
 
-const LayoutBasic = ({ children }: Props) => {
+const LayoutBasic = ({
+  children,
+  applyVerticalPadding = false,
+  displayFooter = Platform.OS === 'web',
+}: Props) => {
   const spacing = useSpacing();
+  const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      <SafeAreaView style={styles.safeArea}>
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={[
-            styles.scrollViewContainer,
-            { padding: spacing.defaultHorizontalSpacing },
+    <LayoutSafeArea>
+      <ScrollView
+        className="w-full"
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollViewContainer}>
+        <View
+          className="w-full lg:w-3/4 flex align-middle"
+          style={[
+            styles.containerChildren,
+            {
+              paddingHorizontal: spacing.defaultHorizontalSpacing,
+              paddingVertical: applyVerticalPadding ? spacing.defaultHorizontalSpacing : 0,
+            },
           ]}>
           {children}
-        </ScrollView>
-      </SafeAreaView>
-    </SafeAreaProvider>
+        </View>
+        {displayFooter ? <Footer /> : <View className="w-full" style={{ height: insets.bottom }} />}
+      </ScrollView>
+    </LayoutSafeArea>
   );
 };
 
 export default LayoutBasic;
-
-const styles = StyleSheet.create({
-  safeArea: {
-    backgroundColor: colors.contrastPrimary[10],
-    flex: 1,
-  },
-  scrollView: {
-    backgroundColor: colors.contrastPrimary[10],
-  },
-  scrollViewContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
