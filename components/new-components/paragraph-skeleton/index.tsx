@@ -8,9 +8,11 @@ import { View } from 'react-native';
 const ParagraphSkeleton = ({
   lines = 1,
   align = 'left',
+  width = 320,
 }: {
   lines?: number;
   align?: ContentAlign;
+  width?: number;
 }) => {
   const lineList = Array.from({ length: lines }, (_value, index) => index);
 
@@ -23,7 +25,7 @@ const ParagraphSkeleton = ({
           <View
             className="paragraph-skeleton bg-contrastPrimary-80"
             style={{
-              width: 320 / (Number(item) + 1),
+              width: width / (Number(item) + 1),
               height: 22,
               borderRadius: borders.radius.small,
             }}

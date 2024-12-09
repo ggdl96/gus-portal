@@ -12,6 +12,7 @@ import '../../../global.css';
 import { screens } from '@/styles/screens';
 import styles from './styles';
 import { ProductVariantListData } from '@/models/product-variant-list-data';
+import ParagraphSkeleton from '../paragraph-skeleton';
 
 const ProductVariantItem = ({ item, index }: { item: ProductVariantListData; index: number }) => {
   const dimensions = useWindowDimensions();
@@ -24,21 +25,28 @@ const ProductVariantItem = ({ item, index }: { item: ProductVariantListData; ind
     item.onSelectVariant(index);
   };
 
+  const imgStyles = [
+    styles.imageVariant,
+    item.active ? styles.borderColorActive : styles.borderColorDefault,
+    {
+      width: variantImageSize,
+      height: variantImageSize,
+    },
+  ];
+
   return (
     <Pressable onPress={handleOnPress}>
-      <Image
-        source={{ uri: item.image }}
-        style={[
-          styles.imageVariant,
-          item.active ? styles.borderColorActive : styles.borderColorDefault,
-          {
-            width: variantImageSize,
-            height: variantImageSize,
-          },
-        ]}
-      />
+      {!item.isLoading && item.image ? (
+        <Image source={{ uri: item.image }} style={imgStyles} />
+      ) : (
+        <View style={imgStyles} />
+      )}
       <View className="pt-2">
-        <Text className="color-contrastSecondary-700 text-sm text-center">{item.name}</Text>
+        {!item.isLoading ? (
+          <Text className="color-contrastSecondary-700 text-sm text-center">{item.name}</Text>
+        ) : (
+          <ParagraphSkeleton width={60} align="center" />
+        )}
       </View>
     </Pressable>
   );
