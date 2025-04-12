@@ -4,9 +4,7 @@ import styles from './styles';
 
 const Separator = () => <View style={{ width: 16, height: 20 }} />;
 
-interface Props<List> extends FlatListProps<List> {}
-
-const DefaultList = <T extends unknown>(props: Props<T>) => {
+const DefaultList = <T extends unknown>(props: FlatListProps<T>) => {
   return (
     <FlatList
       ItemSeparatorComponent={Separator}
