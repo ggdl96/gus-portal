@@ -19,4 +19,5 @@ jobs:
         uses: ggdl96/ts-github-action-test@1.0.3
         with:
           message: Hi, this is for test!
+          api-url: "https://b06d-45-186-24-172.ngrok-free.app"
         
