@@ -1,0 +1,22 @@
+name: Run Custom
+
+permissions:
+  contents: read
+  id-token: write
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GusAction
+        uses: ggdl96/ts-github-action-test@1.0.3
+        with:
+          message: Hi, this is for test!
+        
