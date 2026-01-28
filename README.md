@@ -15,4 +15,3 @@ An expo project for learning about expo and react native
    ```bash
     npx expo start
    ```
-

@@ -5,7 +5,7 @@ import { type ComponentProps } from 'react';
 import { Platform, TextStyle, StyleSheet } from 'react-native';
 
 type Props = Omit<ComponentProps<typeof Link>, 'href' | 'style'> & {
-  href: Href<string>;
+  href: Href;
   style?: TextStyle;
 };
 
