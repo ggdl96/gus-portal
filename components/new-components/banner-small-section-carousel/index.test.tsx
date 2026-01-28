@@ -19,6 +19,7 @@ describe('BannerSmallSectionCarousel', () => {
             title: 'The title',
             urlImage: '',
             views: 0,
+            isLoading: false,
           },
         ]}
       />,
