@@ -1,0 +1,244 @@
+# AI Configuration for Gus Portal        
+# React Native 0.76 + Expo 52 (Android, iOS, Web)               
+                  
+# ==============================================================================       
+# PROJECT IDENTITY
+# ==============================================================================       
+project:
+  name: gus-portal
+  type: react-native-expo
+  platforms: [android, ios, web]
+  runtime: node-22
+                  
+# ==============================================================================       
+# CRITICAL PLATFORM RULES (Cross-Platform Compatibility)        
+# ==============================================================================       
+platform_checks:
+  # NEVER use these (web-only APIs/elements)                    
+  forbidden:
+    - window
+    - DOCUMENTATION
+    - localStorage
+    - sessionStorage
+    - html_elements: [div, span, button, input, a, img]
+    - web_libraries: [react-router-dom, js-cookie]
+                  
+  # ALWAYS use these (cross-platform alternatives)              
+  required:
+    components: [View, Text, TouchableOpacity, TextInput, ScrollView, Image]
+    storage: AsyncStorage  # Use SecureStore for sensitive data
+    navigation: expo-router
+    styling: [nativewind, StyleSheet]
+                  
+  # When platform-specific code needed   
+  platform_checks: Platform.OS  # Use Platform.select() or Platform.OS checks
+                  
+# ==============================================================================       
+# FRAMEWORK & STACK                      
+# ==============================================================================       
+stack:
+  framework: react-native-0.76
+  expo_sdk: 52
+  language: typescript
+  styling:
+    primary: nativewind  # className prop with Tailwind utilities
+    fallback: StyleSheet  # When NativeWind insufficient
+    forbidden: [css-files, styled-components]
+
+  state_management:
+    global: redux-toolkit
+    local: [useState, useReducer, useContext]
+                  
+  routing:
+    framework: expo-router
+    type: file-based  # Routes defined in app/ directory
+                  
+  navigation:     
+    library: react-navigation  # Via expo-router                
+    gesture_handler: react-native-gesture-handler               
+                  
+# ==============================================================================       
+# TESTING CONFIGURATION                  
+# ==============================================================================       
+testing:          
+  framework: jest 
+  library: react-native-testing-library  
+  coverage_threshold: 80                 
+                  
+  patterns:       
+    # Follow project-specific testing patterns                  
+    hooks:        
+      assertion_style: strict  # expect(result).toStrictEqual({ current: value })      
+      naming: descriptive  # "execution of this hook with X should return Y"           
+                  
+    components:   
+      snapshot_method: toJSON  # Use render().toJSON() from RNTL
+      accessibility: required  # Include at least one screen.getByRole test            
+                  
+    mocking:      
+      required:   
+        - "@expo/vector-icons"  # Always mock to avoid font errors                     
+        - "@expo/vector-icons/Ionicons"  
+      pattern: "jest.mock('@expo/vector-icons/Ionicons', () => 'Ionicons')"
+                  
+  commands:       
+    run: npm test 
+    watch: npm run test:watch-all
+    update_snapshots: npm run update-snapshots
+    coverage: npm test  # Coverage enabled by default in package.json
+                  
+# ==============================================================================       
+# SKILLS (Specialized Workflows)         
+# ==============================================================================       
+skills:           
+  available:      
+    - name: rn-test-generator            
+      trigger: "test generation needed"  
+      purpose: Generate Jest + RNTL tests with project patterns 
+                  
+    - name: rn-platform-validation       
+      trigger: "platform compatibility check needed"            
+      purpose: Validate cross-platform compatibility            
+                  
+    - name: rn-security                  
+      trigger: "security review or sensitive data handling"     
+      purpose: Security best practices for RN/Expo              
+                  
+# ==============================================================================       
+# AGENTS (Automated Workflows)           
+# ==============================================================================       
+agents:
+  test_agent: enabled    # Auto-generate tests for new code     
+  review_agent: enabled  # Auto-review for patterns/issues      
+                  
+# ==============================================================================       
+# CODE STYLE & PATTERNS                  
+# ==============================================================================       
+code_style:       
+  components:     
+    type: functional  # Always use functional components        
+    typescript: required                 
+    props: "Define explicit TypeScript interfaces"              
+                  
+  imports:        
+    order:        
+      - react/react-native               
+      - expo-packages                    
+      - third-party                      
+      - local-components                 
+      - local-utilities                  
+      - styles    
+                  
+  naming:         
+    components: PascalCase               
+    files: kebab-case  # or match component name                
+    hooks: camelCase (prefix use)
+    constants: UPPER_SNAKE_CASE          
+                  
+# ==============================================================================       
+# SECURITY RULES (From rn-security skill)
+# ==============================================================================       
+security:         
+  storage:        
+    sensitive_data: expo-secure-store  # Never AsyncStorage for tokens/passwords       
+    regular_data: AsyncStorage           
+    forbidden: [localStorage, sessionStorage]                   
+                  
+  secrets:        
+    environment_variables: required  # Never hardcode API keys  
+    config_file: app.config.js  # Not app.json for secrets      
+    forbidden: ["hardcoded API keys", "hardcoded tokens"]       
+                  
+  redux:          
+    forbidden_in_state: [tokens, passwords, credit_cards, PII]  
+    store_only: [boolean flags, user IDs, non-sensitive data]   
+                  
+  deep_links:     
+    validation: required  # Always whitelist routes             
+    sanitization: required  # Never trust user-controlled URLs  
+                  
+# ==============================================================================       
+# DOCUMENTATION GUIDELINES               
+# ==============================================================================       
+docs:             
+  max_tokens: 2000
+  audience: developers                   
+  format: markdown
+                  
+  structure:      
+    entry_point: AI_INSTRUCTIONS.md      
+    references:   
+      - docs/LLM_CONTEXT.md       # Stack overview              
+      - docs/ENVIRONMENTS.md       # Platform rules (CRITICAL)  
+      - skills/*/SKILL.md          # Specialized workflows      
+                  
+  principles:     
+    - tool-agnostic  # Works with any AI assistant              
+    - concise        # Brief but complete
+    - actionable     # Clear next steps  
+                  
+# ==============================================================================       
+# FILE ORGANIZATION                      
+# ==============================================================================       
+structure:        
+  routes: app/              # Expo Router (file-based)          
+  components: components/   # Reusable UI components            
+  features: features/       # Feature modules                   
+  state: store/            # Redux store/slices                 
+  hooks: hooks/            # Custom React hooks                 
+  tests: "*.test.tsx"      # Co-located with source files       
+                  
+# ==============================================================================       
+# DEVELOPMENT COMMANDS                   
+# ==============================================================================       
+commands:         
+  dev:            
+    start: npm start        # Metro bundler
+    android: npm run android
+    ios: npm run ios
+    web: npm run web
+                  
+  quality:        
+    test: npm test
+    lint: npm run lint
+    coverage: npm test  # Built-in coverage
+                  
+  maintenance:    
+    update_snapshots: npm run update-snapshots
+                  
+# ==============================================================================       
+# COMMON MISTAKES TO AVOID               
+# ==============================================================================       
+antipatterns:     
+  - using_web_apis_without_platform_checks
+  - html_elements_instead_of_react_native_components
+  - localStorage_instead_of_AsyncStorage 
+  - forgetting_to_mock_expo_icons_in_tests
+  - storing_sensitive_data_in_redux_state
+  - hardcoding_api_keys_in_code
+  - using_react_router_dom_instead_of_expo_router
+  - css_files_instead_of_nativewind_or_stylesheet
+                  
+# ==============================================================================       
+# AI ASSISTANT BEHAVIOR                  
+# ==============================================================================       
+ai_behavior:
+  # Before writing any code, ask:        
+  questions_before_coding:
+    - "Will this work on Android, iOS, AND Web?"
+    - "Am I using React Native components (not HTML)?"
+    - "Is this data sensitive? (Use SecureStore if yes)"
+    - "Do I need to mock @expo/vector-icons in tests?"
+                  
+  # Default assumptions                  
+  defaults:
+    mode: local_development
+    platform: all_three  # Android, iOS, Web
+    testing: generate_tests_for_new_code
+    coverage: aim_for_80_percent
+                  
+  # When uncertain
+  fallback:       
+    - Check docs/ENVIRONMENTS.md for platform rules
+    - Reference skills/ for specialized patterns
+    - Ask user if approach unclear
