@@ -32,5 +32,6 @@ Portal
 ## Related Documentation
 
 - **Platform Constraints**: [`ENVIRONMENTS.md`](ENVIRONMENTS.md) - Critical platform compatibility rules
+- **Asset Documentation**: [`ASSET_INDEX.md`](ASSET_INDEX.md) - Index of all project assets (icons, fonts, images)
 - **Testing Patterns**: [`../skills/rn-test-generator/SKILL.md`](../skills/rn-test-generator/SKILL.md)
 - **Master Guide**: [`../AI_INSTRUCTIONS.md`](../AI_INSTRUCTIONS.md) - Entry point for all AI assistants
