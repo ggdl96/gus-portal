@@ -23,6 +23,13 @@ expo-env.d.ts
 coverage/**/*
 
 # Planning & drafting artifacts (ignored folders for LLM iteration)
-.ideas/
+# Keep .ideas ignored by default, except curated examples that we want to commit.
+.ideas/*
+!.ideas/example/
+.ideas/example/*
+!.ideas/example/improve-naming-convention-constants.md
+!.ideas/example/CANONICAL.md
+!.ideas/example/CONSOLIDATION-REVIEW.md
+
 .wip/
 .notes/
